@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 2021_07_23_111422) do
     t.string "prefecture"
     t.text "address"
     t.text "url"
-    t.date "data"
+    t.date "date"
     t.text "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

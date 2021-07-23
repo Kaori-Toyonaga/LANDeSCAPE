@@ -6,8 +6,10 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :prefecture
       t.text :address
       t.text :url
-      t.date :data
+      t.date :date
       t.text :content
+      t.datetime :created_at
+      t.datetime :updated_at
     end
   end
 end
