@@ -1,7 +1,9 @@
 <div class="post_card">
   <p>
-    <span>image</span>
-  </P>
+    <span><%= link_to "✍", edit_post_path(@post.id) %></span>
+    <span>🚮</span>
+    <span>📎</span>
+  <p>image</P>
   <p>
     <span>Spot :</span>
     <span><%= @post.spot_name %></span>
