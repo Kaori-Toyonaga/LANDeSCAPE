@@ -1,4 +1,16 @@
 <%= form_with(model: @post, local: true) do |form| %>
+
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <p>Please check for <%= @post.errors.count %> input omission</p>
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <%= form.submit "create", class: "btn_basic" %>
 
   <div class="post_card">
