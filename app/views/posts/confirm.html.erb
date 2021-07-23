@@ -1,0 +1,26 @@
+<%= form_with(model: @post, local: true) do |form| %>
+
+<%= form.submit "create", class: "btn_basic" %>
+<%= form.submit "back", name: 'back' %>
+
+  <div class="post_card">
+    <%= form.hidden_field :image %>
+    <%= form.hidden_field :spot_name %>
+    <%= form.hidden_field :prefecture %>
+    <%= form.hidden_field :address %>
+    <%= form.hidden_field :url %>
+    <%= form.hidden_field :date %>
+    <%= form.hidden_field :content %>
+
+    <p><%= @post.image %></P>
+    <p>
+      <%= @post.spot_name %>
+      <%= @post.prefecture %>
+    </P>
+    <p><%= @post.address %></P>
+    <p><%= @post.url %></P>
+    <p><%= @post.date %></P>
+    <p><%= @post.content %></P>
+
+  </div>
+<% end %>

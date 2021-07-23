@@ -11,10 +11,14 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save
-      redirect_to posts_path
+    if params[:back]
+     render :new
     else
-      render :new
+      if @post.save
+        redirect_to posts_path
+      else
+        render :new
+      end
     end
   end
 
@@ -35,6 +39,11 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_path, notice: "Deleted!"
+  end
+
+  def confirm
+    @post = Post.new(post_params)
+    render :new if @post.invalid?
   end
 
   private
