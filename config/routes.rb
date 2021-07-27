@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'sessions/new'
-  get '/posts', to: 'posts#index'
 
   resources :posts do
     collection do
