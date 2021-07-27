@@ -3,7 +3,7 @@
 <a>✍</a>
 <P><span>〇〇</span>  <span>●●</span></p>
 <P><span>follower</span>  <span>follow</span></p>
-<a>Logout</a>
+<a><%= link_to "Logout", session_path(current_user.id), method: :delete %></a>
 <p>〇〇/48</p>
 <p>〇〇 posts</p>
 
