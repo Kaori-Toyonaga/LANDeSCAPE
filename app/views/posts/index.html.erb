@@ -6,6 +6,16 @@
   <p>
     <span>image<%= link_to '🔍', post_path(post.id) %></span>
   </p>
-  <p><%= post.spot_name %></p>
+  <p>
+    <% unless post.user_id == current_user.id %>
+      <% if @favorite.present? %>
+        <span><%= link_to image_tag('clip_on', size: '15x20'), favorite_path(id: @favorite.id), method: :delete %></span>
+      <% else %>
+        <span><%= link_to image_tag('clip_off', size: '15x20'), favorites_path(post_id: post.id), method: :post %></span>
+      <% end %>
+    <% end %>
+
+    <%= post.spot_name %>
+  </p>
   <p><%= post.prefecture %><%= post.address %></p>
 <% end %>

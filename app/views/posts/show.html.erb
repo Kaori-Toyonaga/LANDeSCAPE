@@ -2,7 +2,13 @@
   <p>
     <span><%= link_to image_tag('edit', size: '15x15'), edit_post_path(@post.id) %></span>
     <span><%= link_to image_tag('delete', size: '15x15'), post_path(@post.id), method: :delete ,data: { confirm: 'Do you really delete it？' } %></span>
-    <span>📎</span>
+    <% unless @post.user_id == current_user.id %>
+      <% if @favorite.present? %>
+        <span><%= link_to image_tag('clip_on', size: '15x20'), favorite_path(id: @favorite.id), method: :delete %></span>
+      <% else %>
+        <span><%= link_to image_tag('clip_off', size: '15x20'), favorites_path(post_id: @post.id), method: :post %></span>
+      <% end %>
+    <% end %>
   <p>image</P>
   <p><%= @post.user.name %></P>
   <p>
