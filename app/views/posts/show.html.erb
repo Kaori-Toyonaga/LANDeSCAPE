@@ -1,7 +1,7 @@
 <div class="post_card">
   <p>
-    <span><%= link_to "✍", edit_post_path(@post.id) %></span>
-    <span><%= link_to "🚮", post_path(@post.id), method: :delete ,data: { confirm: 'Do you really delete it？' } %></span>
+    <span><%= link_to image_tag('edit', size: '15x15'), edit_post_path(@post.id) %></span>
+    <span><%= link_to image_tag('delete', size: '15x15'), post_path(@post.id), method: :delete ,data: { confirm: 'Do you really delete it？' } %></span>
     <span>📎</span>
   <p>image</P>
   <p><%= @post.user.name %></P>

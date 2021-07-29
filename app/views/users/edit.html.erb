@@ -1,5 +1,5 @@
 <h4>Edit User</h4>
-<p>image<%= link_to "✍", edit_user_path %></p>
+<p>image<%= link_to image_tag('edit', size: '15x15'), edit_user_path %></p>
 
 <%= form_with(model: @user, local: true) do |f| %>
   <p>
