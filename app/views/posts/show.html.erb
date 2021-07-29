@@ -4,6 +4,7 @@
     <span><%= link_to "🚮", post_path(@post.id), method: :delete ,data: { confirm: 'Do you really delete it？' } %></span>
     <span>📎</span>
   <p>image</P>
+  <p><%= @post.user.name %></P>
   <p>
     <span>Spot :</span>
     <span><%= @post.spot_name %></span>

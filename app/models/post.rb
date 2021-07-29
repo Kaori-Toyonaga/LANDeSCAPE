@@ -5,4 +5,6 @@ class Post < ApplicationRecord
     validates :prefecture
     validates :address
   end
+
+  belongs_to :user
 end
