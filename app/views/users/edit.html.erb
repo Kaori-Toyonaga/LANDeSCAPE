@@ -1,0 +1,19 @@
+<h4>Edit User</h4>
+<p>image<%= link_to "✍", edit_user_path %></p>
+
+<%= form_with(model: @user, local: true) do |f| %>
+  <p>
+    <span><%= f.label :name, 'User Name :' %></span>
+    <span><%= f.text_field :name %></span>
+  </P>
+  <p>
+    <span><%= f.label :email, 'Email :' %></span>
+    <span><%= f.text_field :email %></span>
+  </P>
+  <p>
+    <span><%= f.label :password_digest, 'Password :' %></span>
+    <span><%= f.text_field :password_digest %></span>
+  </p>
+<br>
+  <p><%= f.submit "Edit" %></p>
+<% end %>
