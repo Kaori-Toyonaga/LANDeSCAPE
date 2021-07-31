@@ -10,4 +10,9 @@ class FavoritesController < ApplicationController
     redirect_to posts_path, notice: "unclipped"
   end
 
+  def index
+    @favorites = Favorite.where(user_id: current_user.id).all
+  end
+
+
 end

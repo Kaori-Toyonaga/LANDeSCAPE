@@ -1,4 +1,4 @@
-<h4>User Name</h4>
+<h4><%= link_to current_user.name, user_path(current_user) %></h4>
 
 <p><%= notice %></p>
 
@@ -9,9 +9,8 @@
   <p>
     <% unless post.user_id == current_user.id %>
       <% if @favorite.present? %>
-        <span><%= link_to image_tag('clip_on', size: '15x20'), favorite_path(id: @favorite.id), method: :delete %></span>
+        <span><%= link_to image_tag('clip_on', size: '25x25'), favorite_path(id: @favorite.id), method: :delete %></span>
       <% else %>
-        <span><%= link_to image_tag('clip_off', size: '15x20'), favorites_path(post_id: post.id), method: :post %></span>
       <% end %>
     <% end %>
 
