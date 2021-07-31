@@ -1,0 +1,45 @@
+<%= form_with(model: @post, local: true ,url: choose_new_or_edit) do |form| %>
+
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <p>Please check for <%= @post.errors.count %> input omission</p>
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form.submit "create", class: "btn_basic" %>
+<%= link_to "back", posts_path  %>
+
+  <div class="post_card">
+    <p>
+      <%= form.text_field :image, :placeholder => "image *change into uploder later" %>
+    </P>
+    <p>
+      <%= form.label :spot_name, 'Spot :' %>
+      <%= form.text_field :spot_name, :placeholder => "spot name" %>
+    </P>
+    <p>
+      <%= form.label :prefecture, 'Area :' %>
+      <%= form.text_field :prefecture, :placeholder => "Which prefecture?" %>
+    </P>
+    <p>
+      <%= form.label :address, 'Address :' %>
+      <%= form.text_field :address, :placeholder => "address?" %>
+    </P>
+    <p>
+      <%= form.label :url, 'Map URL :' %>
+      <%= form.text_field :url, :placeholder => "Map URL" %>
+    </P>
+    <p>
+      <%= form.label :date, 'Date :' %>
+      <%= form.date_field :date %>
+    </P>
+    <p>
+      <%= form.text_area :content, :placeholder => "content:" %>
+    </P>
+  </div>
+<% end %>
