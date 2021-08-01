@@ -35,8 +35,16 @@
     <span>Date :</span>
     <span><%= @post.date %></span>
   </P>
+  <div>
+    <% @post.tags.each do |tag| %>
+      <p><%= tag.title %></p>
+    <% end %>
+  </div>
+  <p></p>
   <p>
     <span>Content :</span>
     <span><%= @post.content %></span>
   </P>
 </div>
+
+<p><%= link_to "Back", posts_path %></p>

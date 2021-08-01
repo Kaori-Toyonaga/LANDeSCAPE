@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_tags, only: [:index]
 
   def index
     @posts = Post.all
+    @posts = @posts.joins(:tags).where(tags: { id: params[:tag_id] }) if params[:tag_id].present?
   end
 
   def new
@@ -49,11 +51,15 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :spot_name, :prefecture, :address, :url, :date, :content)
+    params.require(:post).permit(:image, :spot_name, :prefecture, :address, :url, :date, :content, { tag_ids: [] })
   end
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_tags
+    @tags = Tag.all
   end
 
 end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tags
+  # delete "/tags/:id", to: "tags#destroy", as: :tag_delete
   get 'sessions/new'
   # root 'sessions/new'
 

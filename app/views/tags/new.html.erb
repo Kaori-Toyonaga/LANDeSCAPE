@@ -1,0 +1,13 @@
+<h4>New Tag</h4>
+<%= form_with(model: @tag, local: true) do |form| %>
+
+  <p>
+    <span><%= form.label :title, 'title :' %></span>
+    <span><%= form.text_field :title %></span>
+  </p>
+
+  <p>
+    <span><%= form.submit "Create"  %></span>
+    <span><%= link_to "Back", posts_path %></span>
+  </p>
+<% end %>
