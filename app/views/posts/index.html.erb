@@ -9,7 +9,7 @@
 
 <% @posts.each do |post| %>
   <p>
-    <span>image<%= link_to '🔍', post_path(post.id) %></span>
+    <span><%= image_tag(post.image.url) %><%= link_to '🔍', post_path(post.id) %></span>
   </p>
   <p>
     <% unless post.user_id == current_user.id %>

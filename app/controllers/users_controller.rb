@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.image = "prof.png"
     if @user.save
       redirect_to user_path(@user.id)
     else
@@ -40,7 +41,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:image, :name, :email, :password,
+    params.require(:user).permit(:image, :image_cache, :name, :email, :password,
                                  :password_confirmation)
   end
 end

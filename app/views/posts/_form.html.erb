@@ -11,12 +11,14 @@
     </div>
   <% end %>
 
-<%= form.submit "create", class: "btn_basic" %>
+<%= form.submit "create" %>
 <%= link_to "back", posts_path  %>
 
   <div class="post_card">
     <p>
-      <%= form.text_field :image, :placeholder => "image *change into uploder later" %>
+      <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+      <%= form.file_field :image %>
+      <%= form.hidden_field :image_cache %>
     </P>
     <p>
       <%= form.label :spot_name, 'Spot :' %>

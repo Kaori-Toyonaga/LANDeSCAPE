@@ -1,7 +1,12 @@
 <h4>Edit User</h4>
-<p>image<%= link_to image_tag('edit', size: '15x15'), edit_user_path %></p>
 
 <%= form_with(model: @user, local: true) do |f| %>
+  <p>
+    <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </p>
+
   <p>
     <span><%= f.label :name, 'User Name :' %></span>
     <span><%= f.text_field :name %></span>

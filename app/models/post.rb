@@ -13,4 +13,6 @@ class Post < ApplicationRecord
   has_many :tags_posts, dependent: :destroy, foreign_key: 'tag_id'
   has_many :tags, through: :tags_posts, source: :tag
 
+  mount_uploader :image, ImageUploader
+
 end

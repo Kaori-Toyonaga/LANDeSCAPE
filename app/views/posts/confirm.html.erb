@@ -4,7 +4,7 @@
 <%= form.submit "back", name: 'back' %>
 
   <div class="post_card">
-    <%= form.hidden_field :image %>
+    <%= form.hidden_field :image_cache %>
     <%= form.hidden_field :spot_name %>
     <%= form.hidden_field :prefecture %>
     <%= form.hidden_field :address %>
@@ -12,7 +12,9 @@
     <%= form.hidden_field :date %>
     <%= form.hidden_field :content %>
 
-    <p><%= @post.image %></P>
+    <p>
+      <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+    </P>
     <p>
       <%= @post.spot_name %>
       <%= @post.prefecture %>

@@ -13,7 +13,7 @@
         <span><%= link_to image_tag('clip_off', size: '25x25'), favorites_path(post_id: @post.id), method: :post %></span>
       <% end %>
     <% end %>
-  <p>image</P>
+  <p><%= image_tag(@post.image.url) %></P>
   <p><%= @post.user.name %></P>
   <p>
     <span>Spot :</span>

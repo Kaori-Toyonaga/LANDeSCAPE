@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :spot_name, :prefecture, :address, :url, :date, :content, { tag_ids: [] })
+    params.require(:post).permit(:image, :image_cache, :spot_name, :prefecture, :address, :url, :date, :content, { tag_ids: [] })
   end
 
   def set_post

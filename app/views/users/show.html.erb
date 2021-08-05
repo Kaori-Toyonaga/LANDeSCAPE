@@ -16,7 +16,7 @@
 
 <% @posts.each do |post| %>
   <p>
-    <span>image<%= link_to '🔍', post_path(post.id) %></span>
+    <span><%= image_tag(post.image.url) %><%= link_to '🔍', post_path(post.id) %></span>
   </p>
   <p><%= post.spot_name %></p>
   <p><%= post.prefecture %><%= post.address %></p>
