@@ -3,7 +3,7 @@
   <a><%= link_to image_tag('edit', size: '15x15'), edit_user_path %></a>
 </h2>
 
-<p>User_image</p>
+<p><%= image_tag(@user.image.url, size: '100x100') %></p>
 <P><span>〇〇</span>  <span>●●</span></p>
 <P>
   <span>follower</span>

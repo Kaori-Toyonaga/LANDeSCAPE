@@ -17,7 +17,7 @@
     <span><%= f.label :password, 'Password :' %></span>
     <span><%= f.text_field :password %></span>
   </p>
-  <p><%= f.label :admin %> <%= f.check_box :admin %></p>
+  <p><%= f.label :admin, 'Admin :' %> <%= f.check_box :admin %></p>
 <br>
   <p><%= f.submit "Edit" %> <%= link_to 'Back', admin_users_path(@user) %></p>
 <% end %>
