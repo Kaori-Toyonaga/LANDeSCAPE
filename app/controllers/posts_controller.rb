@@ -4,7 +4,12 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @posts = @posts.search_prefecture(params[:prefecture]) if params[:prefecture].present? && params[:status] != "都道府県"
+    @posts = @posts.search_spotname(params[:spotname_key]) if params[:spotname_key].present?
+    # @posts = @posts.search_tag(params[:tag_id]) if params[:tag_id].present?
     @posts = @posts.joins(:tags).where(tags: { id: params[:tag_id] }) if params[:tag_id].present?
+    @posts = @posts.order('updated_at DESC')
+
   end
 
   def new
@@ -56,7 +61,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :image_cache, :spot_name, :prefecture, :address, :url, :date, :content, { tag_ids: [] })
+    params.require(:post).permit(:image, :image_cache, :spotname, :prefecture, :address, :url, :date, :content, { tag_ids: [] })
   end
 
   def set_post

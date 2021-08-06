@@ -1,10 +1,9 @@
-<%= form_with(model: @post, local: true) do |form| %>
-
+<%= form_with(model:@post, url: posts_path, local:true) do |form| %>
 <%= form.submit "create", class: "btn_basic" %>
 <%= form.submit "back", name: 'back' %>
 
   <div class="post_card">
-    <%= form.hidden_field :image_cache %>
+    <%= form.hidden_field :image %>
     <%= form.hidden_field :spotname %>
     <%= form.hidden_field :prefecture %>
     <%= form.hidden_field :address %>
@@ -12,9 +11,8 @@
     <%= form.hidden_field :date %>
     <%= form.hidden_field :content %>
 
-    <p>
-      <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
-    </P>
+    <p><%= image_tag(@post.image.url) if @post.image && @post.image.url %></P>
+    <p><%= form.hidden_field :image_cache %></P>
     <p>
       <%= @post.spotname %>
       <%= @post.prefecture %>
@@ -22,11 +20,6 @@
     <p><%= @post.address %></P>
     <p><%= @post.url %></P>
     <p><%= @post.date %></P>
-    <p>
-      <% @post.tags.each do |tag| %>
-        <%= tag.title %>
-      <% end %>
-    </P>
     <p><%= @post.content %></P>
 
   </div>
