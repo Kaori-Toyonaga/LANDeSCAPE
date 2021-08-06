@@ -1,16 +1,23 @@
-<h2>User Name</h2>
-<p>User_image</p>
-<a>✍</a>
+<h2>
+  <a><%= @user.name %></a>
+  <a><%= link_to image_tag('edit', size: '15x15'), edit_user_path %></a>
+</h2>
+
+<p><%= image_tag(@user.image.url, size: '100x100') %></p>
 <P><span>〇〇</span>  <span>●●</span></p>
-<P><span>follower</span>  <span>follow</span></p>
+<P>
+  <span>follower</span>
+  <span>follow</span>
+  <%= link_to image_tag('clip_on', size: '25x25'), favorites_path %>
+</p>
 <a><%= link_to "Logout", session_path(current_user.id), method: :delete %></a>
 <p>〇〇/48</p>
-<p>〇〇 posts</p>
+<p><%= @posts_count %> posts</p>
 
-<!-- % @posts.each do |post| %>
+<% @posts.each do |post| %>
   <p>
-    <span>image %= link_to '🔍', post_path(post.id) %></span>
+    <span><%= image_tag(post.image.url) %><%= link_to '🔍', post_path(post.id) %></span>
   </p>
-  <p>%= post.spot_name %></p>
-  <p>%= post.prefecture %>%= post.address %></p>
-% end %> -->
+  <p><%= post.spotname %></p>
+  <p><%= post.prefecture %><%= post.address %></p>
+<% end %>

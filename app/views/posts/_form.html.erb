@@ -11,16 +11,18 @@
     </div>
   <% end %>
 
-<%= form.submit "create", class: "btn_basic" %>
+<%= form.submit "create" %>
 <%= link_to "back", posts_path  %>
 
   <div class="post_card">
     <p>
-      <%= form.text_field :image, :placeholder => "image *change into uploder later" %>
+      <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+      <%= form.file_field :image %>
+      <%= form.hidden_field :image_cache %>
     </P>
     <p>
-      <%= form.label :spot_name, 'Spot :' %>
-      <%= form.text_field :spot_name, :placeholder => "spot name" %>
+      <%= form.label :spotname, 'Spot :' %>
+      <%= form.text_field :spotname, :placeholder => "spot name" %>
     </P>
     <p>
       <%= form.label :prefecture, 'Area :' %>
@@ -38,6 +40,10 @@
       <%= form.label :date, 'Date :' %>
       <%= form.date_field :date %>
     </P>
+    <div>
+      <p><%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :title) %></p>
+      <p><%= link_to 'New Tag', new_tag_path %></p>
+    </div>
     <p>
       <%= form.text_area :content, :placeholder => "content:" %>
     </P>

@@ -1,0 +1,20 @@
+<h4>Tags</h4>
+<table>
+
+  <div>
+    <% @tags.each do |tag| %>
+      <tr>
+        <td>
+          <span><%= tag.title %></span>
+        </td>
+
+        <td>
+          <a><%= link_to image_tag('edit', size: '25x25'), edit_tag_path(tag) %></a>
+          <a><%= link_to image_tag('delete', size: '25x25'), tag, method: :delete, data: { confirm: '本当に削除しますか?' } %></a>
+        </td>
+      </tr>
+    <% end %>
+  </div>
+</table>
+
+<p><%= link_to "Back", posts_path %></p>

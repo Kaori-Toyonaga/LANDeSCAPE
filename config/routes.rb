@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'sessions#new'
 
+  resources :tags
+
   resources :posts do
     collection do
       post :confirm
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :show]
+  resources :users
+  resources :favorites, only: [:index, :create, :destroy]
 
 end
