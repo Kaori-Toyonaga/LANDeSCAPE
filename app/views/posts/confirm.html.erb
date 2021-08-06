@@ -1,20 +1,20 @@
-<%= form_with(model: @post, local: true) do |form| %>
-
+<%= form_with(model:@post, url: posts_path, local:true) do |form| %>
 <%= form.submit "create", class: "btn_basic" %>
 <%= form.submit "back", name: 'back' %>
 
   <div class="post_card">
     <%= form.hidden_field :image %>
-    <%= form.hidden_field :spot_name %>
+    <%= form.hidden_field :spotname %>
     <%= form.hidden_field :prefecture %>
     <%= form.hidden_field :address %>
     <%= form.hidden_field :url %>
     <%= form.hidden_field :date %>
     <%= form.hidden_field :content %>
 
-    <p><%= @post.image %></P>
+    <p><%= image_tag(@post.image.url) if @post.image && @post.image.url %></P>
+    <p><%= form.hidden_field :image_cache %></P>
     <p>
-      <%= @post.spot_name %>
+      <%= @post.spotname %>
       <%= @post.prefecture %>
     </P>
     <p><%= @post.address %></P>

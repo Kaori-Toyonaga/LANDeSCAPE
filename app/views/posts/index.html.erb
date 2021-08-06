@@ -2,6 +2,8 @@
 
 <p><%= notice %></p>
 
+<%= link_to image_tag('pin_on', size: '25x25'), new_post_path %>
+
 <%= form_with url: posts_path, method: :get, local: true do |form| %>
 <%= form.select :prefecture,  [['都道府県', '都道府県'], ['北海道', '北海道'], ['青森県', '青森県'], ['岩手県', '岩手県'],
                         ['宮城県', '宮城県'], ['秋田県', '秋田県'], ['山形県', '山形県'], ['福島県', '福島県'],
