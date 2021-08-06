@@ -3,9 +3,9 @@
 <p><%= notice %></p>
 
 <% @posts.each do |post| %>
-<p>
-  <span>image<%= link_to '🔍', post_path(post.id) %></span>
-</p>
-<p><%= post.spot_name %></p>
-<p><%= post.prefecture %><%= post.address %></p>
+  <p>
+    <span>image<%= link_to '🔍', post_path(post.id) %></span>
+  </p>
+  <p><%= post.spot_name %></p>
+  <p><%= post.prefecture %><%= post.address %></p>
 <% end %>
