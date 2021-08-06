@@ -1,10 +1,8 @@
-<h4>Edit User</h4>
+<h4>Edit User Record</h4>
 
-<%= form_with(model: @user, local: true) do |f| %>
+<%= form_with(model: [:admin, @user], local: true) do |f| %>
   <p>
     <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
-    <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %>
   </p>
 
   <p>
@@ -19,6 +17,7 @@
     <span><%= f.label :password, 'Password :' %></span>
     <span><%= f.text_field :password %></span>
   </p>
+  <p><%= f.label :admin %> <%= f.check_box :admin %></p>
 <br>
-  <p><%= f.submit "Edit" %></p>
+  <p><%= f.submit "Edit" %> <%= link_to 'Back', admin_users_path(@user) %></p>
 <% end %>

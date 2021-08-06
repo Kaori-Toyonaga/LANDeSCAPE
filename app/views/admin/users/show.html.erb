@@ -12,9 +12,9 @@
 </p>
 <a><%= link_to "Logout", session_path(current_user.id), method: :delete %></a>
 <p>〇〇/48</p>
-<p><%= current_user.posts.count %> posts</p>
+<p><%= @user.posts.count %> posts</p>
 
-<% @posts.each do |post| %>
+<% @user.posts.each do |post| %>
   <p>
     <span><%= link_to image_tag(post.image.url), post_path(post.id) %></span>
   </p>

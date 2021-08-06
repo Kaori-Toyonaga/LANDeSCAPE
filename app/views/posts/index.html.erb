@@ -2,9 +2,6 @@
 
 <p><%= notice %></p>
 
-
-
-
 <%= form_with url: posts_path, method: :get, local: true do |form| %>
 <%= form.select :prefecture,  [['都道府県', '都道府県'], ['北海道', '北海道'], ['青森県', '青森県'], ['岩手県', '岩手県'],
                         ['宮城県', '宮城県'], ['秋田県', '秋田県'], ['山形県', '山形県'], ['福島県', '福島県'],
@@ -18,14 +15,14 @@
                         ['徳島県', '徳島県'], ['香川県', '香川県'], ['愛媛県', '愛媛県県'], ['高知県', '高知県'],
                         ['福岡県県', '福岡県'], ['佐賀県', '佐賀県'], ['長崎県', '長崎県'], ['熊本県', '熊本県'],
                         ['大分県', '大分県'], ['宮崎県', '宮崎県'], ['鹿児島県', '鹿児島県'], ['沖縄県', '沖縄県']],{} %>
-  <%= form.text_field :spot_name_key, :placeholder => "スポット名で検索…" %>
+  <%= form.text_field :spotname_key, :placeholder => "スポット名で検索…" %>
   <%= form.select("tag_id", Tag.pluck(:title, :id), { include_blank: true }) %>
   <%= form.submit 'Search', title: nil %> <%= link_to 'clear', posts_path %>
 <% end %>
 
 <% @posts.each do |post| %>
   <p>
-    <span><%= image_tag(post.image.url) %><%= link_to '🔍', post_path(post.id) %></span>
+    <span><%= link_to image_tag(post.image.url), post_path(post.id) %></span>
   </p>
   <p>
     <% unless post.user_id == current_user.id %>
@@ -35,7 +32,7 @@
       <% end %>
     <% end %>
 
-    <%= post.spot_name %>
+    <%= post.spotname %>
   </p>
   <p><%= post.prefecture %><%= post.address %></p>
 <% end %>

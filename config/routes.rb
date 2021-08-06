@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :tags
-  # delete "/tags/:id", to: "tags#destroy", as: :tag_delete
-  get 'sessions/new'
+  root to: 'sessions#new'
   # root 'sessions/new'
 
   resources :posts do
@@ -10,8 +8,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions
   resources :users
   resources :favorites, only: [:index, :create, :destroy]
+  resources :tags
+
+  namespace :admin do
+    resources :users
+  end
 
 end

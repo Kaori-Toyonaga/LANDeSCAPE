@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  skip_before_action :login_required, only: [:new, :create]
+  before_action :ensure_correct_user, only: [:show]
+  skip_before_action :login_required
+  before_action :set_user, only: [:show, :edit]
 
   def new
     @user = User.new
@@ -9,6 +11,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.image = "prof.png"
     if @user.save
+      session[:user_id] = @user.id
+      flash[:success] = 'ユーザーを登録しました'
       redirect_to user_path(@user.id)
     else
       render :new
@@ -44,4 +48,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:image, :image_cache, :name, :email, :password,
                                  :password_confirmation)
   end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
 end
