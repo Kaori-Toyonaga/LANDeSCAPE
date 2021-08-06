@@ -3,7 +3,7 @@
   <a><%= link_to image_tag('edit', size: '15x15'), edit_user_path %></a>
 </h2>
 
-<p>User_image</p>
+<p><%= image_tag(@user.image.url, size: '100x100') %></p>
 <P><span>〇〇</span>  <span>●●</span></p>
 <P>
   <span>follower</span>
@@ -18,6 +18,6 @@
   <p>
     <span><%= image_tag(post.image.url) %><%= link_to '🔍', post_path(post.id) %></span>
   </p>
-  <p><%= post.spot_name %></p>
+  <p><%= post.spotname %></p>
   <p><%= post.prefecture %><%= post.address %></p>
 <% end %>
