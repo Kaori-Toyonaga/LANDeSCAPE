@@ -1,11 +1,25 @@
-<h4>User Name</h4>
+<h4><%= link_to current_user.name, user_path(current_user) %></h4>
 
 <p><%= notice %></p>
 
+<%= form_with url: posts_path, method: :get, local: true do |form| %>
+  <%= form.select("tag_id", Tag.pluck(:title, :id), { include_blank: true }) %>
+  <%= form.submit 'Search', title: nil %>
+<% end %>
+
 <% @posts.each do |post| %>
   <p>
-    <span>image<%= link_to '🔍', post_path(post.id) %></span>
+    <span><%= image_tag(post.image.url) %><%= link_to '🔍', post_path(post.id) %></span>
   </p>
-  <p><%= post.spot_name %></p>
+  <p>
+    <% unless post.user_id == current_user.id %>
+      <% if @favorite.present? %>
+        <span><%= link_to image_tag('clip_on', size: '25x25'), favorite_path(id: @favorite.id), method: :delete %></span>
+      <% else %>
+      <% end %>
+    <% end %>
+
+    <%= post.spotname %>
+  </p>
   <p><%= post.prefecture %><%= post.address %></p>
 <% end %>

@@ -5,4 +5,14 @@ class Post < ApplicationRecord
     validates :prefecture
     validates :address
   end
+
+  belongs_to :user
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
+
+  has_many :tags_posts, dependent: :destroy, foreign_key: 'tag_id'
+  has_many :tags, through: :tags_posts, source: :tag
+
+  mount_uploader :image, ImageUploader
+
 end
