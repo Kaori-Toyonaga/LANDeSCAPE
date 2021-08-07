@@ -1,4 +1,6 @@
 <h4>New Tag</h4>
+<p><%= notice %></p>
+
 <%= form_with(model: @tag, local: true) do |form| %>
 
   <p>
@@ -7,7 +9,7 @@
   </p>
 
   <p>
-    <span><%= form.submit "Create"  %></span>
+    <span><%= form.submit "Create", name: 'back' %></span>
     <span><%= link_to "Back", posts_path %></span>
   </p>
 <% end %>

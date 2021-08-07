@@ -4,12 +4,11 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    @posts = @posts.search_prefecture(params[:prefecture]) if params[:prefecture].present? && params[:status] != "都道府県"
-    @posts = @posts.search_spotname(params[:spotname_key]) if params[:spotname_key].present?
+    @posts = @posts.search_prefecture(params[:prefecture]) if params[:prefecture].present? && params[:prefecture] != "都道府県"
+    @posts = @posts.search_spotname(params[:spotname]) if params[:spotname].present?
     # @posts = @posts.search_tag(params[:tag_id]) if params[:tag_id].present?
     @posts = @posts.joins(:tags).where(tags: { id: params[:tag_id] }) if params[:tag_id].present?
     @posts = @posts.order('updated_at DESC')
-
   end
 
   def new
