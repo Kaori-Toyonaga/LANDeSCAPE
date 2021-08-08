@@ -2,6 +2,7 @@
   <a><%= @user.name %></a>
   <a><%= link_to image_tag('edit', size: '15x15'), edit_user_path %></a>
 </h2>
+<%= link_to "back", posts_path  %>
 
 <p><%= image_tag(@user.image.url, size: '100x100') %></p>
 <P><span>〇〇</span>  <span>●●</span></p>

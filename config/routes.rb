@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
-  resources :users, only: [:index]
+  resources :users
   resources :favorites, only: [:index, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :tags

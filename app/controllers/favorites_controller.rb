@@ -12,7 +12,10 @@ class FavoritesController < ApplicationController
 
   def index
     @favorites = Favorite.where(user_id: current_user.id).all
+    # @favorites = @favorites.search_prefecture(params[:prefecture]) if params[:prefecture].present? && params[:prefecture] != "都道府県"
+    # @favorites = @favorites.search_spotname(params[:spotname]) if params[:spotname].present?
+    # @favorites = @favorites.joins(:tags).where(tags: { id: params[:tag_id] }) if params[:tag_id].present?
+    # @favorites = @favorites.order('updated_at DESC')
   end
-
 
 end
