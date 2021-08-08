@@ -1,5 +1,4 @@
 class TagsController < ApplicationController
-
   before_action :set_tag, only: %i[ show edit update destroy ]
 
   def destroy
@@ -28,28 +27,11 @@ class TagsController < ApplicationController
     @tag = Tag.new(tag_params)
     respond_to do |format|
       if @tag.valid?(:title) && @tag.save
-        format.html { redirect_to  new_post_path, notice: "タグを作成しました。" }
+        format.html { redirect_to tags_path, notice: "タグを作成しました。" }
       else
         format.html { render :new, notice: "既に登録済みです。" }
       end
     end
-
-     # if @tag.valid?(:title) && @tag.save
-     #   redirect_to new_post_path, notice: "タグを作成しました。"
-     # else
-     #   render :new, notice: "既に登録済みです。"
-     # end
-
-
-    # respond_to do |format|
-    #   if @tag.save
-    #     format.html { redirect_to @tag, notice: "タグを作成しました。" }
-    #     format.json { render :show, status: :created, location: @tag }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @tag.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   def update
@@ -63,8 +45,6 @@ class TagsController < ApplicationController
       end
     end
   end
-
-
 
   private
     def set_tag

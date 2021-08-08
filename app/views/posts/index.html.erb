@@ -3,6 +3,7 @@
 <p><%= notice %></p>
 
 <%= link_to image_tag('pin_on', size: '25x25'), new_post_path %>
+<%= link_to 'New Tag', new_tag_path %>
 
 <%= form_with url: posts_path, method: :get, local: true do |form| %>
 <%= form.select :prefecture, Post.prefectures.keys %>
