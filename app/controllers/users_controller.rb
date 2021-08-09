@@ -32,14 +32,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def show
-  #   @user = User.find(params[:id])
-  #   @posts = Post.where(user_id: current_user.id).all
-  #   if @user != current_user
-  #     redirect_to user_path(current_user), alert: "このページへのアクセスはできません。"
-  #   end
-  # end
-
   def edit
     @user = User.find(params[:id])
     if @user != current_user
