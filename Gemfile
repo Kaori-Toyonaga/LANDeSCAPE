@@ -38,3 +38,6 @@ gem 'bcrypt'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
+gem "geocoder"
+gem 'gmaps4rails'
+gem 'faker', '~> 2.1.0'

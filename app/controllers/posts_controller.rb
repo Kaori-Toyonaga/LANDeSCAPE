@@ -30,6 +30,11 @@ class PostsController < ApplicationController
 
   def show
     @favorite = current_user.favorites.find_by(post_id: @post.id)
+    # @map = Gmaps4rails.build_markers(@post) do |post, marker|
+    #   marker.lat post.latitude​
+    #   marker.lng post.longitude
+    #   marker.infowindow post.address
+    # end
   end
 
   def edit
@@ -60,7 +65,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :image_cache, :spotname, :prefecture, :address, :url, :date, :content, :user_id, tag_ids: [] )
+    params.require(:post).permit(:image, :image_cache, :spotname, :prefecture, :address, :latitude, :longitude, :url, :date, :content, :user_id, tag_ids: [] )
   end
 
   def set_post

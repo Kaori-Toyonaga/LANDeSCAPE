@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require jquery/dist/jquery.js
 //= require bootstrap/dist/js/bootstrap.min
+//= require underscore
+//= require gmaps/google
 //= require_tree .
