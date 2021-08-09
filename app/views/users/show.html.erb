@@ -1,19 +1,28 @@
 <h2>
-  <a><%= @user.name %></a>
-  <a><%= link_to image_tag('edit', size: '15x15'), edit_user_path %></a>
+  <%= @user.name %>
+  <% if @user.id == current_user.id %>
+    <a><%= link_to image_tag('edit', size: '15x15'), edit_user_path %></a>
+  <% else %>
+  <% end %>
 </h2>
 <%= link_to "back", posts_path  %>
 
 <p><%= image_tag(@user.image.url, size: '100x100') %></p>
-<P><span><%= current_user.followers.count %></span>  <span><%= current_user.following.count %></span></p>
+<P>
+  <span><%= link_to @user.followers.count, followers_user_path(@user.id) %></span>
+  <span><%= link_to @user.following.count, following_user_path(@user.id) %></span>
+</p>
 <P>
   <span>follower</span>
   <span>follow</span>
-  <%= link_to image_tag('clip_on', size: '25x25'), favorites_path %>
+  <% if @user.id == current_user.id %>
+    <%= link_to image_tag('clip_on', size: '25x25'), favorites_path %>
+  <% else %>
+  <% end %>
 </p>
 <a><%= link_to "Logout", session_path(current_user.id), method: :delete %></a>
 <p>〇〇/48</p>
-<p><%= current_user.posts.count %> posts</p>
+<p><%= @user.posts.count %> posts</p>
 
 <% @posts.each do |post| %>
   <p>

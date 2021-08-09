@@ -14,10 +14,8 @@
       <% end %>
     <% end %>
 
-  <p><%= render 'follow_form' %></P>
-
   <p><%= image_tag(@post.image.url) %></P>
-  <p><%= @post.user.name %></P>
+  <p><%= link_to @post.user.name, user_path(@post.user_id) %></P>
 
   <p>
     <span>Spot :</span>

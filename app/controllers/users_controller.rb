@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :ensure_correct_user, only: [:show]
+  before_action :ensure_correct_user, only: [:edit, :update]
   skip_before_action :login_required, only: [:new, :create]
   before_action :set_user, only: [:show, :edit]
 
@@ -23,23 +23,22 @@ class UsersController < ApplicationController
     end
   end
 
-  # def show
-  #   @user = User.find(params[:id])
-  #   @posts = Post.where(user_id: @user).all
-  #   if @user != current_user
-  #     redirect_to user_path(current_user)
-  #   else
-  #     # redirect_to user_path(post.user.id)
-  #   end
-  # end
-
   def show
     @user = User.find(params[:id])
-    @posts = Post.where(user_id: current_user.id).all
     if @user != current_user
-      redirect_to user_path(current_user), alert: "このページへのアクセスはできません。"
+      @posts = Post.where(user_id: @user.id).all
+    else
+      @posts = Post.where(user_id: current_user.id).all
     end
   end
+
+  # def show
+  #   @user = User.find(params[:id])
+  #   @posts = Post.where(user_id: current_user.id).all
+  #   if @user != current_user
+  #     redirect_to user_path(current_user), alert: "このページへのアクセスはできません。"
+  #   end
+  # end
 
   def edit
     @user = User.find(params[:id])
@@ -55,6 +54,16 @@ class UsersController < ApplicationController
     else
       render :edit, alert: "氏名もしくはアドレスが空欄です。"
     end
+  end
+
+  def following
+    @user = User.find(params[:id])
+    @users = @user.following.all
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers.all
   end
 
   private

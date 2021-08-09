@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
-  resources :users
+
+  resources :users do
+    get :following, on: :member
+    get :followers, on: :member
+  end
+  
   resources :favorites, only: [:index, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :tags
