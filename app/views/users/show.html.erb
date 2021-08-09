@@ -5,7 +5,7 @@
 <%= link_to "back", posts_path  %>
 
 <p><%= image_tag(@user.image.url, size: '100x100') %></p>
-<P><span>〇〇</span>  <span>●●</span></p>
+<P><span><%= current_user.followers.count %></span>  <span><%= current_user.following.count %></span></p>
 <P>
   <span>follower</span>
   <span>follow</span>

@@ -23,6 +23,16 @@ class UsersController < ApplicationController
     end
   end
 
+  # def show
+  #   @user = User.find(params[:id])
+  #   @posts = Post.where(user_id: @user).all
+  #   if @user != current_user
+  #     redirect_to user_path(current_user)
+  #   else
+  #     # redirect_to user_path(post.user.id)
+  #   end
+  # end
+
   def show
     @user = User.find(params[:id])
     @posts = Post.where(user_id: current_user.id).all

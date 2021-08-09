@@ -12,7 +12,7 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= user.id %></td>
-    <td><%= link_to image_tag(user.image.url, size: '30x30'), admin_user_path(user) if user.image && user.image.url %><td>
+    <td><%= link_to image_tag(user.image.url, size: '50x50'), admin_user_path(user) if user.image && user.image.url %><td>
     <td><%= user.name %></td>
     <%= form_with(model: [:admin, user], local: true) do |f| %>
       <td><%= f.hidden_field :admin %></td>
