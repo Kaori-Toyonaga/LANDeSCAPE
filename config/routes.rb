@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   resources :users do
     get :following, on: :member
     get :followers, on: :member
+    get :favorites, on: :collection
   end
-  
+
   resources :favorites, only: [:index, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :tags

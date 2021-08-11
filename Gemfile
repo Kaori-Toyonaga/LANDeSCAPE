@@ -9,7 +9,7 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-# gem 'turbolinks', '~> 5'
+gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -38,7 +38,6 @@ gem 'bcrypt'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
-gem "gon"
 gem "geocoder"
 gem 'gmaps4rails'
 gem 'faker', '~> 2.1.0'

@@ -16,9 +16,9 @@
   <p>
     <% unless favorite.post.user_id == current_user.id %>
       <% if @favorite.present? %>
-        <span><%= link_to image_tag('clip_on', size: '25x25'), favorite_path(id: favorite.post.id), method: :delete %></span>
+        <span><%= link_to image_tag('clip_on', size: '25x25'), favorite_path(id: @favorite.id), method: :delete %></span>
       <% else %>
-        <span><%= link_to image_tag('clip_off', size: '25x25'), favorites_path(post_id: favorite.post.id), method: :post %></span>
+        <!-- <span><%= link_to image_tag('clip_off', size: '25x25'), favorites_path(post_id: favorite.post.id), method: :post %></span> -->
       <% end %>
     <% end %>
 
