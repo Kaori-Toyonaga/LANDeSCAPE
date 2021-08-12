@@ -4,6 +4,8 @@ class Post < ApplicationRecord
     validates :spotname
     validates :prefecture
     validates :address
+    validates :longitude
+    validates :latitude
   end
 
   belongs_to :user

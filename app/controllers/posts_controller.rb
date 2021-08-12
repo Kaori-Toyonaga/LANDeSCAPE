@@ -30,10 +30,11 @@ class PostsController < ApplicationController
 
   def show
     @favorite = current_user.favorites.find_by(post_id: @post.id)
-    @map = Gmaps4rails.build_markers(@post) do |post, marker|
-      marker.lat post.latitude
-      marker.lng post.longitude
-      marker.infowindow post.name
+    # @map = Gmaps4rails.build_markers(@post) do |post, marker|
+    #   marker.lat post.latitude
+    #   marker.lng post.longitude
+    #   marker.infowindow post.name
+    # end
   end
 
   def edit
