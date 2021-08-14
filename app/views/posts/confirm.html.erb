@@ -7,6 +7,8 @@
     <%= form.hidden_field :spotname %>
     <%= form.hidden_field :prefecture %>
     <%= form.hidden_field :address %>
+    <%= form.hidden_field :latitude %>
+    <%= form.hidden_field :longitude %>
     <%= form.hidden_field :url %>
     <%= form.hidden_field :date %>
     <%= form.hidden_field :content %>
@@ -18,6 +20,8 @@
       <%= @post.prefecture %>
     </P>
     <p><%= @post.address %></P>
+    <p><%= @post.latitude %></P>
+    <p><%= @post.longitude %></P>
     <p><%= @post.url %></P>
     <p><%= @post.date %></P>
     <p><%= @post.content %></P>

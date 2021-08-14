@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   root to: 'sessions#new'
 
   resources :posts do
@@ -8,8 +10,15 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
-  resources :users
+
+  resources :users do
+    get :following, on: :member
+    get :followers, on: :member
+    get :favorites, on: :collection
+  end
+
   resources :favorites, only: [:index, :create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   resources :tags
 
   namespace :admin do

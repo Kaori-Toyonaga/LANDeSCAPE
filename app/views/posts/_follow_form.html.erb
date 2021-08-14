@@ -1,0 +1,12 @@
+<div id="follow_form_<%= @post.user_id %>">
+  <% unless current_user.following?(@post.user) %>
+    <%= form_with(model: current_user.active_relationships.build(followed_id: @post.user_id)) do |f| %>
+      <%= f.hidden_field :followed_id %>
+      <%= f.submit "フォロー" %>
+    <% end %>
+  <% else %>
+    <%= form_with(model: current_user.active_relationships.find_by(followed_id: @post.user_id), method: :delete ) do |f| %>
+      <%= f.submit "つながりを解除" %>
+    <% end %>
+  <% end %>
+</div>
