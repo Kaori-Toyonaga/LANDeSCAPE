@@ -4,13 +4,13 @@ class Post < ApplicationRecord
     validates :spotname
     validates :prefecture
     validates :address
-    validates :longitude
-    validates :latitude
+    # validates :longitude
+    # validates :latitude
   end
 
   belongs_to :user
   has_many :favorites, dependent: :destroy
-  has_many :favorite_users, through: :favorites, source: :user
+  has_many :favorite_users, through: :favnporites, source: :user
 
   has_many :tags_posts, dependent: :destroy, foreign_key:'tag_id'
   has_many :tags, through: :tags_posts, source: :tag
@@ -18,7 +18,7 @@ class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   geocoded_by :address
-  after_validation :geocode
+  after_validation :geocodenize # :geocode
 
   enum prefecture:{
     都道府県: 0,
@@ -33,4 +33,10 @@ class Post < ApplicationRecord
 
   scope :search_spotname, -> (spotname) { where("spotname LIKE ?", "%#{spotname}%") }
   scope :search_prefecture, -> (prefecture) { where(prefecture: prefecture) }
+
+  def geocodenize
+    results =  Geocoder.coordinates(self.address)
+    self.latitude = results[0]
+    self.longitude = results[1]
+  end
 end
