@@ -43,3 +43,4 @@ gem "geocoder"
 gem 'gmaps4rails'
 gem 'gon'
 gem 'faker', '~> 2.1.0'
+gem 'jquery-rails'

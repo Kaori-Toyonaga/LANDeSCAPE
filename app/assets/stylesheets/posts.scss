@@ -1,3 +1,8 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// アイコンの色
+.clip_on glyphicon glyphicon-paperclip {
+  color: #0000FF;
+}
+
+.clip_off glyphicon glyphicon-paperclip {
+  color: #808080;
+}

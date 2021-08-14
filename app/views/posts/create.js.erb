@@ -1,0 +1,1 @@
+$("#posts"+"<%= @post.id %>").html("<%= escape_javascript(render "posts/"+"<%= @post.id %>", locals: {post: @post } ) %>");
