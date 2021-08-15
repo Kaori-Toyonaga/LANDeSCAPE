@@ -13,26 +13,30 @@ li {
   list-style: none;
 }
 
-// ヘッダー
-.header {
-  height: 50px;
-  margin: auto;
+#error_explanation {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: 6rem;
 }
 
-.menu_bar {
-  width: 680;
+// ヘッダー
+header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 50px;
   margin: auto;
 }
 
 .menu {
   height:40px;
-  width: 90px;
+  width: 100px;
   background-color:#000000;
   color: #fff;
   text-decoration: none;
   font-family: arial;
   display: block;
-  list-style: none;
   border-radius: 4px;
   padding-top: 10px;
 }
@@ -47,20 +51,26 @@ footer {
   margin: auto;
   padding-bottom: 10px;
   font-size: 12px;
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  bottom: 0px;
 }
 
 // 全体
 .sub-title {
   text-decoration: none;
   text-align: left;
+  position: fixed;
+  top: 6rem;
   font-size: 3rem;
   font-weight: bolder;
   font-family: arial;
   padding-left: 2rem;
   padding-top: 1rem;
   clear: left;
+}
+
+.sub-title a {
+  color: #000000;
 }
 
 // ログイン
@@ -74,6 +84,7 @@ footer {
 }
 
 .container-fluid {
+  width: 100%;
   text-align: center;
   font-family: arial;
   height: auto;
@@ -100,7 +111,7 @@ footer {
   margin: 5px;
   padding: 10px;
   border: solid 0px;
-  width: 680;
+  width: 100%;
   margin-right: auto;
   margin-left : auto;
   border: solid 1px;
@@ -115,7 +126,7 @@ footer {
 .btn {
   text-decoration: none;
   text-align: center;
-  width: 90px;
+  width: 200px;
   height: 4rem;
   padding: 1rem;
   color: #FFF;
@@ -130,7 +141,7 @@ table, td, th {
 }
 
 th {
-  height: 20rem;
+  height: 3rem;
   background: #000000;
   color: #FFF;
 }
@@ -142,21 +153,29 @@ table {
 }
 
 .box_1 {
-  height: 100px;
+  height: auto;
   width: 10rem;
   text-align: center;
+  padding: 1rem;
 }
 
 .box_2 {
-  height: 100px;
+  height: auto;
   width: 20rem;
   text-align: center;
+  padding: 1rem;
 }
 
 .box_3 {
-  height: 100px;
+  height: auto;
   width: 30rem;
   font-size: 2rem;
   font-weight: bold;
+  text-decoration: none;
   text-align: center;
+  padding: 1rem;
+}
+
+.box_3 a {
+  color: #000000;
 }

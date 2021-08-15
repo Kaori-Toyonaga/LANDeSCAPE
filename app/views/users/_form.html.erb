@@ -1,18 +1,23 @@
-<br>
-<table>
-  <tr>
-    <th></th>
-    <th><%= t('user.name') %></th>
-    <th></th>
-  </tr>
+<div class="container-fluid"><font size="2">
+  <div class="top">
+  <br><br>
+    <div class="row">
+      <table>
+        <tr>
+          <th class="box_2"></th>
+          <th class="box_3"><%= t('user.name') %></th>
+        </tr>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= link_to image_tag(user.image.url, size: '50x50'), user_path(user) if user.image && user.image.url %><td>
-    <td><%= user.name %></td>
-  </tr>
-<% end %>
-</table>
-<br>
-<br>
-<button><%= link_to 'Back', user_path(current_user) %></button>
+        <% @users.each do |user| %>
+          <tr>
+            <td class="box_2"><%= link_to image_tag(user.image.url, size: '50x50'), user_path(user) if user.image && user.image.url %></td>
+            <td class="box_3"><%= link_to user.name, user_path(user) %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+<br><br>
+
+<a><%= link_to 'Back', user_path(current_user), class: "btn" %></a>
