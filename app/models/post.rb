@@ -32,10 +32,10 @@ class Post < ApplicationRecord
   scope :search_spotname, -> (spotname) { where("spotname LIKE ?", "%#{spotname}%") }
   scope :search_prefecture, -> (prefecture) { where(prefecture: prefecture) }
 
-  def geocodenize
-    results =  Geocoder.coordinates(self.address)
-    self.latitude = results[0]
-    self.longitude = results[1]
-  end
-  
+ def geocodenize
+   results =  Geocoder.coordinates(self.address)
+   self.latitude = results[0]
+   self.longitude = results[1]
+ end
+
 end

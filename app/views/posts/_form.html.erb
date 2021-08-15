@@ -11,21 +11,20 @@
 
 <div class="container-fluid"><font size="2">
   <div class="top">
-  <br><br>
+    <br><br><br><br><br>
 
 <%= form_with(model: @post, local: true ,url: choose_new_or_edit) do |form| %>
-<br><br><br><br>
 <div class="row">
   <table>
     <tr>
-      <td>
+      <td class="box_image">
         <p>
           <span><%= image_tag(@post.image.url) if @post.image && @post.image.url %></span>
           <span><%= form.file_field :image %></span>
           <span><%= form.hidden_field :image_cache %></span>
         </P>
       </td>
-      <td>
+      <td class="box_text">
         <p>
           <span><%= form.label :spotname, 'Spot :', class: "text" %></span>
           <span><%= form.text_field :spotname, :placeholder => "spot name", class: "post_field" %></span>
@@ -57,11 +56,10 @@
 </div>
 <br><br>
 
-  <br>
-  <div class="row">
-    <span class="col-xs-5"></span>
-    <span class="col-xs-1"><%= form.submit "create", class: "btn" %></span>
-    <span class="col-xs-1"><%= link_to "back", posts_path, class: "menu"  %></span>
-    <span class="col-xs-5"></span>
-  </div>
+<div class="row">
+  <span class="col-xs-5"></span>
+  <span class="col-xs-1"><%= form.submit "create", class: "btn" %></span>
+  <span class="col-xs-1"><%= link_to "back", posts_path, class: "menu"  %></span>
+  <span class="col-xs-5"></span>
+</div>
 <% end %>

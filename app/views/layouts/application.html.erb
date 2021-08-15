@@ -7,8 +7,10 @@
 
     <%= include_gon %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <script src="https://maps.google.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>"></script>
   <script src="https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
@@ -27,11 +29,10 @@
 
         <% if logged_in? %>
           <span class="col-xs-1"><%= link_to "Logout", session_path(current_user.id), method: :delete, class: "menu" %></span>
-        <% if current_user.admin? %>
-          <span class="col-xs-1"><%= link_to 'Admin', admin_users_path(current_user.id), class: "menu"  %></span>
-        <% else %>
-        <% end %>
-
+          <% if current_user.admin? %>
+            <span class="col-xs-1"><%= link_to 'Admin', admin_users_path(current_user.id), class: "menu"  %></span>
+          <% else %>
+          <% end %>
         <% else %>
           <span class="col-xs-1"><%= link_to "Sign up", new_user_path, class: "menu"  %></span>
           <span class="col-xs-1"><%= link_to "Login", new_session_path, class: "menu"  %></span>

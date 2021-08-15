@@ -8,13 +8,13 @@
     <div class="row">
       <table>
         <tr>
-          <td>
+          <td class="box_image">
             <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
             <%= f.file_field :image %>
             <%= f.hidden_field :image_cache %>
           </td>
 
-          <td>
+          <td class="box_text">
             <p>
               <span><%= f.label :name, 'User Name :', class: "text" %></span>
               <span><%= f.text_field :name, class: "text_field" %></span>
