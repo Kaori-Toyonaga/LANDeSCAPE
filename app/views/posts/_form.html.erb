@@ -1,50 +1,67 @@
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <p>Please check for <%= @post.errors.count %> input omission</p>
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="container-fluid"><font size="2">
+  <div class="top">
+  <br><br>
+
 <%= form_with(model: @post, local: true ,url: choose_new_or_edit) do |form| %>
+<br><br><br><br>
+<div class="row">
+  <table>
+    <tr>
+      <td>
+        <p>
+          <span><%= image_tag(@post.image.url) if @post.image && @post.image.url %></span>
+          <span><%= form.file_field :image %></span>
+          <span><%= form.hidden_field :image_cache %></span>
+        </P>
+      </td>
+      <td>
+        <p>
+          <span><%= form.label :spotname, 'Spot :', class: "text" %></span>
+          <span><%= form.text_field :spotname, :placeholder => "spot name", class: "post_field" %></span>
+        </P>
+        <p>
+          <span><%= form.label :prefecture, 'Area :', class: "text" %></span>
+          <span><%= form.select :prefecture, Post.prefectures.keys, class: "post_field" %></span>
+        </P>
+        <p>
+          <span><%= form.label :address, 'Address :', class: "text" %></span>
+          <span><%= form.text_field :address, :placeholder => "address?", class: "post_field" %></span>
+        </P>
+        <p>
+          <span><%= form.label :url, 'Map URL :', class: "text" %></span>
+          <span><%= form.text_field :url, :placeholder => "Map URL", class: "post_field" %></span>
+        </P>
+        <p>
+          <span><%= form.label :date, 'Date :', class: "text" %></span>
+          <span><%= form.date_field :date, class: "post_field" %></span>
+        </P>
+        <p>
+          <span><%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :title, class: "tag_field") %></span>
+          <span><%= link_to "New Tag", new_tag_path, class: "menu" %></span>
+        </p>
+        <p><%= form.text_area :content, :placeholder => "content:", class: "content_field" %></p>
+      </td>
+    </tr>
+  </table>
+</div>
+<br><br>
 
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <p>Please check for <%= @post.errors.count %> input omission</p>
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<%= form.submit "create" %>
-<%= link_to "back", posts_path  %>
-
-  <div class="post_card">
-    <p>
-      <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
-      <%= form.file_field :image %>
-      <%= form.hidden_field :image_cache %>
-    </P>
-    <p>
-      <%= form.label :spotname, 'Spot :' %>
-      <%= form.text_field :spotname, :placeholder => "spot name" %>
-    </P>
-    <p>
-      <%= form.label :prefecture, 'Area :' %>
-      <%= form.select :prefecture, Post.prefectures.keys %>
-    </P>
-    <p>
-      <%= form.label :address, 'Address :' %>
-      <%= form.text_field :address, :placeholder => "address?" %>
-    </P>
-    <p>
-      <%= form.label :url, 'Map URL :' %>
-      <%= form.text_field :url, :placeholder => "Map URL" %>
-    </P>
-    <p>
-      <%= form.label :date, 'Date :' %>
-      <%= form.date_field :date %>
-    </P>
-    <div>
-      <p><%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :title) %></p>
-    </div>
-    <p>
-      <%= form.text_area :content, :placeholder => "content:" %>
-    </P>
+  <br>
+  <div class="row">
+    <span class="col-xs-5"></span>
+    <span class="col-xs-1"><%= form.submit "create", class: "btn" %></span>
+    <span class="col-xs-1"><%= link_to "back", posts_path, class: "menu"  %></span>
+    <span class="col-xs-5"></span>
   </div>
 <% end %>
