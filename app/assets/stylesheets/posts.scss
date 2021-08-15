@@ -1,9 +1,8 @@
 // 全体
 html {
   position: relative;
-  min-height: 100%;
-  margin-right: auto;
-  margin-left : auto;
+  height: 100%;
+  margin: auto;
 }
 
 body {
@@ -17,12 +16,12 @@ li {
 // ヘッダー
 .header {
   height: 50px;
+  margin: auto;
 }
 
 .menu_bar {
   width: 680;
-  margin-right: auto;
-  margin-left : auto;
+  margin: auto;
 }
 
 .menu {
@@ -54,6 +53,7 @@ footer {
 
 // 全体
 .sub-title {
+  text-decoration: none;
   text-align: left;
   font-size: 3rem;
   font-weight: bolder;
@@ -62,7 +62,6 @@ footer {
   padding-top: 1rem;
   clear: left;
 }
-
 
 // ログイン
 .text_field {
@@ -116,11 +115,48 @@ footer {
 .btn {
   text-decoration: none;
   text-align: center;
-  width: 15rem;
+  width: 90px;
   height: 4rem;
   padding: 1rem;
   color: #FFF;
   background: #000000;
   border-radius: 4px;
   border: 0px
+}
+
+// 一
+table, td, th {
+  border-bottom: 1px solid black;
+}
+
+th {
+  height: 20rem;
+  background: #000000;
+  color: #FFF;
+}
+
+table {
+  margin: auto;
+  height: auto;
+  width: auto;
+}
+
+.box_1 {
+  height: 100px;
+  width: 10rem;
+  text-align: center;
+}
+
+.box_2 {
+  height: 100px;
+  width: 20rem;
+  text-align: center;
+}
+
+.box_3 {
+  height: 100px;
+  width: 30rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
 }

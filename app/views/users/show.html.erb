@@ -1,4 +1,4 @@
-<h2>
+<h2 class="sub-title">
   <%= @user.name %>
   <% if @user.id == current_user.id %>
     <a><%= link_to image_tag('edit', size: '15x15'), edit_user_path %></a>
