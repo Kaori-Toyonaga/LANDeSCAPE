@@ -10,13 +10,16 @@
 <% end %>
 
 <% @favorites.each do |favorite| %>
+<div class="container">
+  <div class="row">
+
   <p>
     <span><%= link_to image_tag(favorite.post.image.url), post_path(favorite.post.id) %></span>
   </p>
   <p>
     <% unless favorite.post.user_id == current_user.id %>
       <% if @favorite.present? %>
-        <span class="clip_on"><%= link_to "", favorite_path(id: @favorite.id), method: :delete, remote: true, class: "glyphicon glyphicon-paperclip" %></span>
+        <%= link_to image_tag('clip_off.png', size: '30x30'), favorite_path(id: @favorite.id), method: :delete %>
       <% else %>
       <% end %>
     <% end %>
@@ -24,4 +27,8 @@
     <%= favorite.post.spotname %>
   </p>
   <p><%= favorite.post.prefecture %><%= favorite.post.address %></p>
+
+  </div>
+</div>
 <% end %>
+<p id="blank"></p>

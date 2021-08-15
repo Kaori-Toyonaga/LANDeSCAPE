@@ -12,19 +12,22 @@
 <% end %>
 
 <% @posts.each do |post| %>
-  <p>
-    <span><%= link_to image_tag(post.image.url), post_path(post.id) %></span>
-  </p>
-  <p>
-    <% unless post.user_id == current_user.id %>
-      <% if @favorite.present? %>
-        <span class="clip_on"><%= link_to "", favorite_path(id: @favorite.id), method: :delete, remote: true, class: "glyphicon glyphicon-paperclip" %></span>
-      <% else %>
-        <span class="clip_off"><%= link_to "", favorites_path(post_id: post.id), method: :post, remote: true, class: "glyphicon glyphicon-paperclip" %></span>
+<div class="container" class="card" >
+  <div class="row" class="card-body">
+    <p class="card-text">
+      <% unless post.user_id == current_user.id %>
+        <% if @favorite.present? %>
+          <%= link_to image_tag('clip_off.png', size: '30x30'), favorite_path(id: @favorite.id), method: :delete %>
+        <% else %>
+          <%= link_to image_tag('clip_on.png', size: '30x30'), favorites_path(post_id: post.id), method: :post %>
+        <% end %>
       <% end %>
-    <% end %>
+    </p>
+    <a class="card-link"><%= link_to image_tag(post.image.url), post_path(post.id) %></a>
+  </div>
+</div>
+    <%#= post.spotname %>
 
-    <%= post.spotname %>
-  </p>
-  <p><%= post.prefecture %><%= post.address %></p>
+    <%#= post.prefecture %><%#= post.address %>
 <% end %>
+<p id="blank"></p>
