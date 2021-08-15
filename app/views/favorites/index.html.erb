@@ -1,13 +1,19 @@
 <h4 class="sub-title">My Clips</h4>
 
+<div class="container-fluid"><font size="2">
+  <div class="top">
+  <br><br>
+    <div class="row">
+      <%= form_with url: posts_path, method: :get, local: true do |form| %>
+        <%= form.select :prefecture, Post.prefectures.keys %>
+        <%= form.text_field :spotname, :placeholder => "スポット名で検索…" %>
+        <%= form.select("tag_id", Tag.pluck(:title, :id), { include_blank: true }) %>
+        <%= form.submit 'Search', title: nil %> <%= link_to 'clear', favorites_path %>
+      <% end %>
+    </div>
+  </div>
+</div>
 <%= link_to "back", user_path(current_user)  %>
-
-<%= form_with url: posts_path, method: :get, local: true do |form| %>
-  <%= form.select :prefecture, Post.prefectures.keys %>
-  <%= form.text_field :spotname, :placeholder => "スポット名で検索…" %>
-  <%= form.select("tag_id", Tag.pluck(:title, :id), { include_blank: true }) %>
-  <%= form.submit 'Search', title: nil %> <%= link_to 'clear', favorites_path %>
-<% end %>
 
 <% @favorites.each do |favorite| %>
 <div class="container">
