@@ -1,16 +1,29 @@
-<h4>Edit Tag</h4>
-
 <p><%= notice %></p>
+
+<h4 class="sub-title">Edit Tag</h4>
 
 <%= form_with(model: @tag, local: true) do |form| %>
 
-  <p>
-    <span><%= form.label :title, 'title :' %></span>
-    <span><%= form.text_field :title %></span>
-  </p>
+<div class="container-fluid"><font size="2">
+  <div class="top">
+  <br><br>
+    <div class="row">
+      <table>
+        <p>
+          <span><%= form.label :title, 'title :' %></span>
+          <span><%= form.text_field :title, class: "text_field" %></span>
+        </p>
+        <br><br><br>
+      </table>
+    </div>
 
-  <p>
-    <span><%= form.submit "Edit"  %></span>
-    <span><%= link_to "Back", posts_path %></span>
-  </p>
+    <div class="row">
+      <span class="col-xs-5"></span>
+      <span class="col-xs-1"><%= form.submit "Edit", class: "btn" %></span>
+      <span class="col-xs-1"><%= link_to "Back", tags_path, class: "menu" %></span>
+      <span class="col-xs-5"></span>
+    </div>
+    <br><br>
+  </div>
+</div>
 <% end %>
