@@ -1,31 +1,23 @@
 <h4 class="sub-title"><%= link_to current_user.name, user_path(current_user) %></h4>
+<br><br><br><br><br><br>
 
-<div class="serch">
-<%= form_with url: posts_path, method: :get, local: true do |form| %>
-  <%= form.select :prefecture, Post.prefectures.keys %>
-  <%= form.text_field :spotname, :placeholder => "スポット名で検索…" %>
-  <%= form.select("tag_id", Tag.pluck(:title, :id), { include_blank: true }) %>
-  <%= form.submit 'Search', title: nil %> <%= link_to 'clear', posts_path %>
-<% end %>
+<div class="search">
+  <%= form_with url: posts_path, method: :get, local: true do |form| %>
+    <%= form.select :prefecture, Post.prefectures.keys %>
+    <%= form.text_field :spotname, :placeholder => "スポット名で検索…", class: "text_field" %>
+    <%= form.select("tag_id", Tag.pluck(:title, :id), { include_blank: true }) %>
+    <%= form.submit 'Search', title: nil, class: "btn" %> <%= link_to image_tag('back', size: '48x48'), posts_path  %>
+  <% end %>
 </div>
 
-<p><%= link_to 'ユーザー一覧', users_path %></p>
-
-<%= link_to image_tag('pin_on', size: '25x25'), new_post_path %>
-<%= link_to 'New Tag', new_tag_path %>
-
-<div class="card" >
-    <% @posts.each do |post| %>
-      <a><%= link_to image_tag(post.image.url, size: '200x200'), post_path(post.id) %></a>
-      <%# unless post.user_id == current_user.id %>
-        <%# if @favorite.present? %>
-          <%#= link_to image_tag('clip_on.png', size: '30x30'), favorite_path(id: @favorite.id), method: :delete %>
-        <%# else %>
-          <%#= link_to image_tag('clip_off.png', size: '30x30'), favorites_path(post_id: post.id), method: :post %>
-        <%# end %>
-      <%# end %>
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-md-3">
+      <div>
+        <p><%= link_to image_tag(post.image.url, size: '200x200'), post_path(post.id) %></p>
+        <p><%= post.spotname %></p>
+        <p><%= post.prefecture %><p>
+      </div>
+    </div>
+  <% end %>
 </div>
-    <%#= post.spotname %>
-
-    <%#= post.prefecture %><%#= post.address %>
-<% end %>

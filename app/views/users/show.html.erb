@@ -1,9 +1,13 @@
 <div>
+  <br><br><br><br><br><br>
   <h4 class="sub-title"><%= @user.name %></h4>
-  <% if @user.id == current_user.id %>
-    <a><%= link_to image_tag('edit', size: '15x15'), edit_user_path %></a>
+    <div class="icon_edit">
+      <% if @user.id == current_user.id %>
+    　  <a><%= link_to image_tag('edit', size: '25x25'), edit_user_path %><a>
+    </div>
 
-      <a class="map"><%= link_to image_tag('map') %></a>
+    <div class="map">
+      <a><%= link_to image_tag('map') %></a>
 
       <div class="pin1"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("北海道") %></div>
       <div class="pin2"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("青森県") %></div>
@@ -52,34 +56,55 @@
       <div class="pin45"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("宮崎県") %></div>
       <div class="pin46"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("鹿児島県") %></div>
       <div class="pin47"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("沖縄県") %></div>
-  <% else %>
-  <% end %>
+    </div>
+    <% end %>
+
 </div>
 <br><br><br><br><br><br>
 
-<%= link_to "back", posts_path  %>
-
-<p><%= image_tag(@user.image.url, size: '200x200') %></p>
-<P>
-  <span><%= link_to @user.followers.count, followers_user_path(@user.id) %></span>
-  <span><%= link_to @user.following.count, following_user_path(@user.id) %></span>
+<p>
+  <a class="icon_top"><%= image_tag(@user.image.url, size: '200x200') %></a>
 </p>
-<P>
-  <span>follower</span>
-  <span>follow</span>
+
+<table class="follow_box">
+  <tr>
+    <td class="follow_link"><%= link_to @user.followers.count, followers_user_path(@user.id) %></td>
+    <td class="follow_link"><%= link_to @user.following.count, following_user_path(@user.id) %></td>
+  </tr>
+  <tr>
+    <td class="follow">follower</td>
+    <td class="follow">follow</td>
+  </tr>
+  <tr>
+    <td class="count_link"><%= @user.posts.count %></td>
+    <td class="post_count">posts</td>
+  </tr>
+</table>
+
+<table  class="count_box">
+  <tr>
+    <td class="follow_link"><%= @posts.group(:prefecture).count.length %></td>
+    <td class="post_count"> / 48</td>
+  </tr>
+</table>
+
+<p class="favorite">
   <% if @user.id == current_user.id %>
-    <%= link_to image_tag('clip_on', size: '25x25'), favorites_path %>
+    <%= link_to image_tag('clip_on', size: '48x48'), favorites_path %>
   <% else %>
   <% end %>
 </p>
-<p><%= link_to @posts.group(:prefecture).count.length %>/48</p>
-<p><%= @user.posts.count %> posts</p>
 
-<% @posts.each do |post| %>
-  <p>
-    <span><%= link_to image_tag(post.image.url, size: '200x200'), post_path(post.id) %></span>
-  </p>
-  <p><%= post.spotname %></p>
-  <p><%= post.prefecture %><%= post.address %></p>
-<% end %>
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-md-4">
+      <div>
+        <p><%= link_to image_tag(post.image.url, size: '200x200'), post_path(post.id) %></p>
+        <p><%= post.spotname %></p>
+        <p><%= post.prefecture %><p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 <p id="blank"></p>

@@ -1,84 +1,72 @@
 <h4 class="sub-title"><%= link_to @post.user.name, user_path(@post.user_id) %></h4>
-
-<div class="container-fluid"><font size="2">
-  <div class="top">
-    <%= form_with(model:@post, url: posts_path, local:true) do |form| %>
-
-    <br><br><br><br><br>
-    <div class="row">
-      <table>
-        <tr>
-          <td  class="box_image">
-            <p>
-              <% if @post.user_id == current_user.id %>
-                <span><%= link_to image_tag('edit', size: '35x35'), edit_post_path(@post.id) %></span>
-                <span><%= link_to image_tag('delete', size: '35x35'), post_path(@post.id), method: :delete ,data: { confirm: '本当に削除しますか？' } %></span>
-              <% else %>
-              <% end %>
-
-              <% unless @post.user_id == current_user.id %>
-                <% if @favorite.present? %>
-                  <span><%= link_to image_tag('clip_off.png', size: '35x35'), favorite_path(id: @post.id), method: :delete %></span>
-                <% else %>
-                  <span><%= link_to image_tag('clip_on.png', size: '35x35'), favorites_path(post_id: @post.id), method: :post %></span>
-                <% end %>
-              <% end %>
-            </p>
-
-            <p><%= image_tag(@post.image.url) %></P>
-            <br><br>
-            <div id="map" style="width: 500px; height: 300px;">
-              <script>
-                handler = Gmaps.build('Google');
-                handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-                  markers = handler.addMarkers(<%= raw @map.to_json %>);
-                  handler.bounds.extendWith(markers);
-                  handler.fitMapToBounds();
-                });
-              </script>
-            </div>
-          </td>
-
-          <td class="box_text">
-            <p>
-              <span><%= form.label :spotname, 'Spot :', class: "text" %></span>
-              <span class="box_2"><%= @post.spotname %></span>
-            </P>
-            <p>
-              <span><%= form.label :prefecture, 'Area :', class: "text" %></span>
-              <span class="box_2"><%= @post.prefecture %></span>
-            </P>
-            <p>
-              <span><%= form.label :address, 'Address :', class: "text" %></span>
-              <span class="box_2"><%= @post.address %></span>
-            </P>
-            <p>
-              <span><%= form.label :url, 'Map URL :', class: "text" %></span>
-              <span class="box_2"><%= @post.url %></span>
-            </P>
-            <p>
-              <span><%= form.label :date, 'Date :', class: "text" %></span>
-              <span class="box_2"><%= @post.date %></span>
-            </P>
-            <P class="tag_field">
-              <% @post.tags.each do |tag| %>
-                <%= tag.title %>
-              <% end %>
-            </P>
-            <p>
-              <span><%= form.label :conten, 'conten :', class: "text" %></span>
-              <span class="box_2"><%= @post.content %></span>
-            </P>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-<br><br>
+<br><br><br><br><br>
+<%= form_with(model:@post, url: posts_path, local:true) do |form| %>
 <div class="row">
-  <span class="col-xs-5"></span>
-  <span class="col-xs-2"><%= link_to "Back", posts_path, class: "menu" %></span>
-  <span class="col-xs-5"></span>
+  <table>
+    <tr>
+      <td  class="box_image">
+        <p>
+          <% if @post.user_id == current_user.id %>
+            <span><%= link_to image_tag('edit', size: '35x35'), edit_post_path(@post.id) %></span>
+            <span><%= link_to image_tag('delete', size: '35x35'), post_path(@post.id), method: :delete ,data: { confirm: '本当に削除しますか？' } %></span>
+          <% else %>
+          <% end %>
+
+          <% unless @post.user_id == current_user.id %>
+            <% if @favorite.present? %>
+              <span><%= link_to image_tag('clip_off.png', size: '35x35'), favorite_path(id: @post.id), method: :delete %></span>
+            <% else %>
+              <span><%= link_to image_tag('clip_on.png', size: '35x35'), favorites_path(post_id: @post.id), method: :post %></span>
+            <% end %>
+          <% end %>
+        </p>
+
+        <p><%= image_tag(@post.image.url) %></P>
+        <br><br>
+        <div id="map" style="width: 300px; height: 200px;">
+          <script>
+            handler = Gmaps.build('Google');
+            handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+              markers = handler.addMarkers(<%= raw @map.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+            });
+          </script>
+        </div>
+      </td>
+
+      <td class="box_text">
+        <p>
+          <span><%= form.label :spotname, 'Spot :', class: "text" %></span>
+          <span class="box_2"><%= @post.spotname %></span>
+        </P>
+        <p>
+          <span><%= form.label :prefecture, 'Area :', class: "text" %></span>
+          <span class="box_2"><%= @post.prefecture %></span>
+        </P>
+        <p>
+          <span><%= form.label :address, 'Address :', class: "text" %></span>
+          <span class="box_2"><%= @post.address %></span>
+        </P>
+        <p>
+          <span><%= form.label :url, 'Map URL :', class: "text" %></span>
+          <span class="box_2"><%= @post.url %></span>
+        </P>
+        <p>
+          <span><%= form.label :date, 'Date :', class: "text" %></span>
+          <span class="box_2"><%= @post.date %></span>
+        </P>
+        <P class="tag_field">
+          <% @post.tags.each do |tag| %>
+            <%= tag.title %>
+          <% end %>
+        </P>
+        <p>
+          <span><%= form.label :content, 'content :', class: "text" %></span>
+          <span class="box_2"><%= @post.content %></span>
+        </P>
+      </td>
+    </tr>
+  </table>
 </div>
 <% end %>

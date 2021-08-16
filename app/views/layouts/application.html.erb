@@ -10,9 +10,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <script src="https://maps.google.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>"></script>
-  <script src="https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
-  <script src='https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-o%>nly/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
+    <script src="https://maps.google.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>"></script>
+    <script src="https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+    <script src='https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-o%>nly/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
   </head>
 
   <header class="headerfixed">
@@ -24,8 +24,11 @@
 
       <% if logged_in? %>
         <span><%= link_to "Logout", session_path(current_user.id), method: :delete, class: "menu1" %></span>
+        <span><%= link_to image_tag('home', size: '48x48'), posts_path, class: "home" %></span>
+        <span><%= link_to image_tag('pin_icon', size: '48x48'), new_post_path, class: "pin" %></span>
+        <span><%= link_to image_tag('user', size: '48x48'), users_path, class: "user" %></span>
         <% if current_user.admin? %>
-          <span><%= link_to 'Admin', admin_users_path(current_user.id), class: "menu2" %></span>
+          <span><%= link_to image_tag('admin', size: '45x45'), admin_users_path(current_user.id), class: "admin" %></span>
         <% else %>
         <% end %>
       <% else %>

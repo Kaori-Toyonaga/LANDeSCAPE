@@ -25,6 +25,15 @@ body {
   clear: left;
 }
 
+.row {
+  text-align: center;
+  width: 980px;
+  height: auto;
+  margin: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 // ヘッダー
 header {
   position: fixed;
@@ -36,14 +45,14 @@ header {
 }
 
 .logo {
-  position: absolute;
+  position: fixed;
   top: 1rem;
   left: 0rem;
   float: left;
 }
 
 .menu1 {
-  position: absolute;
+  position: fixed;
   top: 1rem;
   right: 1rem;
   float: right;
@@ -61,7 +70,7 @@ header {
 }
 
 .menu2 {
-  position: absolute;
+  position: fixed;
   top: 1rem;
   right: 12rem;
   float: right;
@@ -76,6 +85,45 @@ header {
   display: block;
   border-radius: 4px;
   padding-top: 10px;
+}
+
+.home {
+  position: fixed;
+  top: 1rem;
+  right: 12rem;
+  float: right;
+}
+
+.pin {
+  position: fixed;
+  top: 1rem;
+  right: 17rem;
+  float: right;
+}
+
+.user {
+  position: fixed;
+  top: 1rem;
+  right: 22rem;
+  float: right;
+}
+
+.admin {
+  position: fixed;
+  top: 1rem;
+  right: 27rem;
+  float: right;
+}
+
+.search {
+  position: fixed;
+  top: 5px;
+  left: 20px;
+  text-align: center;
+  width: 100%;
+  height: 70px;
+  margin: auto;
+  float: left;
 }
 
 // フッダー
@@ -110,13 +158,25 @@ li {
   top: 8rem;
 }
 
-.card {
-  width: 100px;
+.favorite {
+  position: fixed;
+  top: 6.5rem;
+  right: 1rem;
+  float: right;
 }
 
-.img {
-  width: 300px;
-  height: 300px;
+.icon_edit {
+  float: left;
+  position: fixed;
+  top: 31rem;
+  left: 200px;
+}
+
+.icon_top {
+  float: left;
+  position: fixed;
+  top: 13rem;
+  left: 1rem;
 }
 
 .menu {
@@ -138,10 +198,9 @@ li {
   width: 100px;
   height: 4rem;
   padding: 1rem;
+  margin-left: 5px;
   color: #FFF;
   background: #000000;
-  border-radius: 4px;
-  border: 0px
 }
 
 // 全体
@@ -181,9 +240,64 @@ th {
 }
 
 table {
-  // margin: auto;
-  // height: auto;
-  // width: auto;
+  margin: auto;
+  height: auto;
+  table-layout: fixed;
+　width: 100%;
+}
+
+table.follow_box {
+  float: left;
+  position: fixed;
+  top: 35rem;
+  left: 1rem;
+  border: solid 0px;
+}
+
+table.count_box {
+  float: left;
+  position: absolute;
+  top: 60rem;
+  right: 1rem;
+  border: solid 0px;
+}
+
+td.follow_link {
+  font-size: 3rem;
+  font-family: arial;
+  font-weight: bolder;
+  border: solid 0px;
+}
+
+td.follow {
+  text-align: center;
+  vertical-align: middle;
+  width: 100px;
+  height: 2rem;
+  font-size: 1.5rem;
+  font-family: arial;
+  padding: 3px;
+  border: solid 0px;
+}
+
+td.count_link {
+  text-align: right;
+  font-size: 3rem;
+  font-family: arial;
+  font-weight: bolder;
+  border: solid 0px;
+}
+
+td.post_count {
+  text-align: left;
+  vertical-align: bottom;
+  width: 100px;
+  height: 2rem;
+  font-size: 1.5rem;
+  font-family: arial;
+  padding: 3px;
+  padding-left: 5px;
+  border: solid 0px;
 }
 
 td.box_image {
@@ -268,11 +382,12 @@ td.box_text {
 }
 
 select, option {
-  width: 30rem;
+  width: 12rem;
   height: 4rem;
   padding: 1rem;
   margin-bottom: 2.5rem;
 }
+
 
 // ログイン
 .login_link {
