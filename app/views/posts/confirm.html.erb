@@ -9,6 +9,7 @@
         <tr>
           <td class="box_image">
             <p>
+              <span><%= form.hidden_field :image_cache %></span>
               <span><%= image_tag(@post.image.url) if @post.image && @post.image.url %></span>
             </P>
           </td>
@@ -54,7 +55,7 @@
 <div class="row">
   <span class="col-xs-5"></span>
   <span class="col-xs-1"><%= form.submit "create", class: "btn"  %></span>
-  <span class="col-xs-1"><%= form.submit "back", name: 'back', class: "menu" %></span>
+  <span class="col-xs-1"><%= form.submit "back", name: 'back', class: "btn" %></span>
   <span class="col-xs-5"></span>
 </div>
 <% end %>

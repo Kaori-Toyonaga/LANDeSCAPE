@@ -20,7 +20,7 @@
   <div class="row">
 
   <p>
-    <span><%= link_to image_tag(favorite.post.image.url), post_path(favorite.post.id) %></span>
+    <span><%= link_to image_tag(favorite.post.image.url, size: '200x200'), post_path(favorite.post.id) %></span>
   </p>
   <p>
     <% unless favorite.post.user_id == current_user.id %>

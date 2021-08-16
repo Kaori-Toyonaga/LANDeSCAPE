@@ -27,7 +27,7 @@
 
             <p><%= image_tag(@post.image.url) %></P>
             <br><br>
-            <div id="map" style="width: 200px; height: 200px;">
+            <div id="map" style="width: 500px; height: 300px;">
               <script>
                 handler = Gmaps.build('Google');
                 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){

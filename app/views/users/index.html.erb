@@ -3,7 +3,6 @@
 <div class="container-fluid"><font size="2">
   <div class="top">
   <br><br>
-    <div class="row">
       <table>
         <tr>
           <th class="box_2"></th>
@@ -19,12 +18,11 @@
         </tr>
       <% end %>
       </table>
-    </div>
+      <br><br>
+
+      <span class="col-xs-5"></span>
+      <span class="col-xs-2"><%= link_to 'Back', posts_path, class: "menu" %></span>
+      <span class="col-xs-5"></span>
+
   </div>
-</div>
-<br><br>
-<div class="row">
-  <span class="col-xs-5"></span>
-  <span class="col-xs-2"><%= link_to 'Back', posts_path, class: "menu" %></span>
-  <span class="col-xs-5"></span>
 </div>

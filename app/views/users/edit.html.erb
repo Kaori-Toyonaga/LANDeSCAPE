@@ -34,5 +34,10 @@
   </div>
 </div>
 <br> <br>
-<a><%= f.submit "Edit", class: "btn" %></a>
+<div class="row">
+  <span class="col-xs-5"></span>
+  <span class="col-xs-1"><%= f.submit "Edit", class: "btn" %></span>
+  <span class="col-xs-1"><%= link_to 'Back', user_path(current_user), class: "menu" %></span>
+  <span class="col-xs-5"></span>
+</div>
 <% end %>

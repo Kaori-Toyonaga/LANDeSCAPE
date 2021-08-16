@@ -1,0 +1,37 @@
+<div>
+  <h4 class="sub-title">
+  <a><%= @user.name %></a>
+    <% if @user.id == current_user.id %>
+      <a><%= link_to image_tag('edit', size: '15x15'), posts_path %></a>
+    <% else %>
+    <% end %>
+</h4>
+</div>
+<br><br><br><br><br><br>
+
+<%= link_to "back", posts_path  %>
+
+<p><%= image_tag(@user.image.url, size: '200x200') %></p>
+<P>
+  <span><%= link_to @user.followers.count, followers_user_path(@user.id) %></span>
+  <span><%= link_to @user.following.count, following_user_path(@user.id) %></span>
+</p>
+<P>
+  <span>follower</span>
+  <span>follow</span>
+  <% if @user.id == current_user.id %>
+    <%= link_to image_tag('clip_on', size: '25x25'), favorites_path %>
+  <% else %>
+  <% end %>
+</p>
+<p><%= link_to @user.posts.group(:prefecture).count.length %>/48</p>
+<p><%= @user.posts.count %> posts</p>
+
+<% @user.posts.each do |post| %>
+  <p>
+    <span><%= link_to image_tag(post.image.url, size: '200x200'), post_path(post.id) %></span>
+  </p>
+  <p><%= post.spotname %></p>
+  <p><%= post.prefecture %><%= post.address %></p>
+<% end %>
+<p id="blank"></p>

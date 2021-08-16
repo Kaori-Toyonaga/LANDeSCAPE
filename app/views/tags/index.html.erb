@@ -1,42 +1,37 @@
 <h4 class="sub-title">Tags</h4>
 
-<div class="container-fluid"><font size="2">
-  <div class="top">
+<div class="container-fluid">
   <br><br>
-    <div class="row">
-      <table>
-          <tr>
-            <th class="box_3">Title</th>
-            <th class="box_2"> </th>
-            <th class="box_2"> </th>
-          </tr>
+    <table>
+        <tr>
+          <th class="box_3">Title</th>
+          <th class="box_1"> </th>
+          <th class="box_1"> </th>
+        </tr>
 
-          <% @tags.each do |tag| %>
+        <% @tags.each do |tag| %>
 
-          <tr>
-            <td class="box_3">
-              <span><%= tag.title %></span>
-            </td>
-            <td class="box_2">
-              <% if current_user.admin? %>
-                <a><%= link_to image_tag('edit', size: '25x25'), edit_tag_path(tag) %></a>
-            </td>
-            <td class="box_2">
-                <a><%= link_to image_tag('delete', size: '25x25'), tag, method: :delete, data: { confirm: '本当に削除しますか?' } %></a>
-              <% else %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
+        <tr>
+          <td class="box_3">
+            <span><%= tag.title %></span>
+          </td>
+          <td class="box_1">
+            <% if current_user.admin? %>
+              <a><%= link_to image_tag('edit', size: '25x25'), edit_tag_path(tag) %></a>
+          </td>
+          <td class="box_1">
+              <a><%= link_to image_tag('delete', size: '25x25'), tag, method: :delete, data: { confirm: '本当に削除しますか?' } %></a>
+            <% else %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <br><br>
+  <div class="row">
+    <span class="col-xs-5"></span>
+    <span class="col-xs-1"><%= link_to "New", new_tag_path, class: "menu" %></span>
+    <span class="col-xs-1"><%= link_to 'Back', posts_path, class: "menu" %></span>
+    <span class="col-xs-5"></span>
   </div>
-</div>
-
-<br><br>
-<div class="row">
-  <span class="col-xs-5"></span>
-  <span class="col-xs-1"><%= link_to "New", new_tag_path, class: "menu" %></span>
-  <span class="col-xs-1"><%= link_to 'Back', posts_path, class: "menu" %></span>
-  <span class="col-xs-5"></span>
 </div>
