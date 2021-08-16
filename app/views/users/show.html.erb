@@ -1,10 +1,69 @@
-<h2 class="sub-title">
-  <%= @user.name %>
-  <% if @user.id == current_user.id %>
-    <a><%= link_to image_tag('edit', size: '15x15'), edit_user_path %></a>
-  <% else %>
-  <% end %>
-</h2>
+<div>
+  <h4 class="sub-title">
+    <%= @user.name %>
+    <% if @user.id == current_user.id %>
+      <a><%= link_to image_tag('edit', size: '15x15'), edit_user_path %></a>
+    <% else %>
+    <% end %>
+  </h4>
+</div>
+<br><br><br><br><br><br>
+
+<div class="map">
+  <a><%= link_to image_tag('map') %></a>
+
+  <div class="pin1"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("北海道") %></div>
+  <div class="pin2"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("青森県") %></div>
+  <div class="pin3"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("岩手県") %></div>
+  <div class="pin4"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("宮城県") %></div>
+  <div class="pin5"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("秋田県") %></div>
+  <div class="pin6"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("山形県") %></div>
+  <div class="pin7"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("福島県") %></div>
+  <div class="pin8"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("茨城県") %></div>
+  <div class="pin9"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("栃木県") %></div>
+  <div class="pin10"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("群馬県") %></div>
+  <div class="pin11"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("埼玉県") %></div>
+  <div class="pin12"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("千葉県") %></div>
+  <div class="pin13"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("東京都") %></div>
+  <div class="pin14"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("神奈川県") %></div>
+  <div class="pin15"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("新潟県") %></div>
+  <div class="pin16"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("富山県") %></div>
+  <div class="pin17"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("石川県") %></div>
+  <div class="pin18"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("福井県") %></div>
+  <div class="pin19"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("山梨県") %></div>
+  <div class="pin20"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("長野県") %></div>
+  <div class="pin21"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("岐阜県") %></div>
+  <div class="pin22"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("静岡県") %></div>
+  <div class="pin23"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("愛知県") %></div>
+  <div class="pin24"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("三重県") %></div>
+  <div class="pin25"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("滋賀県") %></div>
+  <div class="pin26"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("京都府") %></div>
+  <div class="pin27"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("大阪府") %></div>
+  <div class="pin28"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("兵庫県") %></div>
+  <div class="pin29"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("奈良県") %></div>
+  <div class="pin30"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("和歌山県") %></div>
+  <div class="pin31"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("鳥取県") %></div>
+  <div class="pin32"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("島根県") %></div>
+  <div class="pin33"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("岡山県") %></div>
+  <div class="pin34"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("広島県") %></div>
+  <div class="pin35"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("山口県") %></div>
+  <div class="pin36"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("徳島県") %></div>
+  <div class="pin37"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("香川県") %></div>
+  <div class="pin38"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("愛媛県") %></div>
+  <div class="pin39"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("高知県") %></div>
+  <div class="pin40"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("福岡県") %></div>
+  <div class="pin41"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("佐賀県") %></div>
+  <div class="pin42"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("長崎県") %></div>
+  <div class="pin43"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("熊本県") %></div>
+  <div class="pin44"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("大分県") %></div>
+  <div class="pin45"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("宮崎県") %></div>
+  <div class="pin46"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("鹿児島県") %></div>
+  <div class="pin47"><%= image_tag('pin') if @posts.group(:prefecture).count.include?("沖縄県") %></div>
+</div>
+
+
+
+
 <%= link_to "back", posts_path  %>
 
 <p><%= image_tag(@user.image.url, size: '100x100') %></p>
@@ -20,8 +79,7 @@
   <% else %>
   <% end %>
 </p>
-<a><%= link_to "Logout", session_path(current_user.id), method: :delete %></a>
-<p><%= link_to @posts.prefectures.count %>/48</p>
+<p><%= link_to @posts.group(:prefecture).count.length %>/48</p>
 <p><%= @user.posts.count %> posts</p>
 
 <% @posts.each do |post| %>
