@@ -298,6 +298,7 @@ td.box_image {
   text-align: center;
   vertical-align: top;
   width: 20rem;
+  padding-left: 5rem;
 }
 
 td.box_text {
@@ -346,10 +347,29 @@ td.box_text {
 
 .text {
   text-align: right;
-  width: 20rem;
+  vertical-align: middle;
+  width: 15rem;
   height: 4rem;
   padding: 1rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.text2 {
+  text-align: left;
+  vertical-align: middle;
+  width: 30rem;
+  height: 5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.text_content {
+  text-align: right;
+  vertical-align: middle;
+  width: 15rem;
+  height: 10rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .post_field {
@@ -362,17 +382,30 @@ td.box_text {
 }
 
 .tag_field {
-  width: 50rem;
-  height: 4rem;
+  text-align: left;
+  width: 30rem;
+  height: 5rem;
   padding: 1rem;
-  margin-bottom: 2.5rem;
+  word-wrap: break-word;
 }
 
 .content_field {
+  text-align: left;
+  font-size: 1rem;
   width: 50rem;
   height: 10rem;
   padding: 1rem;
   margin-bottom: 2.5rem;
+}
+
+.content_field2 {
+  text-align: left;
+  font-size: 10px;
+  width: 30rem;
+  height: 10rem;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+  word-wrap: break-word;
 }
 
 select, option {
@@ -381,7 +414,6 @@ select, option {
   padding: 1rem;
   margin-bottom: 2.5rem;
 }
-
 
 // ログイン
 .login_link {

@@ -17,6 +17,7 @@ class FavoritesController < ApplicationController
     @posts = Post.where(id: @favorites.map(&:post_id))
     @posts = @posts.search_prefecture(params[:prefecture]) if params[:prefecture].present? && params[:prefecture] != "都道府県"
     @posts = @posts.search_spotname(params[:spotname]) if params[:spotname].present?
+    @posts = @posts.joins(:tags).where(tags: { id: params[:tag_id] }) if params[:tag_id].present?
     @favorites = Favorite.where(post_id: @posts.map(&:id), user_id: current_user.id).order('updated_at DESC')
 
     # [1, 2, 3].each do |a|
