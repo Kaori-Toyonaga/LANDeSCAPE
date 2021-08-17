@@ -11,7 +11,7 @@
             <p>
               <span><%= form.hidden_field :image_cache %></span>
               <span><%= image_tag(@post.image.url) if @post.image && @post.image.url %></span>
-            </P>
+            </p>
           </td>
 
           <td class="box_text">
@@ -19,7 +19,7 @@
               <span><%= form.label :spotname, 'Spot :', class: "text" %></span>
               <span><%= form.hidden_field :spotname %></span>
               <span><%= @post.spotname %></span>
-            </P>
+            </p>
             <p>
               <span><%= form.label :prefecture, 'Area :', class: "text" %></span>
               <span><%= form.hidden_field :prefecture %></span>
@@ -29,7 +29,7 @@
               <span><%= form.label :address, 'Address :', class: "text" %></span>
               <span><%= form.hidden_field :address %></span>
               <span><%= @post.address %></span>
-            </P>
+            </p>
             <!-- <p>
               <span><%#= form.label :latitude, 'latitude :', class: "text" %></span>
               <span><%#= form.hidden_field :latitude %></span>
@@ -44,18 +44,19 @@
               <span><%= form.label :url, 'Map URL :', class: "text" %></span>
               <span><%= form.hidden_field :url %></span>
               <span><%= @post.url %></span>
-            </P>
+            </p>
             <p>
               <span><%= form.label :date, 'Date :', class: "text" %></span>
               <span><%= form.hidden_field :date %></span>
               <span><%= @post.date %></span>
-            </P>
+            </p>
             <p>
               <span><%= form.label :content, 'content :', class: "text" %></span>
               <span><%= form.hidden_field :content %></span>
               <span><%= @post.content %></span>
-            </td>
-          </tr>
+            <p>
+          </td>
+        </tr>
        </table>
     </div>
   </div>
@@ -63,9 +64,10 @@
 <br><br>
 
 <div class="row">
-  <span class="col-xs-5"></span>
+  <span class="col-xs-4"></span>
   <span class="col-xs-1"><%= form.submit "create", class: "btn"  %></span>
+  <span class="col-xs-2"></span>
   <span class="col-xs-1"><%= form.submit "back", name: 'back', class: "btn" %></span>
-  <span class="col-xs-5"></span>
+  <span class="col-xs-4"></span>
 </div>
 <% end %>
