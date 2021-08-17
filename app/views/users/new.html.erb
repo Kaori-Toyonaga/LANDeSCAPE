@@ -21,12 +21,13 @@
     <a><%= f.password_field :password, :placeholder => "Password", class: "text_field" %></a>
     <a><%= f.password_field :password_confirmation, :placeholder => "Password again", class: "text_field" %></a>
 
-    <br><br><br>
+    <br><br>
     <div class="row">
-      <span class="col-xs-5"></span>
+      <span class="col-xs-4"></span>
       <span class="col-xs-1"><%= f.submit "Create", class: "btn" %></span>
+      <span class="col-xs-2"></span>
       <span class="col-xs-1"><%= link_to 'Back', new_session_path, class: "menu" %></span
-      <span class="col-xs-5"></span>
+      <span class="col-xs-4"></span>
     </div>
   <% end %>
 

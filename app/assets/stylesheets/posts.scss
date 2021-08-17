@@ -1,11 +1,13 @@
 // 全体
 html {
+  min-height: 100vh;
   position: relative;
   width:100%;
   text-align:center;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10rem;
+  padding-bottom: 120px;
+  box-sizing: border-box;
 }
 
 body {
@@ -133,9 +135,8 @@ footer {
   background-color:#000000;
   padding: 20px 0 10px 0;
   color: white;
-  margin: auto;
   font-size: 12px;
-  position: fixed;
+  position: absolute;
   bottom: 0px;
 }
 
@@ -222,8 +223,8 @@ li {
 }
 
 // テーブル関係
-table, td, th {
-  border-bottom: 1px solid black;
+table {
+  border-bottom: 2px solid black;
 }
 
 th {

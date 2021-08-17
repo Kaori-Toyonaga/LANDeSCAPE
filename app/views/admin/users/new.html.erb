@@ -25,10 +25,11 @@
   <p><%= f.label :admin %> <%= f.check_box :admin %></p>
   <br>
   <div class="row">
-    <span class="col-xs-5"></span>
+    <span class="col-xs-4"></span>
     <span class="col-xs-1"><%= f.submit "Create", class: "btn" %></span>
+    <span class="col-xs-2"></span>
     <span class="col-xs-1"><%= link_to 'Back', admin_users_path(current_user.id), class: "menu" %></span>
-    <span class="col-xs-5"></span>
+    <span class="col-xs-4"></span>
   </div>
 <% end %>
 
