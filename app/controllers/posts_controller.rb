@@ -47,6 +47,10 @@ class PostsController < ApplicationController
   end
 
   def update
+    unless params[:post][:tag_ids]
+      @post.tag_on_posts.delete_all
+    end
+
     if @post.update(post_params)
       redirect_to posts_path, notice: "更新しました!"
     else
