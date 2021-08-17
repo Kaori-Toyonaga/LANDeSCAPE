@@ -1,16 +1,27 @@
-<h4>New Tag</h4>
+<h4 class="sub-title">New Tags</h4>
 <p><%= notice %></p>
-<%= link_to 'Tags', tags_path %>
 
 <%= form_with(model: @tag, local: true) do |form| %>
 
-  <p>
-    <span><%= form.label :title, 'title :' %></span>
-    <span><%= form.text_field :title %></span>
-  </p>
-
-  <p>
-    <span><%= form.submit "Create", name: 'back' %></span>
-    <span><%= link_to "Back", posts_path %></span>
-  </p>
+<div class="container-fluid"><font size="2">
+  <div class="top">
+  <br><br>
+    <div class="row">
+      <table>
+        <p>
+          <span><%= form.label :title, 'title :' %></span>
+          <span><%= form.text_field :title, class: "text_field" %></span>
+        </p>
+      </table>
+    </div>
+    <div class="row">
+      <span class="col-xs-4"></span>
+      <span class="col-xs-1"><%= form.submit "Create", name: 'back', class: "btn" %></span>
+      <span class="col-xs-2"></span>
+      <span class="col-xs-1"><%= link_to "Back", tags_path, class: "menu" %></span>
+      <span class="col-xs-4"></span>
+    </div>
+    <br><br>
+  </div>
+</div>
 <% end %>

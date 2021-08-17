@@ -1,30 +1,42 @@
-<h4>Users</h4>
+<h4 class="sub-title">Users</h4>
 
-<br>
-<table>
-  <tr>
-    <th><%= t('user.id') %></th>
-    <th></th>
-    <th><%= t('user.name') %></th>
-    <th><%= t('user.admin') %></th>
-  </tr>
+<div class="container-fluid"><font size="2">
+  <div class="top">
+    <div class="row">
+      <table>
+        <tr>
+          <th class="box_1">ID</th>
+          <th class="box_2"></th>
+          <th class="box_3">User Name</th>
+          <th class="box_2">Admin?</th>
+          <th class="box_1"></th>
+          <th class="box_1"></th>
+        </tr>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.id %></td>
-    <td><%= link_to image_tag(user.image.url, size: '50x50'), admin_user_path(user) if user.image && user.image.url %><td>
-    <td><%= user.name %></td>
-    <%= form_with(model: [:admin, user], local: true) do |f| %>
-      <td><%= f.hidden_field :admin %></td>
-      <td><%= f.check_box :admin %></td>
-    <% end %>
-    <td>
-      <a><%= link_to image_tag('edit', size: '25x25'), edit_admin_user_path(user) %></a>
-      <a><%= link_to image_tag('delete', size: '25x25'), admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' } %></a>
-    </td>
-  </tr>
-<% end %>
-</table>
-<br>
-<br>
-<button><%= link_to '新規ユーザー作成', new_admin_user_path %></button>
+      <% @users.each do |user| %>
+        <tr>
+          <td class="box_1"><%= user.id %></td>
+          <td class="box_2"><%= link_to image_tag(user.image.url, size: '50x50'), admin_user_path(user) if user.image && user.image.url %></td>
+          <td class="box_3"><%= user.name %></td>
+          <td class="box_2">
+            <%= form_with(model: [:admin, user], local: true) do |f| %>
+              <%= f.hidden_field :admin %><%= f.check_box :admin %>
+            <% end %>
+          </td>
+          <td class="box_1"><%= link_to image_tag('edit', size: '25x25'), edit_admin_user_path(user) %></td>
+          <td class="box_1"><%= link_to image_tag('delete', size: '25x25'), admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        </tr>
+      <% end %>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+  <div class="row">
+    <span class="col-xs-4"></span>
+    <span class="col-xs-1"><%= link_to 'Create', new_admin_user_path, class: "menu" %></span>
+    <span class="col-xs-2"></span>
+    <span class="col-xs-1"><%= link_to 'Back', posts_path, class: "menu" %></span>
+    <span class="col-xs-4"></span>
+  </div>

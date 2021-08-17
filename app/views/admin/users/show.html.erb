@@ -1,23 +1,53 @@
-<h2>
-  <a><%= @user.name %></a>
-  <a><%= link_to image_tag('edit', size: '15x15'), edit_user_path %></a>
-</h2>
+<h4 class="sub-title"><%= @user.name %></h4>
+<div class="icon_edit">
+  <% if @user.id == current_user.id %>
+　  <a><%= link_to image_tag('edit', size: '25x25'), edit_user_path %><a>
+  <% end %>
+</div>
 
-<p><%= image_tag(@user.image.url, size: '100x100') %></p>
-<P><span>〇〇</span>  <span>●●</span></p>
-<P>
-  <span>follower</span>
-  <span>follow</span>
-  <%= link_to image_tag('clip_on', size: '25x25'), favorites_path %>
+<p>
+  <a class="icon_top"><%= image_tag(@user.image.url, size: '200x200') %></a>
 </p>
-<a><%= link_to "Logout", session_path(current_user.id), method: :delete %></a>
-<p>〇〇/48</p>
-<p><%= @user.posts.count %> posts</p>
 
-<% @user.posts.each do |post| %>
-  <p>
-    <span><%= link_to image_tag(post.image.url), post_path(post.id) %></span>
-  </p>
-  <p><%= post.spotname %></p>
-  <p><%= post.prefecture %><%= post.address %></p>
-<% end %>
+<table class="follow_box">
+  <tr>
+    <td class="follow_link"><%= link_to @user.followers.count, followers_user_path(@user.id) %></td>
+    <td class="follow_link"><%= link_to @user.following.count, following_user_path(@user.id) %></td>
+  </tr>
+  <tr>
+    <td class="follow">follower</td>
+    <td class="follow">follow</td>
+  </tr>
+  <tr>
+    <td class="count_link"><%= @user.posts.count %></td>
+    <td class="post_count">posts</td>
+  </tr>
+</table>
+
+<table  class="count_box">
+  <tr>
+    <td class="follow_link"><%= @posts.group(:prefecture).count.length %></td>
+    <td class="post_count"> / 48</td>
+  </tr>
+</table>
+
+<p class="favorite">
+  <% if @user.id == current_user.id %>
+    <%= link_to image_tag('clip_on', size: '48x48'), favorites_path %>
+  <% else %>
+  <% end %>
+</p>
+
+<div class="row">
+  <% @user.posts.each do |post| %>
+    <div class="col-md-4">
+      <div>
+        <p><%= link_to image_tag(post.image.url, size: '200x200'), post_path(post.id) %></p>
+        <p><%= post.spotname %></p>
+        <p><%= post.prefecture %><p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<p id="blank"></p>

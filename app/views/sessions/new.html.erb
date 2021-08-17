@@ -1,6 +1,14 @@
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-  <%= f.email_field :email, :placeholder => "E-mail" %>
-  <%= f.password_field :password, :placeholder => "Password" %>
-  <p><%= f.submit "Go ▶▶▶" %></p>
-  <p><%= link_to "Create account", new_user_path %></p>
-<% end %>
+<div class="container-fluid"><font size="2">
+  <div class="top">
+  <br><br><br><br><br><br><br><br><br><br>
+
+    <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+      <a><%= f.email_field :email, :placeholder => "E-mail", class: "text_field" %></a>
+      <a><%= f.password_field :password, :placeholder => "Password", class: "text_field" %></a>
+      <br><br><br>
+      <p><%= f.submit "G o ▶▶▶" , class: "btn" %></p>
+      <br><br><br><br>
+      <p><%= link_to "Create account", new_user_path, class: "login_link" %></p>
+    <% end %>
+  </div>
+</div>

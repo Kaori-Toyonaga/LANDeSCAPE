@@ -1,30 +1,71 @@
-<%= form_with(model:@post, url: posts_path, local:true) do |form| %>
-<%= form.submit "create", class: "btn_basic" %>
-<%= form.submit "back", name: 'back' %>
 
-  <div class="post_card">
-    <%= form.hidden_field :image %>
-    <%= form.hidden_field :spotname %>
-    <%= form.hidden_field :prefecture %>
-    <%= form.hidden_field :address %>
-    <%= form.hidden_field :latitude %>
-    <%= form.hidden_field :longitude %>
-    <%= form.hidden_field :url %>
-    <%= form.hidden_field :date %>
-    <%= form.hidden_field :content %>
+<div class="container-fluid"><font size="2">
+  <div class="top">
+    <br><br><br><br><br>
 
-    <p><%= image_tag(@post.image.url) if @post.image && @post.image.url %></P>
-    <p><%= form.hidden_field :image_cache %></P>
-    <p>
-      <%= @post.spotname %>
-      <%= @post.prefecture %>
-    </P>
-    <p><%= @post.address %></P>
-    <p><%= @post.latitude %></P>
-    <p><%= @post.longitude %></P>
-    <p><%= @post.url %></P>
-    <p><%= @post.date %></P>
-    <p><%= @post.content %></P>
+    <%= form_with(model:@post, url: posts_path, local:true) do |form| %>
+    <div class="row">
+      <table>
+        <tr>
+          <td class="box_image">
+            <p>
+              <span><%= form.hidden_field :image_cache %></span>
+              <span><%= image_tag(@post.image.url) if @post.image && @post.image.url %></span>
+            </P>
+          </td>
 
+          <td class="box_text">
+            <p>
+              <span><%= form.label :spotname, 'Spot :', class: "text" %></span>
+              <span><%= form.hidden_field :spotname %></span>
+              <span><%= @post.spotname %></span>
+            </P>
+            <p>
+              <span><%= form.label :prefecture, 'Area :', class: "text" %></span>
+              <span><%= form.hidden_field :prefecture %></span>
+              <span><%= @post.prefecture %></span>
+            </P>
+            <p>
+              <span><%= form.label :address, 'Address :', class: "text" %></span>
+              <span><%= form.hidden_field :address %></span>
+              <span><%= @post.address %></span>
+            </P>
+            <!-- <p>
+              <span><%#= form.label :latitude, 'latitude :', class: "text" %></span>
+              <span><%#= form.hidden_field :latitude %></span>
+              <span><#%= @post.latitude %></span>
+            </P>
+            <p>
+              <span><%#= form.label :longitude, 'longitude :', class: "text" %></span>
+              <span><%#= form.hidden_field :longitude %></span>
+              <span><%#= @post.longitude %></span>
+            </P> -->
+            <p>
+              <span><%= form.label :url, 'Map URL :', class: "text" %></span>
+              <span><%= form.hidden_field :url %></span>
+              <span><%= @post.url %></span>
+            </P>
+            <p>
+              <span><%= form.label :date, 'Date :', class: "text" %></span>
+              <span><%= form.hidden_field :date %></span>
+              <span><%= @post.date %></span>
+            </P>
+            <p>
+              <span><%= form.label :content, 'content :', class: "text" %></span>
+              <span><%= form.hidden_field :content %></span>
+              <span><%= @post.content %></span>
+            </td>
+          </tr>
+       </table>
+    </div>
   </div>
+</div>
+<br><br>
+
+<div class="row">
+  <span class="col-xs-5"></span>
+  <span class="col-xs-1"><%= form.submit "create", class: "btn"  %></span>
+  <span class="col-xs-1"><%= form.submit "back", name: 'back', class: "btn" %></span>
+  <span class="col-xs-5"></span>
+</div>
 <% end %>

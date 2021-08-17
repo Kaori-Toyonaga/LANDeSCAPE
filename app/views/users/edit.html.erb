@@ -1,24 +1,43 @@
-<h4>Edit User</h4>
+<h4 class="sub-title">Edit User</h4>
 
 <%= form_with(model: @user, local: true) do |f| %>
-  <p>
-    <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
-    <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %>
-  </p>
 
-  <p>
-    <span><%= f.label :name, 'User Name :' %></span>
-    <span><%= f.text_field :name %></span>
-  </P>
-  <p>
-    <span><%= f.label :email, 'Email :' %></span>
-    <span><%= f.text_field :email %></span>
-  </P>
-  <p>
-    <span><%= f.label :password, 'Password :' %></span>
-    <span><%= f.text_field :password %></span>
-  </p>
-<br>
-  <p><%= f.submit "Edit" %></p>
+<div class="container-fluid"><font size="2">
+  <div class="top">
+  <br><br><br><br><br><br><br><br>
+    <div class="row">
+      <table>
+        <tr>
+          <td class="box_image">
+            <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+            <%= f.file_field :image %>
+            <%= f.hidden_field :image_cache %>
+          </td>
+
+          <td class="box_text">
+            <p>
+              <span><%= f.label :name, 'User Name :', class: "text" %></span>
+              <span><%= f.text_field :name, class: "text_field" %></span>
+            </p>
+            <p>
+              <span><%= f.label :email, 'Email :', class: "text" %></span>
+              <span><%= f.text_field :email, class: "text_field" %></span>
+            </p>
+            <p>
+              <span><%= f.label :password, 'Password :', class: "text" %></span>
+              <span><%= f.text_field :password, class: "text_field" %></span>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<br> <br>
+<div class="row">
+  <span class="col-xs-5"></span>
+  <span class="col-xs-1"><%= f.submit "Edit", class: "btn" %></span>
+  <span class="col-xs-1"><%= link_to 'Back', user_path(current_user), class: "menu" %></span>
+  <span class="col-xs-5"></span>
+</div>
 <% end %>

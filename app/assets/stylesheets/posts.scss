@@ -1,3 +1,759 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// 全体
+html {
+  min-height: 100vh;
+  position: relative;
+  width:100%;
+  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+#blank {
+  padding-top: 20px;
+  clear: left;
+}
+
+.row {
+  text-align: center;
+  width: 980px;
+  height: auto;
+  margin: auto;
+  padding-top: 10rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+// ヘッダー
+.search {
+  position: fixed;
+  top: 120px;
+  left: 20px;
+  text-align: center;
+  width: 100%;
+  height: 70px;
+  margin: auto;
+  // float: left;
+}
+
+header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 70px;
+  margin: auto;
+  background-color:#FFF;
+}
+
+.logo {
+  position: fixed;
+  top: 1rem;
+  left: 0rem;
+  float: left;
+}
+
+.menu1 {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  float: right;
+
+  text-align: center;
+  height:40px;
+  width: 100px;
+  background-color:#000000;
+  color: #fff;
+  text-decoration: none;
+  font-family: arial;
+  display: block;
+  border-radius: 4px;
+  padding-top: 10px;
+}
+
+.menu2 {
+  position: fixed;
+  top: 1rem;
+  right: 12rem;
+  float: right;
+
+  text-align: center;
+  height:40px;
+  width: 100px;
+  background-color:#000000;
+  color: #fff;
+  text-decoration: none;
+  font-family: arial;
+  display: block;
+  border-radius: 4px;
+  padding-top: 10px;
+}
+
+.home {
+  position: fixed;
+  top: 1rem;
+  right: 12rem;
+  float: right;
+}
+
+.pin {
+  position: fixed;
+  top: 1rem;
+  right: 17rem;
+  float: right;
+}
+
+.user {
+  position: fixed;
+  top: 1rem;
+  right: 22rem;
+  float: right;
+}
+
+.admin {
+  position: fixed;
+  top: 1rem;
+  right: 27rem;
+  float: right;
+}
+
+// フッダー
+// .footerFixed{
+//     min-height: 100vh;
+//     position: relative;
+//     padding-bottom: 0px;
+//     box-sizing: border-box;
+// }
+
+footer {
+  text-align: center;
+  width: 100%;
+  background-color:#000000;
+  padding: 20px 0 10px 0;
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0px;
+}
+
+// content
+li {
+  list-style: none;
+}
+
+#error_explanation {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: 8rem;
+}
+
+.favorite {
+  position: fixed;
+  top: 6.5rem;
+  right: 1rem;
+  float: right;
+}
+
+.icon_edit {
+  float: left;
+  position: fixed;
+  top: 31rem;
+  left: 200px;
+}
+
+.icon_top {
+  float: left;
+  position: fixed;
+  top: 13rem;
+  left: 1rem;
+}
+
+.menu {
+  text-align: center;
+  height:40px;
+  width: 100px;
+  background-color:#000000;
+  color: #fff;
+  text-decoration: none;
+  font-family: arial;
+  display: block;
+  border-radius: 4px;
+  padding-top: 10px;
+}
+
+.btn {
+  text-decoration: none;
+  text-align: center;
+  width: 100px;
+  height: 4rem;
+  padding: 1rem;
+  margin-left: 5px;
+  color: #FFF;
+  background: #000000;
+  }
+
+// 全体
+.sub-title {
+  text-decoration: none;
+  text-align: left;
+  position: fixed;
+  top: 6rem;
+  font-size: 3rem;
+  font-weight: bolder;
+  font-family: arial;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  clear: left;
+}
+
+.sub-title a {
+  color: #000000;
+}
+
+.container-fluid {
+  margin:0 auto;
+  text-align: center;
+  padding-top: 10rem;
+  border: solid 0px;
+}
+
+// テーブル関係
+table {
+  border-bottom: 2px solid black;
+}
+
+th {
+  height: 3rem;
+  background: #000000;
+  color: #FFF;
+}
+
+table {
+  margin: auto;
+  height: auto;
+  table-layout: fixed;
+　width: 100%;
+}
+
+table.follow_box {
+  float: left;
+  position: fixed;
+  top: 35rem;
+  left: 1rem;
+  border: solid 0px;
+}
+
+table.count_box {
+  float: left;
+  position: absolute;
+  top: 60rem;
+  right: 1rem;
+  border: solid 0px;
+}
+
+td.follow_link {
+  font-size: 3rem;
+  font-family: arial;
+  font-weight: bolder;
+  border: solid 0px;
+}
+
+td.follow {
+  text-align: center;
+  vertical-align: middle;
+  width: 100px;
+  height: 2rem;
+  font-size: 1.5rem;
+  font-family: arial;
+  padding: 3px;
+  border: solid 0px;
+}
+
+td.count_link {
+  text-align: right;
+  font-size: 3rem;
+  font-family: arial;
+  font-weight: bolder;
+  border: solid 0px;
+}
+
+td.post_count {
+  text-align: left;
+  vertical-align: bottom;
+  width: 100px;
+  height: 2rem;
+  font-size: 1.5rem;
+  font-family: arial;
+  padding: 3px;
+  padding-left: 5px;
+  border: solid 0px;
+}
+
+td.box_image {
+  text-align: center;
+  vertical-align: top;
+  width: 20rem;
+  padding-left: 5rem;
+}
+
+td.box_text {
+  text-align: left;
+  font-size: 1.5rem;
+  padding-right: 5rem;
+}
+
+.box_1 {
+  height: auto;
+  width: 10rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.box_2 {
+  height: auto;
+  width: 20rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.box_3 {
+  height: auto;
+  width: 30rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+}
+
+.box_3 a {
+  color: #000000;
+}
+
+// 登録関連
+.text_field {
+  border-radius: 4px;
+  border: 1px solid #666666;
+  width: 20rem;
+  height: 4rem;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.text {
+  text-align: right;
+  vertical-align: middle;
+  width: 15rem;
+  height: 4rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.text2 {
+  text-align: left;
+  vertical-align: middle;
+  width: 30rem;
+  height: 5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.text_content {
+  text-align: right;
+  vertical-align: middle;
+  width: 15rem;
+  height: 10rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.post_field {
+  border-radius: 4px;
+  border: 1px solid #666666;
+  width: 30rem;
+  height: 4rem;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.tag_field {
+  text-align: left;
+  width: 30rem;
+  height: 5rem;
+  padding: 1rem;
+  word-wrap: break-word;
+}
+
+.content_field {
+  text-align: left;
+  font-size: 1rem;
+  width: 50rem;
+  height: 10rem;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.content_field2 {
+  text-align: left;
+  font-size: 10px;
+  width: 30rem;
+  height: 10rem;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+  word-wrap: break-word;
+}
+
+select, option {
+  width: 12rem;
+  height: 4rem;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+// ログイン
+.login_link {
+  text-decoration: none;
+  text-align: center;
+  width: 15rem;
+  height: 4rem;
+  padding: 1rem;
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  border: 0px
+}
+
+
+// ピンマップ
+.maps {
+  position: relative;
+}
+
+.pin1 {
+  float: left;
+  position: absolute;
+    top: 23rem;
+    left: 50rem;
+}
+
+.pin2 {
+  float: left;
+  position: absolute;
+    top: 17rem;
+    left: 103rem;
+}
+
+.pin3 {
+  float: left;
+  position: absolute;
+    top: 23rem;
+    left: 105rem;
+}
+
+.pin4 {
+  float: left;
+  position: absolute;
+    top: 30rem;
+    left: 101rem;
+}
+
+.pin5 {
+  float: left;
+  position: absolute;
+    top: 20rem;
+    left: 100rem;
+}
+
+.pin6 {
+  float: left;
+  position: absolute;
+    top: 29rem;
+    left: 98rem;
+}
+
+.pin7 {
+  float: left;
+  position: absolute;
+    top: 35rem;
+    left: 98rem;
+}
+
+.pin8 {
+  float: left;
+  position: absolute;
+    top: 41rem;
+    left: 97rem;
+}
+
+.pin9 {
+  float: left;
+  position: absolute;
+    top: 39rem;
+    left: 95rem;
+}
+
+.pin10 {
+  float: left;
+  position: absolute;
+    top: 39.5rem;
+    left: 91rem;
+}
+
+.pin11 {
+  float: left;
+  position: absolute;
+    top: 43rem;
+    left: 92rem;
+}
+
+.pin12 {
+  float: left;
+  position: absolute;
+    top: 46rem;
+    left: 95rem;
+}
+
+.pin13 {
+  float: left;
+  position: absolute;
+    top: 44rem;
+    left: 92rem;
+}
+
+.pin14 {
+  float: left;
+  position: absolute;
+    top: 46rem;
+    left: 91rem;
+}
+
+.pin15 {
+  float: left;
+  position: absolute;
+    top: 35rem;
+    left: 91rem;
+}
+
+.pin16 {
+  float: left;
+  position: absolute;
+    top: 37rem;
+    left: 82.5rem;
+}
+
+.pin17 {
+  float: left;
+  position: absolute;
+    top: 37rem;
+    left: 79.5rem;
+}
+
+.pin18 {
+  float: left;
+  position: absolute;
+    top: 39.5rem;
+    left: 77.5rem;
+}
+.pin19 {
+  float: left;
+  position: absolute;
+    top: 44rem;
+    left: 88.5rem;
+}
+
+.pin20 {
+  float: left;
+  position: absolute;
+    top: 40rem;
+    left: 86rem;
+}
+
+.pin21 {
+  float: left;
+  position: absolute;
+    top: 42rem;
+    left: 81rem;
+}
+
+.pin22 {
+  float: left;
+  position: absolute;
+    top: 47rem;
+    left: 85rem;
+}
+
+.pin23 {
+  float: left;
+  position: absolute;
+    top: 46rem;
+    left: 81.5rem;
+}
+
+.pin24 {
+  float: left;
+  position: absolute;
+    top: 48rem;
+    left: 76.5rem;
+}
+.pin25 {
+  float: left;
+  position: absolute;
+    top: 44rem;
+    left: 76.5rem;
+}
+
+.pin26 {
+  float: left;
+  position: absolute;
+    top: 43rem;
+    left: 73.5rem;
+}
+
+.pin27 {
+  float: left;
+  position: absolute;
+    top: 46rem;
+    left: 72rem;
+}
+
+.pin28 {
+  float: left;
+  position: absolute;
+    top: 43.5rem;
+    left: 70rem;
+}
+
+.pin29 {
+  float: left;
+  position: absolute;
+    top: 48rem;
+    left: 73.5rem;
+}
+
+.pin30 {
+  float: left;
+  position: absolute;
+    top: 50rem;
+    left: 71rem;
+}
+.pin31 {
+  float: left;
+  position: absolute;
+    top: 39.5rem;
+    left: 66rem;
+}
+
+.pin32 {
+  float: left;
+  position: absolute;
+    top: 40.5rem;
+    left: 58rem;
+}
+
+.pin33 {
+  float: left;
+  position: absolute;
+    top: 43rem;
+    left: 65rem;
+}
+
+.pin34 {
+  float: left;
+  position: absolute;
+    top: 43.5rem;
+    left: 60rem;
+}
+
+.pin35 {
+  float: left;
+  position: absolute;
+    top: 43.5rem;
+    left: 53rem;
+}
+
+.pin36 {
+  float: left;
+  position: absolute;
+    top: 49rem;
+    left: 66rem;
+}
+.pin37 {
+  float: left;
+  position: absolute;
+    top: 46.5rem;
+    left: 65rem;
+}
+
+.pin38 {
+  float: left;
+  position: absolute;
+    top: 48rem;
+    left: 59rem;
+}
+
+.pin39 {
+  float: left;
+  position: absolute;
+    top: 49.5rem;
+    left: 61rem;
+}
+
+.pin40 {
+  float: left;
+  position: absolute;
+    top: 46rem;
+    left: 48.5rem;
+}
+
+.pin41 {
+  float: left;
+  position: absolute;
+    top: 46.5rem;
+    left: 45rem;
+}
+
+.pin42 {
+  float: left;
+  position: absolute;
+    top: 49rem;
+    left: 43.5rem;
+}
+.pin43 {
+  float: left;
+  position: absolute;
+    top: 51rem;
+    left: 47.5rem;
+}
+
+.pin44 {
+  float: left;
+  position: absolute;
+    top: 49rem;
+    left: 51rem;
+}
+
+.pin45 {
+  float: left;
+  position: absolute;
+    top: 54rem;
+    left: 49.5rem;
+}
+
+.pin46 {
+  float: left;
+  position: absolute;
+    top: 55.5rem;
+    left: 44.5rem;
+}
+
+.pin47 {
+  float: left;
+  position: absolute;
+    top: 56.5rem;
+    left: 98rem;
+}

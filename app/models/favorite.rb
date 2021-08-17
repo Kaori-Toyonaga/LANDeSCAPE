@@ -15,7 +15,9 @@ class Favorite < ApplicationRecord
     熊本県: 43, 大分県: 44, 宮崎県: 45, 鹿児島県: 46, 沖縄県: 47
   }
 
-  scope :search_spotname, -> (spotname) { where("spotname LIKE ?", "%#{spotname}%") }
-  scope :search_prefecture, -> (prefecture) { where(prefecture: prefecture) }
+  # scope :search_spotname, -> (spotname) { where("spotname LIKE ?", "%#{spotname}%") }
+  # scope :search_prefecture, -> (prefecture) { where(prefecture: prefecture) }
+  # scope :search_spotname, ->  post_id { joins(:spotname).where("spotname LIKE ?", "%#{spotname}%") }
+  # scope :search_prefecture, -> post_id { joins(:prefecture).merge(Post.search_prefecture post_id) }
 
 end

@@ -1,24 +1,37 @@
-<h4>Tags</h4>
-<%= link_to 'New Tag', new_tag_path %>
+<h4 class="sub-title">Tags</h4>
 
-<table>
-  <div>
-    <% @tags.each do |tag| %>
-      <tr>
-        <td>
-          <span><%= tag.title %></span>
-        </td>
+<div class="container-fluid">
+  <br><br>
+    <table>
+        <tr>
+          <th class="box_3">Title</th>
+          <th class="box_1"> </th>
+          <th class="box_1"> </th>
+        </tr>
 
-        <td>
-          <% if current_user.admin? %>
-            <a><%= link_to image_tag('edit', size: '25x25'), edit_tag_path(tag) %></a>
-            <a><%= link_to image_tag('delete', size: '25x25'), tag, method: :delete, data: { confirm: '本当に削除しますか?' } %></a>
-          <% else %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
+        <% @tags.each do |tag| %>
+
+        <tr>
+          <td class="box_3">
+            <span><%= tag.title %></span>
+          </td>
+          <td class="box_1">
+            <% if current_user.admin? %>
+              <a><%= link_to image_tag('edit', size: '25x25'), edit_tag_path(tag) %></a>
+          </td>
+          <td class="box_1">
+              <a><%= link_to image_tag('delete', size: '25x25'), tag, method: :delete, data: { confirm: '本当に削除しますか?' } %></a>
+            <% else %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <div class="row">
+    <span class="col-xs-4"></span>
+    <span class="col-xs-1"><%= link_to "New", new_tag_path, class: "menu" %></span>
+    <span class="col-xs-2"></span>
+    <span class="col-xs-1"><%= link_to 'Back', posts_path, class: "menu" %></span>
+    <span class="col-xs-4"></span>
   </div>
-</table>
-
-<p><%= link_to "Back", posts_path %></p>
+</div>

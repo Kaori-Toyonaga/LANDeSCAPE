@@ -1,23 +1,43 @@
-<h4>Edit User Record</h4>
+<h4 class="sub-title">Edit User Record</h4>
 
 <%= form_with(model: [:admin, @user], local: true) do |f| %>
-  <p>
-    <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
-  </p>
 
-  <p>
-    <span><%= f.label :name, 'User Name :' %></span>
-    <span><%= f.text_field :name %></span>
-  </P>
-  <p>
-    <span><%= f.label :email, 'Email :' %></span>
-    <span><%= f.text_field :email %></span>
-  </P>
-  <p>
-    <span><%= f.label :password, 'Password :' %></span>
-    <span><%= f.text_field :password %></span>
-  </p>
-  <p><%= f.label :admin, 'Admin :' %> <%= f.check_box :admin %></p>
-<br>
-  <p><%= f.submit "Edit" %> <%= link_to 'Back', admin_users_path(@user) %></p>
+<div class="container-fluid"><font size="2">
+  <div class="top">
+    <div class="row">
+      <table>
+        <tr>
+          <td class="box_image">
+            <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+          </td>
+          <td class="box_text">
+            <p>
+              <span><%= f.label :name, 'User Name :', class: "text" %></span>
+              <span><%= f.text_field :name, class: "text_field" %></span>
+            </p>
+            <p>
+              <span><%= f.label :email, 'Email :', class: "text" %></span>
+              <span><%= f.text_field :email, class: "text_field" %></span>
+            </p>
+            <p>
+              <span><%= f.label :password, 'Password :', class: "text" %></span>
+              <span><%= f.text_field :password, class: "text_field" %></span>
+            </p>
+            <p>
+              <span><%= f.label :admin, 'Admin :', class: "text" %></span>
+              <span><%= f.check_box :admin, class: "text_field" %></span>
+           </p>
+         </td>
+       </tr>
+      </table>
+    </div>
+    <div class="row">
+      <span class="col-xs-4"></span>
+      <span class="col-xs-1"><%= f.submit "Edit", class: "btn" %> </span>
+      <span class="col-xs-2"></span>
+      <span class="col-xs-1"><%= link_to 'Back', admin_users_path(@user), class: "menu" %></span>
+      <span class="col-xs-4"></span>
+    </div>
+  </div>
+</div>
 <% end %>

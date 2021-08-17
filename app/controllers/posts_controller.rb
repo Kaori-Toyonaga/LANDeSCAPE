@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :set_tags, only: [:index]
+  before_action :set_tags, only: [:index, :edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -47,6 +47,10 @@ class PostsController < ApplicationController
   end
 
   def update
+    unless params[:post][:tag_ids]
+      @post.tag_on_posts.delete_all
+    end
+
     if @post.update(post_params)
       redirect_to posts_path, notice: "更新しました!"
     else
@@ -66,7 +70,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :image_cache, :spotname, :prefecture, :address, :latitude, :longitude, :url, :date, :content, :user_id, tag_ids: [] )
+    params.require(:post).permit(:image, :image_cache, :spotname, :prefecture, :address, :latitude, :longitude, :url, :date, :content, :user_id, { tag_ids: [] } )
   end
 
   def set_post
