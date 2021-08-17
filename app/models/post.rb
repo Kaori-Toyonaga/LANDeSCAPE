@@ -4,13 +4,15 @@ class Post < ApplicationRecord
     validates :spotname
     validates :prefecture
     validates :address
+    # validates :longitude
+    # validates :latitude
   end
 
   validates :content, length: { maximum: 200 }
 
   belongs_to :user
   has_many :favorites, dependent: :destroy
-  has_many :favorite_users, through: :favorites, source: :user
+  has_many :favorite_users, through: :favnporites, source: :user
 
   has_many :tags_posts, dependent: :destroy#, foreign_key:'tag_id'
   has_many :tags, through: :tags_posts, source: :tag
