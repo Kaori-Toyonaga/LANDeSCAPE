@@ -12,11 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
-<<<<<<< HEAD
 //= require turbolinks
-=======
-// require turbolinks
->>>>>>> 8dd6a6e59962daa2b86e95a696d360f2ead5c808
 //= require jquery/dist/jquery.js
 //= require bootstrap/dist/js/bootstrap.min
 //= require underscore
