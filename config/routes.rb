@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'sessions#new'
-
   get 'relationships/create'
   get 'relationships/destroy'
+
+  root to: 'sessions#new'
 
   resources :posts do
     collection do
