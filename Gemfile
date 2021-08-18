@@ -18,7 +18,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'dotenv-rails'
 end
 
 group :development do
@@ -44,3 +43,4 @@ gem 'gmaps4rails'
 gem 'gon'
 gem 'faker', '~> 2.1.0'
 gem 'bootstrap-sass', '3.3.6'
+gem 'dotenv-rails'
