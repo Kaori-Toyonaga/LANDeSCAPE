@@ -1,5 +1,6 @@
 {
   "name": "landescape",
+  "license": "UNLICENSED",
   "private": true,
   "dependencies": {
     "bootstrap": "3",
