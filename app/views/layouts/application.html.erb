@@ -22,11 +22,10 @@
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
 
-    <a class="logo"><%= image_tag('Title.png') %></a>
-
       <% if logged_in? %>
+        <span class="logo"><%= link_to image_tag('Title.png'), posts_path %></span>
         <span><%= link_to "Logout", session_path(current_user.id), method: :delete, class: "menu1" %></span>
-        <span><%= link_to image_tag('home', size: '48x48'), posts_path, class: "home" %></span>
+        <span><%= link_to image_tag('clip_off', size: '48x48'), favorites_path, class: "clip" %></span>
         <span><%= link_to image_tag('pin_icon', size: '48x48'), new_post_path, class: "pin" %></span>
         <span><%= link_to image_tag('user', size: '48x48'), users_path, class: "user" %></span>
         <% if current_user.admin? %>
@@ -34,6 +33,7 @@
         <% else %>
         <% end %>
       <% else %>
+        <span class="logo"><%= image_tag('Title.png') %></span>
         <span><%= link_to "Sign up", new_user_path, class: "menu1" %></span>
         <span><%= link_to "Login", new_session_path, class: "menu2" %></span>
       <% end %>

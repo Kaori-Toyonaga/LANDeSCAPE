@@ -88,13 +88,6 @@
   </tr>
 </table>
 
-<p class="favorite">
-  <% if @user.id == current_user.id %>
-    <%= link_to image_tag('clip_on', size: '48x48'), favorites_path %>
-  <% else %>
-  <% end %>
-</p>
-
 <div class="row">
   <% @posts.each do |post| %>
     <div class="col-md-4">
