@@ -16,14 +16,6 @@
       <div>
         <p><%= link_to image_tag(post.image.url, size: '200x200'), post_path(post.id) %></p>
         <p>
-          <%# unless post.user_id == current_user.id %>
-          <%# @favorite = current_user.favorites.find_by(post_id: post.id) %>
-            <%# if @favorite.present? %>
-              <%#= link_to image_tag('clip_on', size: '15x15'), favorite_path(id: @favorite.id), method: :delete %>
-            <%# else %>
-              <%#= link_to image_tag('clip_off', size: '15x15'), favorites_path(post_id: post.id), method: :post %>
-            <%# end %>
-          <%# end %>
           <%= post.spotname %>
         </p>
         <p><%= post.prefecture %><p>
