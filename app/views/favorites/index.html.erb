@@ -6,7 +6,7 @@
     <%= form.select :prefecture, Favorite.prefectures.keys %>
     <%= form.text_field :spotname, :placeholder => "スポット名で検索…", class: "text_field" %>
     <%= form.select("tag_id", Tag.pluck(:title, :id), { include_blank: true }) %>
-    <%= form.submit 'Search', title: nil, class: "btn" %> <%= link_to image_tag('back', size: '48x48'), favorites_path  %>
+    <%= form.submit 'Search', title: nil, class: "btn" %> <%= link_to image_tag('clear.png', size: '48x48'), favorites_path  %>
   <% end %>
 </div>
 
