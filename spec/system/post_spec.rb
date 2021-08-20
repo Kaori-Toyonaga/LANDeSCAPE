@@ -1,8 +1,8 @@
 require 'rails_helper'
 RSpec.describe '投稿機能', type: :system do
 
-describe 'CRUD機能' do
-  context '新規投稿した場合' do
+# describe 'CRUD機能' do
+  # context '新規投稿した場合' do
     # it '新規投稿ができる(画像がアップロードできる)' do
     #   visit new_user_path
     #   expect(new_user_path).to eq new_user_path
@@ -42,48 +42,48 @@ describe 'CRUD機能' do
     #   expect(page).to have_content 'タグ1'
     # end
 
-    # it '投稿が編集できる' do
-    #   visit new_user_path
-    #   expect(new_user_path).to eq new_user_path
-    #   fill_in 'user[name]',with: 'user'
-    #   fill_in 'user[email]',with: 'user001@user.com'
-    #   fill_in 'user[password]',with: '00000000​'
-    #   fill_in 'user[password_confirmation]',with: '00000000​'
-    #   click_on 'Create'
-    #
-      visit new_post_path
-      post = FactoryBot.create(:post)
-      click_on 'Create'
-      visit posts_path
-      visit post_path(post)
-      click_on '編集'
-      post = FactoryBot.create(:post, spotname: 'spot2')
-      click_on 'Create'
-      expect(page).to have_content '更新しました'
-    end
-    #
-    it '投稿が削除できる' do
-      visit new_user_path
-      expect(new_user_path).to eq new_user_path
-      fill_in 'user[name]',with: 'user'
-      fill_in 'user[email]',with: 'user001@user.com'
-      fill_in 'user[password]',with: '00000000​'
-      fill_in 'user[password_confirmation]',with: '00000000​'
-      click_on 'Create'
-
-      visit new_post_path
-      post = FactoryBot.create(:post)
-      click_on 'Create'
-      visit posts_path
-
-      click_on 'user'
-      visit post_path(post)
-      click_on '削除', match: :first
-      expect(page).to have_content '削除しました'
-    end
-  end
-end
-
+  #   it '投稿が編集できる' do
+  #     visit new_user_path
+  #     expect(new_user_path).to eq new_user_path
+  #     fill_in 'user[name]',with: 'user'
+  #     fill_in 'user[email]',with: 'user001@user.com'
+  #     fill_in 'user[password]',with: '00000000​'
+  #     fill_in 'user[password_confirmation]',with: '00000000​'
+  #     click_on 'Create'
+  #
+  #     visit new_post_path
+  #     post = FactoryBot.create(:post)
+  #     click_on 'Create'
+  #     visit posts_path
+  #     visit post_path(post)
+  #     page.first(".edit").click
+  #     post = FactoryBot.create(:post, spotname: 'spot2')
+  #     click_on 'Create'
+  #     expect(page).to have_content '更新しました'
+  #   end
+  #
+  #   it '投稿が削除できる' do
+  #     visit new_user_path
+  #     expect(new_user_path).to eq new_user_path
+  #     fill_in 'user[name]',with: 'user'
+  #     fill_in 'user[email]',with: 'user001@user.com'
+  #     fill_in 'user[password]',with: '00000000​'
+  #     fill_in 'user[password_confirmation]',with: '00000000​'
+  #     click_on 'Create'
+  #
+  #     visit new_post_path
+  #     post = FactoryBot.create(:post)
+  #     click_on 'Create'
+  #     visit posts_path
+  #
+  #     click_link 'user'
+  #     visit post_path(post)
+  #     click_link 'delete', match: :first
+  #     expect(page).to have_content '削除しました'
+  #   end
+  # end
+# end
+# end
 # describe '詳細表示機能' do
 #    context '任意の投稿詳細画面に遷移した場合' do
 #      it '該当投稿の内容が表示される' do
@@ -100,52 +100,75 @@ end
 #        expect(page).to have_content "のpost"
 #      end
 #
-#      it 'お気に入り登録ができる' do
-#        visit new_user_path
-#        expect(new_user_path).to eq new_user_path
-#        fill_in 'user[name]',with: 'user'
-#        fill_in 'user[email]',with: 'user001@user.com'
-#        fill_in 'user[password]',with: '00000000​'
-#        fill_in 'user[password_confirmation]',with: '00000000​'
-#        click_on 'Create'
-#
-#        post = FactoryBot.create(:post)
-#        visit post_path(post.id)
-#        click_on 'お気に入り'
-#        expect(page).to have_content 'クリップへ保存しました'
-#      end
-#    end
-# end
+   #   it 'お気に入り登録ができる' do
+   #     visit new_user_path
+   #     expect(new_user_path).to eq new_user_path
+   #     fill_in 'user[name]',with: 'user'
+   #     fill_in 'user[email]',with: 'user001@user.com'
+   #     fill_in 'user[password]',with: '00000000​'
+   #     fill_in 'user[password_confirmation]',with: '00000000​'
+   #     click_on 'Create'
+   #
+   #     post = FactoryBot.create(:post)
+   #     visit post_path(post.id)
+   #     click_link 'clip'
+   #     expect(page).to have_content 'クリップへ保存しました'
+   #   end
+   # end
 
-describe 'フォロー機能' do
-   context 'ユーザー一覧に遷移した場合' do
-     it 'フォローができる' do
-       visit new_user_path
-       fill_in 'user[name]',with: 'user'
-       fill_in 'user[email]',with: 'user001@user.com'
-       fill_in 'user[password]',with: '00000000​'
-       fill_in 'user[password_confirmation]',with: '00000000​'
-       click_on 'Create'
-       click_on 'Logout'
+  describe '検索機能' do
+    context 'スポット名であいまい検索をした場合' do
+      it "検索キーワードを含むスポット名で絞り込まれる" do
+        visit new_post_path
+        post = FactoryBot.create(:post)
+        post = FactoryBot.create(:second_post)
+        visit posts_path
+        fill_in 'spotname', with: 'spot1'
+        click_on '検索'
+        expect(page).to have_content 'spot1'
+      end
+    end
 
-       visit new_user_path
-       fill_in 'user[name]',with: 'user2'
-       fill_in 'user[email]',with: 'user002@user.com'
-       fill_in 'user[password]',with: '00000002​'
-       fill_in 'user[password_confirmation]',with: '00000002​'
-       click_on 'Create'
-       click_on 'Logout'
+    context '都道府県検索をした場合' do
+      it "都道府県に完全一致する投稿が絞り込まれる" do
+        visit new_post_path
+        post = FactoryBot.create(:post)
+        post = FactoryBot.create(:second_post)
+        visit posts_path
+        select '東京都', from: 'prefecture'
+        click_on 'Search'
+        expect(page).to have_content '東京都'
+        expect(page).to_not have_content '沖縄県'
+      end
+    end
 
-       visit new_session_path
-       fill_in 'session[email]',with: 'user002@user.com'
-       fill_in 'session[password]',with: '00000002​'
-       click_on 'G o ▶▶▶'
+    context 'タグ検索をした場合' do
+      it "タグに完全一致するタスクが絞り込まれる" do
+        visit new_user_path
+        expect(new_user_path).to eq new_user_path
+        fill_in 'user[name]',with: 'user'
+        fill_in 'user[email]',with: 'user001@user.com'
+        fill_in 'user[password]',with: '00000000​'
+        fill_in 'user[password_confirmation]',with: '00000000​'
+        click_on 'Create'
 
-       visit users_path
-       click_on 'check'
-       expect(page).to have_content '×'
-     end
-   end
+        visit new_tag_path
+        tag = FactoryBot.create(:tag, title: 'タグ1')
+        find('input[type="submit"]').click
+        visit tags_path
+        expect(page).to have_content 'タグ1'
+
+        visit new_post_path
+        post = FactoryBot.create(:post)
+        post = FactoryBot.create(:second_post)
+        check 'タグ1'
+        click_on 'Create'
+
+        visit posts_path
+        select 'タグ1'
+        click_on 'Search'
+        expect(page).to have_content '沖縄県'
+      end
+    end
+  end
 end
-
-# end
