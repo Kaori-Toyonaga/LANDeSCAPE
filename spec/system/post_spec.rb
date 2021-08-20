@@ -1,8 +1,8 @@
 require 'rails_helper'
 RSpec.describe '投稿機能', type: :system do
 
-# describe 'CRUD機能' do
-  # context '新規投稿した場合' do
+describe 'CRUD機能' do
+  context '新規投稿した場合' do
     # it '新規投稿ができる(画像がアップロードできる)' do
     #   visit new_user_path
     #   expect(new_user_path).to eq new_user_path
@@ -42,46 +42,46 @@ RSpec.describe '投稿機能', type: :system do
     #   expect(page).to have_content 'タグ1'
     # end
 
-  #   it '投稿が編集できる' do
-  #     visit new_user_path
-  #     expect(new_user_path).to eq new_user_path
-  #     fill_in 'user[name]',with: 'user'
-  #     fill_in 'user[email]',with: 'user001@user.com'
-  #     fill_in 'user[password]',with: '00000000​'
-  #     fill_in 'user[password_confirmation]',with: '00000000​'
-  #     click_on 'Create'
-  #
-  #     visit new_post_path
-  #     post = FactoryBot.create(:post)
-  #     click_on 'Create'
-  #     visit posts_path
-  #     visit post_path(post)
-  #     page.first(".edit").click
-  #     post = FactoryBot.create(:post, spotname: 'spot2')
-  #     click_on 'Create'
-  #     expect(page).to have_content '更新しました'
-  #   end
-  #
-  #   it '投稿が削除できる' do
-  #     visit new_user_path
-  #     expect(new_user_path).to eq new_user_path
-  #     fill_in 'user[name]',with: 'user'
-  #     fill_in 'user[email]',with: 'user001@user.com'
-  #     fill_in 'user[password]',with: '00000000​'
-  #     fill_in 'user[password_confirmation]',with: '00000000​'
-  #     click_on 'Create'
-  #
-  #     visit new_post_path
-  #     post = FactoryBot.create(:post)
-  #     click_on 'Create'
-  #     visit posts_path
-  #
-  #     click_link 'user'
-  #     visit post_path(post)
-  #     click_link 'delete', match: :first
-  #     expect(page).to have_content '削除しました'
-  #   end
-  # end
+    it '投稿が編集できる' do
+      visit new_user_path
+      expect(new_user_path).to eq new_user_path
+      fill_in 'user[name]',with: 'user'
+      fill_in 'user[email]',with: 'user001@user.com'
+      fill_in 'user[password]',with: '00000000​'
+      fill_in 'user[password_confirmation]',with: '00000000​'
+      click_on 'Create'
+
+      visit new_post_path
+      post = FactoryBot.create(:post)
+      click_on 'Create'
+      visit posts_path
+      visit post_path(post)
+      page.first(".edit").click
+      post = FactoryBot.create(:post, spotname: 'spot2')
+      click_on 'Create'
+      expect(page).to have_content '更新しました'
+    end
+
+    it '投稿が削除できる' do
+      visit new_user_path
+      expect(new_user_path).to eq new_user_path
+      fill_in 'user[name]',with: 'user'
+      fill_in 'user[email]',with: 'user001@user.com'
+      fill_in 'user[password]',with: '00000000​'
+      fill_in 'user[password_confirmation]',with: '00000000​'
+      click_on 'Create'
+
+      visit new_post_path
+      post = FactoryBot.create(:post)
+      click_on 'Create'
+      visit posts_path
+
+      click_link 'user'
+      visit post_path(post)
+      click_link 'delete', match: :first
+      expect(page).to have_content '削除しました'
+    end
+  end
 # end
 # end
 # describe '詳細表示機能' do
@@ -100,21 +100,21 @@ RSpec.describe '投稿機能', type: :system do
 #        expect(page).to have_content "のpost"
 #      end
 #
-   #   it 'お気に入り登録ができる' do
-   #     visit new_user_path
-   #     expect(new_user_path).to eq new_user_path
-   #     fill_in 'user[name]',with: 'user'
-   #     fill_in 'user[email]',with: 'user001@user.com'
-   #     fill_in 'user[password]',with: '00000000​'
-   #     fill_in 'user[password_confirmation]',with: '00000000​'
-   #     click_on 'Create'
-   #
-   #     post = FactoryBot.create(:post)
-   #     visit post_path(post.id)
-   #     click_link 'clip'
-   #     expect(page).to have_content 'クリップへ保存しました'
-   #   end
-   # end
+     it 'お気に入り登録ができる' do
+       visit new_user_path
+       expect(new_user_path).to eq new_user_path
+       fill_in 'user[name]',with: 'user'
+       fill_in 'user[email]',with: 'user001@user.com'
+       fill_in 'user[password]',with: '00000000​'
+       fill_in 'user[password_confirmation]',with: '00000000​'
+       click_on 'Create'
+
+       post = FactoryBot.create(:post)
+       visit post_path(post.id)
+       click_link 'clip'
+       expect(page).to have_content 'クリップへ保存しました'
+     end
+   end
 
   describe '検索機能' do
     context 'スポット名であいまい検索をした場合' do
