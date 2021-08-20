@@ -1,4 +1,4 @@
-<h4 class="sub-title"><%= link_to @post.user.name, user_path(@post.user_id) %></h4>
+<h4 class="sub-title"><%= link_to @post.user.name, user_path(@post.user_id) %>のpost</h4>
 <br><br><br><br><br>
 <%= form_with(model:@post, url: posts_path, local:true) do |form| %>
 <div class="row">
@@ -7,16 +7,16 @@
       <td  class="box_image">
         <p>
           <% if @post.user_id == current_user.id %>
-            <span><%= link_to image_tag('edit.png', size: '35x35'), edit_post_path(@post.id) %></span>
-            <span><%= link_to image_tag('delete.png', size: '35x35'), post_path(@post.id), method: :delete ,data: { confirm: '本当に削除しますか？' } %></span>
+            <span><%= link_to image_tag('edit.png', size: '35x35'), edit_post_path(@post.id), class: "edit" %></span>
+            <span><%= link_to image_tag('delete.png', size: '35x35'), post_path(@post.id), method: :delete ,data: { confirm: '本当に削除しますか？' }, class: "delete" %></span>
           <% else %>
           <% end %>
 
           <% unless @post.user_id == current_user.id %>
             <% if @favorite.present? %>
-              <span><%= link_to image_tag('clip_on.png', size: '35x35'), favorite_path(id: @post.id), method: :delete %></span>
+              <span><%= link_to image_tag('clip_on.png', size: '35x35'), favorite_path(id: @post.id), method: :delete, class: "remove" %></span>
             <% else %>
-              <span><%= link_to image_tag('clip.png', size: '35x35'), favorites_path(post_id: @post.id), method: :post %></span>
+              <span><%= link_to image_tag('clip.png', size: '35x35'), favorites_path(post_id: @post.id), method: :post, class: "clip" %></span>
             <% end %>
           <% end %>
         </p>
