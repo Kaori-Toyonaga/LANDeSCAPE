@@ -18,7 +18,7 @@ before do
 
             visit users_path
 
-            find('input[type="submit"]').click, match: :first
+            click_on 'check', match: :first
             expect(@user2.following.count).to eq(1)
             expect(@user1.followers.count).to eq(1)
 
@@ -27,4 +27,5 @@ before do
             expect(@user1.followers.count).to eq(0)
         end
     end
+
 end

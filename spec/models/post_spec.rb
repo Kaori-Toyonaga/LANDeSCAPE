@@ -27,4 +27,63 @@ describe '投稿モデル機能', type: :model do
       end
     end
   end
+
+  describe 'バリデーションのテスト' do
+    context '投稿が空の場合' do
+      it 'バリデーションにひっかる' do
+        FactoryBot.create(:post, spotname: '', prefecture: '', address: '', image: '')
+        expect(post).not_to be_valid
+      end
+    end
+
+    context '写真が空の場合' do
+      it 'バリデーションにひっかかる' do
+        FactoryBot.create(:post, image: '')
+        expect(post).not_to be_valid
+      end
+    end
+
+    context 'スポット名が空の場合' do
+      it 'バリデーションにひっかかる' do
+        FactoryBot.create(:post, spotname: '')
+        expect(post).not_to be_valid
+      end
+    end
+
+    context '都道府県が空の場合' do
+      it 'バリデーションにひっかかる' do
+        FactoryBot.create(:post, prefecture: '')
+        expect(post).not_to be_valid
+      end
+    end
+
+    context 'アドレスが空の場合' do
+      it 'バリデーションにひっかかる' do
+        FactoryBot.create(:post, address: '')
+        expect(post).not_to be_valid
+      end
+    end
+
+    context 'コンテンツが201文字以上の時' do
+      it 'バリデーションにひっかかる' do
+        FactoryBot.create(:post, content: 's' * 201)
+        expect(post).not_to be_valid
+      end
+    end
+
+    context 'スポット名と都道府県に内容が写真付きで投稿されている場合' do
+      it 'バリデーションが通る' do
+        FactoryBot.create(:post)
+        expect(post).to be_valid
+      end
+    end
+
+    context 'コンテンツが200文字以下の時' do
+      it 'バリデーションが通る' do
+        FactoryBot.create(:post, content: 's' * 200)
+        expect(post).to be_valid
+      end
+    end
+  end
+
 end
