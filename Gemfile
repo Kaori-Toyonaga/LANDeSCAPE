@@ -18,6 +18,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -29,8 +31,9 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'spring-commands-rspec'
+  gem 'launchy'
+  gem 'webdrivers'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -44,3 +47,4 @@ gem 'gon'
 gem 'faker', '~> 2.1.0'
 gem 'bootstrap-sass', '3.3.6'
 gem 'dotenv-rails'
+gem 'rails-i18n'
