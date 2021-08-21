@@ -31,27 +31,20 @@ body {
 
 .concept {
   text-align: center;
+  vertical-align: top;
   width: 980px;
   height: auto;
   margin: auto;
-  padding-top: 10rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  color: #FFF;
+  background: #000000;
 }
 
 .concept2 {
-  text-align: center;
-  width: 500px;
-  height: auto;
-  margin: auto;
-  padding-top: 10rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  font-size: 10px;
 }
-td.concept3 {
-  text-align: left;
-  vertical-align: middle;
-}
+
 // ヘッダー
 .search {
   position: fixed;
@@ -155,9 +148,9 @@ header {
 footer {
   text-align: center;
   width: 100%;
-  background-color:#000000;
+  background-color: #fff;
   padding: 20px 0 10px 0;
-  color: white;
+  color: #000000;
   font-size: 12px;
   position: absolute;
   bottom: 0px;
@@ -240,6 +233,10 @@ li {
 
 // テーブル関係
 table {
+  margin: auto;
+  height: auto;
+  table-layout: fixed;
+　width: 100%;
   border-bottom: 2px solid black;
 }
 
@@ -247,13 +244,6 @@ th {
   height: 3rem;
   background: #000000;
   color: #FFF;
-}
-
-table {
-  margin: auto;
-  height: auto;
-  table-layout: fixed;
-　width: 100%;
 }
 
 table.follow_box {

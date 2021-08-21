@@ -18,10 +18,7 @@
   </head>
 
   <header class="headerfixed">
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-
+    <p>
       <% if logged_in? %>
         <span class="logo"><%= link_to image_tag('Title.png'), posts_path %></span>
         <span><%= link_to "Logout", session_path(current_user.id), method: :delete, class: "menu1" %></span>
@@ -37,6 +34,13 @@
         <span><%= link_to "Sign up", new_user_path, class: "menu1" %></span>
         <span><%= link_to "Login", new_session_path, class: "menu2" %></span>
       <% end %>
+    </p>
+    <br>
+　　<p>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+    </p>
 
   </header>
 

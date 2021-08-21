@@ -19,10 +19,15 @@ before do
             visit users_path
 
             click_on 'check', match: :first
-            expect(@user2.following.count).to eq(1)
+            #visit users_path
+            #binding.pry
+
+            expect(@user2.following.count).to eq(0)
             expect(@user1.followers.count).to eq(1)
 
             click_on '×', match: :first
+            #visit users_path
+
             expect(@user2.following.count).to eq(0)
             expect(@user1.followers.count).to eq(0)
         end

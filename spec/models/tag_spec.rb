@@ -4,7 +4,8 @@ RSpec.describe 'バリデーションのテスト', type: :model do
   describe 'tag機能' do
     context 'titleが空の場合' do
       it 'バリデーションにひっかる' do
-        tag = FactoryBot.create(:tag, title: '')
+        tag = FactoryBot.build(:tag, title: '')
+        # tag = Tag.new(title: "")
         expect(tag).not_to be_valid
       end
     end

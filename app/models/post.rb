@@ -4,8 +4,6 @@ class Post < ApplicationRecord
     validates :spotname
     validates :prefecture
     validates :address
-    # validates :longitude
-    # validates :latitude
   end
 
   validates :content, length: { maximum: 200 }
