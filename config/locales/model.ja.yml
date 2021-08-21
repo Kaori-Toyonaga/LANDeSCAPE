@@ -6,6 +6,7 @@ ja:
       user: ユーザー
     attributes:
       post:
+        image: 写真
         spotname: スポット名
         prefecture: 都道府県
         address: 住所

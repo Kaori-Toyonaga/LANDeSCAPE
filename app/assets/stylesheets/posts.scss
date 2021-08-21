@@ -168,6 +168,14 @@ li {
   top: 8rem;
 }
 
+.concept2 {
+  font-size: 10px;
+}
+
+.top_index {
+  margin-top: 10rem;
+}
+
 .icon_edit {
   float: left;
   position: fixed;
@@ -434,13 +442,16 @@ select, option {
   border: 0px
 }
 
-
 // ピンマップ
 .maps {
   position: relative;
+  background-size:contain;
+    width: 100%;
+    height: 100%;
 }
 
 .pin1 {
+  display: block;
   float: left;
   position: absolute;
     top: 23rem;
@@ -448,6 +459,7 @@ select, option {
 }
 
 .pin2 {
+  display: block;
   float: left;
   position: absolute;
     top: 17rem;
@@ -455,6 +467,7 @@ select, option {
 }
 
 .pin3 {
+  display: block;
   float: left;
   position: absolute;
     top: 23rem;

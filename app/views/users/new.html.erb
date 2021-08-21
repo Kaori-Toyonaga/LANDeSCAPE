@@ -17,8 +17,8 @@
 
   <%= form_with(model: @user, local: true) do |f| %>
     <a><%= f.text_field :name, :placeholder => "User name", class: "text_field" %></a>
-    <a><%= f.email_field :email, :placeholder => "E-mail", class: "text_field" %></a>
-    <a><%= f.password_field :password, :placeholder => "Password", class: "text_field" %></a>
+    <a><%= f.email_field :email, :placeholder => "landescape@landescape.com", class: "text_field" %></a>
+    <a><%= f.password_field :password, :placeholder => "8文字以上", class: "text_field" %></a>
     <a><%= f.password_field :password_confirmation, :placeholder => "Password again", class: "text_field" %></a>
 
     <br><br>

@@ -59,7 +59,7 @@ RSpec.describe 'ユーザー機能', type: :system do
         click_on 'Login'
 
         visit admin_users_path
-        click_link 'Create'
+        click_link 'New'
         fill_in 'user[name]',with: 'user2'
         fill_in 'user[email]',with: 'user2@user.com'
         fill_in 'user[password]',with: '11111111'
