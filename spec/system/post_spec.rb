@@ -72,7 +72,7 @@ describe '詳細表示機能' do
 
        post = FactoryBot.create(:post)
        visit post_path(post.id)
-       click_link 'clip'
+       click_link 'clip_on'
        expect(page).to have_content 'クリップへ保存しました'
      end
    end

@@ -14,11 +14,11 @@
 
           <% unless @post.user_id == current_user.id %>
             <% if @favorite.present? %>
-              <!-- <span><%#= link_to image_tag('clip_on.png', size: '35x35'), favorite_path(id: @post.id), method: :delete, class: "remove" %></span> -->
-              <span><%= link_to 'clip', favorite_path(id: @post.id), method: :delete, class: "remove" %></span>
+              <span><%= link_to image_tag('clip_on.png', size: '35x35'), favorite_path(id: @post.id), method: :delete, class: "remove" %></span>
+              <!-- <span><%#= link_to 'clip', favorite_path(id: @post.id), method: :delete, class: "remove" %></span> -->
             <% else %>
-              <!-- <span><%#= link_to image_tag('clip.png', size: '35x35'), favorites_path(post_id: @post.id), method: :post, class: "clip" %></span> -->
-              <span><%= link_to 'clip_off', favorites_path(post_id: @post.id), method: :post, class: "clip" %></span>
+              <span><%= link_to image_tag('clip.png', size: '35x35'), favorites_path(post_id: @post.id), method: :post, class: "clip_on" %></span>
+              <!-- <span><%#= link_to 'clip_off', favorites_path(post_id: @post.id), method: :post, class: "clip_on" %></span> -->
             <% end %>
           <% end %>
         </p>
