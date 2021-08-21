@@ -54,8 +54,8 @@
         <p class="text2"><%= @post.url %></P>
         <p class="text2"><%= @post.date %></P>
         <P class="tag_field">
-          <% @post.tags.each do |tag| %>
-            <span class="badge badge-dark"><%= tag.title %></span>
+          <% @post.tags_posts.each do |tags_post| %>
+            <span class="badge badge-dark"><%= tags_post.tag.title %></span>
           <% end %>
         </P>
         <p class="content_field2"><%= @post.content %></P>

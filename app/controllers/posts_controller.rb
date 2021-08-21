@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :set_tags, only: [:index, :edit, :update, :destroy]
+  before_action :set_tags, only: [:index]
 
   def index
     @posts = Post.all
@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    # binding.irb
     if params[:back]
      render :new
     else
@@ -70,7 +71,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :image_cache, :spotname, :prefecture, :address, :latitude, :longitude, :url, :date, :content, :user_id, { tag_ids: [] } )
+    params.require(:post).permit(:image, :image_cache, :spotname, :prefecture, :address, :latitude, :longitude, :url, :date, :content, :user_id, tag_ids: [] )
   end
 
   def set_post

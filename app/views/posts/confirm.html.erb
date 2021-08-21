@@ -51,6 +51,10 @@
               <span><%= @post.date %></span>
             </p>
             <p>
+              <span><%= form.label :tag, 'Tag :', class: "text" %></span>
+              <span><%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :title, class: "tag_field") %></span>
+            </p>
+            <p>
               <span><%= form.label :content, 'Content :', class: "text" %></span>
               <span><%= form.hidden_field :content %></span>
               <span><%= @post.content %></span>
