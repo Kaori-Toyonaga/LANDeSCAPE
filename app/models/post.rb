@@ -3,11 +3,13 @@ class Post < ApplicationRecord
     validates :image
     validates :spotname
     validates :prefecture
-    validates :address
+    validates :address, format: { with: /.*[市区町村]/ }
   end
 
   validates :content, length: { maximum: 200 }
-  before_validation :url, format: /\A#{URI::regexp(%w(http https))}\z/
+
+  VALID_URL_REGEX = /https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+|\A\z/
+  validates :url, format: { with: VALID_URL_REGEX }
 
   belongs_to :user
   has_many :favorites, dependent: :destroy

@@ -43,9 +43,37 @@ describe '投稿モデル機能', type: :model do
       end
     end
 
+    context '住所が空の場合' do
+      it 'バリデーションにひっかかる' do
+        post = FactoryBot.build(:post, address: '')
+        expect(post).not_to be_valid
+      end
+    end
+
+    context '住所に市区町村ではない文字が入力された場合' do
+      it 'バリデーションにひっかかる' do
+        post = FactoryBot.build(:post, address: 'あああ')
+        expect(post).not_to be_valid
+      end
+    end
+
+    context '写真が空の場合' do
+      it 'バリデーションにひっかかる' do
+        post = FactoryBot.build(:post, image: '')
+        expect(post).not_to be_valid
+      end
+    end
+
     context 'コンテンツが201文字以上の時' do
       it 'バリデーションにひっかかる' do
         post = FactoryBot.build(:post, content: 's' * 201)
+        expect(post).not_to be_valid
+      end
+    end
+
+    context 'URLにURL以外の文字列が入力された時' do
+      it 'バリデーションにひっかかる' do
+        post = FactoryBot.build(:post, url: 'XXXXXX')
         expect(post).not_to be_valid
       end
     end
@@ -57,11 +85,26 @@ describe '投稿モデル機能', type: :model do
       end
     end
 
+    context '住所に市区町村が入力された場合' do
+      it 'バリデーションが通る' do
+        post = FactoryBot.build(:post, address: '中央区日本橋')
+        expect(post).to be_valid
+      end
+    end
+
     context 'コンテンツが200文字以下の時' do
       it 'バリデーションが通る' do
         post = FactoryBot.build(:post, content: 's' * 200)
         expect(post).to be_valid
       end
     end
+
+    context 'URLにURLが入力された時' do
+      it 'バリデーションが通る' do
+        post = FactoryBot.build(:post, url: 'https://goo.gl/maps/jT7tNX7NEvVUiqxK6' * 201)
+        expect(post).to be_valid
+      end
+    end
+
   end
 end

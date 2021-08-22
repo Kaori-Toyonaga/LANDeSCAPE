@@ -24,15 +24,15 @@
       </td>
       <td class="box_text">
         <p>
-          <span><%= form.label :spotname, 'Spot :', class: "text" %></span>
+          <span><%= form.label :spotname, 'スポット名 :', class: "text" %></span>
           <span><%= form.text_field :spotname, :placeholder => "銀閣寺", class: "post_field" %></span>
         </P>
         <p>
-          <span><%= form.label :prefecture, 'Area :', class: "text" %></span>
+          <span><%= form.label :prefecture, '都道府県 :', class: "text" %></span>
           <span><%= form.select :prefecture, Post.prefectures.keys, disabled: "都道府県", class: "post_field" %></span>
         </P>
         <p>
-          <span><%= form.label :address, 'Address :', class: "text" %></span>
+          <span><%= form.label :address, '市区町村 :', class: "text" %></span>
           <span><%= form.text_field :address, :placeholder => "京都府京都市左京区銀閣寺町", class: "post_field" %></span>
         </P>
         <!-- <p>

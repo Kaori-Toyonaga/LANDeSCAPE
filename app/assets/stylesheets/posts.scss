@@ -19,16 +19,6 @@ body {
   clear: left;
 }
 
-.container-fluid {
-  position: relative;//重なる問題
-  margin: auto;
-  text-align: center;
-  padding-bottom: 5rem;
-  margin-top: 10rem;
-  border: solid 0px;
-  z-index:-1;//重なる問題
-}
-
 .row {
   text-align: center;
   width: 980px;
@@ -58,21 +48,17 @@ body {
 // ヘッダー
 .search {
   position: fixed;
-  display: block;
   top: 120px;
   left: 20px;
   text-align: center;
   width: 100%;
   height: 70px;
   margin: auto;
-  z-index:1;//重なる問題
-  background-color:#FFF;
   // float: left;
 }
 
 header {
   position: fixed;
-  display: block;
   top: 0px;
   width: 100%;
   height: 70px;
@@ -85,7 +71,6 @@ header {
   top: 1rem;
   left: 0rem;
   float: left;
-  background-color:#FFF;
 }
 
 .menu1 {
@@ -129,7 +114,6 @@ header {
   top: 1rem;
   right: 12rem;
   float: right;
-  background-color:#FFF;
 }
 
 .pin {
@@ -137,7 +121,6 @@ header {
   top: 1rem;
   right: 17rem;
   float: right;
-  background-color:#FFF;
 }
 
 .user {
@@ -145,7 +128,6 @@ header {
   top: 1rem;
   right: 22rem;
   float: right;
-  background-color:#FFF;
 }
 
 .admin {
@@ -153,7 +135,6 @@ header {
   top: 1rem;
   right: 27rem;
   float: right;
-  background-color:#FFF;
 }
 
 // フッダー
@@ -178,7 +159,6 @@ footer {
 // content
 li {
   list-style: none;
-  background-color:#FFF;
 }
 
 #error_explanation {
@@ -238,13 +218,11 @@ li {
 .sub-title {
   text-decoration: none;
   text-align: left;
-  width: 100%;//重なる問題
   position: fixed;
-    top: 6rem;
+  top: 6rem;
   font-family: arial;
   padding-left: 2rem;
   padding-top: 1rem;
-  background-color:#FFF;
   clear: left;
 }
 
@@ -253,10 +231,16 @@ li {
 }
 
 .second_title {
-  font-weight: bolder;
   font-size: 2.5rem;
+  font-weight: bolder;
 }
 
+.container-fluid {
+  margin:0 auto;
+  text-align: center;
+  padding-top: 10rem;
+  border: solid 0px;
+}
 
 // テーブル関係
 table {
@@ -268,9 +252,27 @@ table {
 }
 
 th {
+  position: sticky;
+  top: 0;
   height: 3rem;
   background: #000000;
   color: #FFF;
+}
+
+.fix{
+  position: sticky;
+  left: 0;
+  color: #FFF;
+  background: #000000;
+  &:before{
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 100%;
+    height: 100%;
+    // border: 1px solid #ccc;
+  }
 }
 
 table.follow_box {
@@ -287,7 +289,6 @@ table.count_box {
   top: 60rem;
   right: 1rem;
   border: solid 0px;
-  z-index:-1;//重なる問題
 }
 
 td.follow_link {
@@ -424,7 +425,6 @@ td.box_text {
 }
 
 .content_field {
-  position: relative;
   text-align: left;
   font-size: 1rem;
   width: 50rem;
@@ -464,10 +464,11 @@ select, option {
 }
 
 // ピンマップ
-.map {
+.maps {
   position: relative;
-  padding-top: 12rem;
-  z-index:-1;//重なる問題
+  background-size:contain;
+    width: 100%;
+    height: 100%;
 }
 
 .pin1 {
