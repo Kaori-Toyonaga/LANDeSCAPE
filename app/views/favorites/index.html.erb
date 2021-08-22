@@ -1,5 +1,7 @@
-<h4 class="sub-title"><%= link_to current_user.name, user_path(current_user) %></h4>
-<br><br><br><br><br><br>
+<div class="sub-title">
+  <p class="second_title"><%= link_to current_user.name, user_path(current_user) %></p>
+  <br><br>
+</div>
 
 <div class="search">
   <%= form_with url: favorites_path, method: :get, local: true do |form| %>
@@ -10,12 +12,16 @@
   <% end %>
 </div>
 
-<div class="row">
-<% @favorites.each do |favorite| %>
-  <div class="col-md-3">
-    <p><%= link_to image_tag(favorite.post.image.url, size: '200x200'), post_path(favorite.post.id) %></p>
-    <p><%= favorite.post.spotname %></p>
-    <p><%= favorite.post.prefecture %></p>
+<div class="container-fluid">
+  <div class="top">
+    <div class="row">
+    <% @favorites.each do |favorite| %>
+      <div class="col-md-3">
+        <p><%= link_to image_tag(favorite.post.image.url, size: '200x200'), post_path(favorite.post.id) %></p>
+        <p><%= favorite.post.spotname %></p>
+        <p><%= favorite.post.prefecture %></p>
+      </div>
+    <% end %>
+    </div>
   </div>
-<% end %>
 </div>

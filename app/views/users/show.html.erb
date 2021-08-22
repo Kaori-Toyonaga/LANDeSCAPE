@@ -1,6 +1,8 @@
-<div>
-  <br><br><br><br><br><br>
-  <h4 class="sub-title"><%= @user.name %></h4>
+<div class="sub-title">
+  <p class="second_title"><%= @user.name %></p>
+  <br>
+</div>
+
     <div class="icon_edit">
       <% if @user.id == current_user.id %>
     　  <a><%= link_to image_tag('edit.png', size: '25x25'), edit_user_path %><a>
@@ -59,9 +61,6 @@
     </div>
     <% end %>
 
-</div>
-<br><br><br><br><br><br>
-
 <p>
   <a class="icon_top"><%= image_tag(@user.image.url, size: '200x200') %></a>
 </p>
@@ -84,20 +83,24 @@
 <table  class="count_box">
   <tr>
     <td class="follow_link"><%= @posts.group(:prefecture).count.length %></td>
-    <td class="post_count"> / 48</td>
+    <td class="post_count"> / 47</td>
   </tr>
 </table>
 
-<div class="row">
-  <% @posts.each do |post| %>
-    <div class="col-md-4">
-      <div>
-        <p><%= link_to image_tag(post.image.url, size: '200x200'), post_path(post.id) %></p>
-        <p><%= post.spotname %></p>
-        <p><%= post.prefecture %><p>
+<div class="container-fluid">
+  <div class="top">
+    <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-md-4">
+        <div>
+          <p><%= link_to image_tag(post.image.url, size: '200x200'), post_path(post.id) %></p>
+          <p><%= post.spotname %></p>
+          <p><%= post.prefecture %><p>
+        </div>
       </div>
+    <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
 
 <p id="blank"></p>

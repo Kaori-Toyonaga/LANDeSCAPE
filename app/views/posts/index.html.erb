@@ -1,25 +1,31 @@
-<h4 class="sub-title"><%= link_to current_user.name, user_path(current_user) %></h4>
-<br><br><br><br><br><br>
+<div class="sub-title">
+  <p class="second_title"><%= link_to current_user.name, user_path(current_user) %></p>
+  <br><br>
 
-<div class="search">
-  <%= form_with url: posts_path, method: :get, local: true do |form| %>
-    <%= form.select :prefecture, Post.prefectures.keys %>
-    <%= form.text_field :spotname, :placeholder => "スポット名で検索…", class: "text_field" %>
-    <%= form.select("tag_id", Tag.pluck(:title, :id), { include_blank: true, selected: 1 }) %>
-    <%= form.submit 'Search', class: "btn" %><%= link_to image_tag('clear.png', size: '48x48'), posts_path  %>
-  <% end %>
+  <div class="search">
+    <%= form_with url: posts_path, method: :get, local: true do |form| %>
+      <%= form.select :prefecture, Post.prefectures.keys %>
+      <%= form.text_field :spotname, :placeholder => "スポット名で検索…", class: "text_field" %>
+      <%= form.select("tag_id", Tag.pluck(:title, :id), { include_blank: true, selected: 1 }) %>
+      <%= form.submit 'Search', class: "btn" %><%= link_to image_tag('clear.png', size: '48x48'), posts_path  %>
+    <% end %>
+  </div>
 </div>
 
-<div class="row">
-  <% @posts.each do |post| %>
-    <div class="col-md-3">
-      <div>
-        <p><%= link_to image_tag(post.image.url, size: '200x200'), post_path(post.id) %></p>
-        <p>
-          <%= post.spotname %>
-        </p>
-        <p><%= post.prefecture %><p>
-      </div>
+<div class="container-fluid">
+  <div class="top">
+    <div class="row">
+      <% @posts.each do |post| %>
+        <div class="col-md-3">
+          <div>
+            <p><%= link_to image_tag(post.image.url, size: '200x200'), post_path(post.id) %></p>
+            <p>
+              <%= post.spotname %>
+            </p>
+            <p><%= post.prefecture %><p>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

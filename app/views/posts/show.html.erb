@@ -1,4 +1,4 @@
-<h4 class="sub-title"><%= link_to @post.user.name, user_path(@post.user_id) %>のpost</h4>
+<p class="second_title"><%= link_to @post.user.name, user_path(@post.user_id) %>のpost</p>
 <br><br><br><br><br>
 <%= form_with(model:@post, url: posts_path, local:true) do |form| %>
 <div class="row">

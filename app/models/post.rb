@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   end
 
   validates :content, length: { maximum: 200 }
+  before_validation :url, format: /\A#{URI::regexp(%w(http https))}\z/
 
   belongs_to :user
   has_many :favorites, dependent: :destroy

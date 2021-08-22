@@ -29,7 +29,7 @@
         </P>
         <p>
           <span><%= form.label :prefecture, 'Area :', class: "text" %></span>
-          <span><%= form.select :prefecture, Post.prefectures.keys, class: "post_field" %></span>
+          <span><%= form.select :prefecture, Post.prefectures.keys, disabled: "都道府県", class: "post_field" %></span>
         </P>
         <p>
           <span><%= form.label :address, 'Address :', class: "text" %></span>
