@@ -36,13 +36,13 @@
       <% end %>
     </p>
     <br><br>
-　　<p>
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "#{key}") %>
-      <% end %>
-    </p>
-
   </header>
+
+  <div>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+  </div>>
 
   <body>
     <%= yield %>

@@ -29,22 +29,6 @@ body {
   padding-right: 1rem;
 }
 
-.concept {
-  text-align: center;
-  vertical-align: top;
-  width: 980px;
-  height: auto;
-  margin: auto;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  color: #FFF;
-  background: #000000;
-}
-
-.concept2 {
-  font-size: 10px;
-}
-
 // ヘッダー
 .search {
   position: fixed;
@@ -372,6 +356,16 @@ td.box_text {
   height: 4rem;
   padding: 1rem;
   margin-bottom: 1rem;
+}
+
+.text_URL {
+  text-align: left;
+  vertical-align: middle;
+  width: 30rem;
+  height: 4rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
 }
 
 .text2 {

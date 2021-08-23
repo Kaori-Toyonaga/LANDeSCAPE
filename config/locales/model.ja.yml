@@ -9,7 +9,7 @@ ja:
         image: 写真
         spotname: スポット名
         prefecture: 都道府県
-        address: 住所
+        address: 市区町村
         content: 内容
       user:
         title: タイトル

@@ -1,44 +1,52 @@
 <div class="container-fluid"><font size="2">
-  <div class="top">
-  <br><br><br><br><br><br><br><br><br><br>
+  <div class="concept">
+    <h2>「Land e Scape」​</h2>
+    <h4>絶景に特化したアプリケーション​</h4>
+    <br><br><br>
+    <p>ある写真を見て、思わず行きたい！そんな時はきっと多いはず。​</p>
+    <br>
+    <p>いろんなサイトやSNSにいろんな場所の投稿はあるけど、、、​</p>
+    <p>「今から行こう！」と思えるほどの情報が多くない。。。​</p>
+    <p>今はいけないけど、ゆとりができたら行きたいな。。​</p>
+    <br>
+    <p>日頃からためてきた行きたい場所が写真でリストになってたら、きっと楽しみも倍になるはず​</p>
+    ​<p>​そんな想いを実現するのがこの「Land e Scape」です。</p>
+  </div>
 
+  <div class="top">
     <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
       <a><%= f.email_field :email, :placeholder => "landescape@landescape.com", class: "text_field" %></a>
       <a><%= f.password_field :password, :placeholder => "Password", class: "text_field" %></a>
-      <br><br><br>
+      <br><br>
       <p><%= f.submit "G o ▶▶▶", class: "btn" %></p>
-      <br><br><br><br>
+      <br><br><br>
       <p><%= link_to "Create account", new_user_path, class: "login_link" %></p>
     <% end %>
   </div>
-<br><br><br><br><br><br>
+<br><br>
 <div class="concept">
-  <h4>「Land e Scape」​</h4>
-  <p>絶景に特化したアプリケーション​</p>
-  <br><br>
+  <br><br><br>
     <div class="concept2">
-      <p>ある写真を見て、思わず行きたい！そんな時はきっと多いはず。​</p>
-      <b>
-      <p>  いろんなサイトやSNSにいろんな場所の投稿はあるけど、、、​</p>
-      <p>  「今から行こう！」と思えるほどの情報が多くない。。。​</p>
-      <p>  今はいけないけど、ゆとりができたら行きたいな。。​</p>
-      <br>
-      <p>日頃からためてきた行きたい場所が写真でリストになってたら、きっと楽しみも倍になるはず​</p>
-      ​<p>​そんな想いを実現するのがこの「Land e Scape」です。</p>
-      <span class="col-xs-4"></span>
-      <span class="col-xs-4"></span>
-      <div>
-        <br>
-        <p>写真で直感的に「行きたい！」と思ったらクリップへ保存。自分の行きたい一覧が作成できます。</p>
-        <p>行きたい！と思ったら、Googleマップで位置を確認。すぐアクセスできます。</p>
-        <p>ペットと行けるかな？駐車場はあるかな？といった現地の情報もタグで検索が可能</p>
-        <p>スポット名はわかるけど、どんなところ？そんな時は検索機能で関連する絶景写真が一覧に。</p>​
-        <p>ここの県、まだ行ったことないよなー。そんな時は都道府県で検索してみて。その土地の絶景がすぐに見つかります。</p>​
-        <p>このユーザーの旅行先はいつも穴場ばかり！要チェックや！フォロー機能で次の旅行先の情報をupdate！</p>​
-        <p>自分はどのくらい全国を制覇したのかな？マイマップ上の訪れた都道府県にマーキング。</p>​
-      </div>
-      <span class="col-xs-4"></span>
     <br>
-    <p>　自分の旅先をマークして、制覇感や次の開拓先へのわくわく感をお楽しみください！</p>​
+    <p>●お気に入り保存●</p>
+    <p>&nbsp;&nbsp;&nbsp写真で直感的に「行きたい！」と思ったらクリップへ保存。自分の行きたい一覧が作成できます。</p>
+    <br>
+    <p>●Google Map連携●</p>
+    <p>&nbsp;&nbsp;&nbsp行きたい！と思ったら、Googleマップで位置を確認。すぐアクセスできます。</p>
+    <br>
+    <p>●検索機能●</p>
+    <p>&nbsp;&nbsp;&nbspタグ検索：&nbspペットと行けるかな？駐車場はあるかな？といった現地の情報もタグで検索が可能</p>
+    <p>&nbsp;&nbsp;&nbsp地名検索：&nbspスポット名はわかるけど、どんなところ？そんな時は検索機能で関連する絶景写真が一覧に。</p>
+    <p>&nbsp;&nbsp;&nbsp県名検索：&nbspここの県、まだ行ったことないよなー。そんな時は都道府県で検索してみて。その土地の絶景がすぐに見つかります。</p>
+    <br>
+    <p>●フォロー●</p>
+    <p>&nbsp;&nbsp;&nbspこのユーザーの旅行先はいつも穴場ばかり！要チェックや！フォロー機能で次の旅行先の情報をupdate！</p>
+    <br>
+    <p>●マイマップ●</p>
+    <p>&nbsp;&nbsp;&nbsp自分はどのくらい全国を制覇したのかな？マイマップ上の訪れた都道府県にマーキング。</p>
+    <br>
   </div>
+  <br>
+  <p>自分の旅先をマークして、制覇感や次の開拓先へのわくわく感をお楽しみください！</p>​
+  <br><br>
 </div>

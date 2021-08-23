@@ -4,7 +4,7 @@
 <div class="row">
   <table>
     <tr>
-      <td  class="box_image">
+      <td class="box_image">
         <p>
           <% if @post.user_id == current_user.id %>
             <span><%= link_to image_tag('edit.png', size: '35x35'), edit_post_path(@post.id), class: "edit" %></span>
@@ -23,45 +23,48 @@
           <% end %>
         </p>
 
-        <p><%= image_tag(@post.image.url) %></P>
-        <br><br>
-        <div id="map" style="width: 300px; height: 200px;">
-          <script>
-            handler = Gmaps.build('Google');
-            handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-              markers = handler.addMarkers(<%= raw @map.to_json %>);
-              handler.bounds.extendWith(markers);
-              handler.fitMapToBounds();
-            });
-          </script>
-        </div>
+        <p><%= image_tag(@post.image.url) %></p>
+        <br>
       </td>
 
       <td>
-        <p><%= form.label :spotname, 'スポット名 :', class: "text" %></P>
-        <p><%= form.label :prefecture, '都道府県 :', class: "text" %></P>
-        <p><%= form.label :address, '市区町村 :', class: "text" %></P>
-        <p><%= form.label :url, 'Map URL :', class: "text" %></P>
-        <p><%= form.label :date, 'Date :', class: "text" %></P>
-        <P><%= form.label :tag, 'Tag :', class: "text" %></P>
-        <p><%= form.label :content, 'content :', class: "text_content" %></P>
+        <p><%= form.label :spotname, 'スポット名 :', class: "text" %></p>
+        <p><%= form.label :prefecture, '都道府県 :', class: "text" %></p>
+        <p><%= form.label :address, '市区町村 :', class: "text" %></p>
+        <p><%= form.label :url, 'Map URL :', class: "text" %></p>
+        <p><%= form.label :date, 'Date :', class: "text" %></p
+        <P><%= form.label :tag, 'Tag :', class: "text" %></p>
+        <p><%= form.label :content, 'content :', class: "text_content" %></p>
       </td>
 
       <td>
-        <p class="text2"><%= @post.spotname %></P>
-        <p class="text2"><%= @post.prefecture %></P>
-        <p class="text2"><%= @post.address %></P>
-        <p class="text2"><%= @post.url %></P>
-        <p class="text2"><%= @post.date %></P>
+        <p class="text2"><%= @post.spotname %></p>
+        <p class="text2"><%= @post.prefecture %></p>
+        <p class="text2"><%= @post.address %></p>
+        <p class="text_URL"><a><%= text_url_to_link(h(@post.url)).html_safe %></a></p>
+        <p class="text2"><%= @post.date %></p>
         <P class="tag_field">
           <% @post.tags_posts.each do |tags_post| %>
             <span class="badge badge-dark"><%= tags_post.tag.title %></span>
           <% end %>
-        </P>
-        <p class="content_field2"><%= @post.content %></P>
+        </p>
+        <p class="content_field2"><%= @post.content %></p>
       </td>
-
     </tr>
+  </table>
+  <table>
+    <br>
+    <div id="map" style="width: 950px; height: 500px;">
+      <script>
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+          markers = handler.addMarkers(<%= raw @map.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          handler.getMap().setZoom(15);
+        });
+      </script>
+    </div>
   </table>
 </div>
 <% end %>
