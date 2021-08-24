@@ -2,9 +2,9 @@
   <p class="second_title"><%= @user.name %>'s Page</p>
 </div>
 <br><br><br><br><br><br>
+    <% if @user.id == current_user.id %>
     <div class="icon_edit">
-      <% if @user.id == current_user.id %>
-    　  <a><%= link_to image_tag('edit.png', size: '25x25'), edit_user_path %><a>
+  　  <a><%= link_to image_tag('edit.png', size: '25x25'), edit_user_path %><a>
     </div>
 
     <div class="map">
@@ -58,6 +58,15 @@
       <div class="pin46"><%= image_tag('pin.png') if @posts.group(:prefecture).count.include?("鹿児島県") %></div>
       <div class="pin47"><%= image_tag('pin.png') if @posts.group(:prefecture).count.include?("沖縄県") %></div>
     </div>
+
+    <table  class="count_box">
+      <tr>
+        <td class="follow_link"><%= @posts.group(:prefecture).count.length %></td>
+        <td class="post_count"> / 47</td>
+      </tr>
+    </table>
+    
+    <% else %>
     <% end %>
 
 <p>
@@ -76,13 +85,6 @@
   <tr>
     <td class="count_link"><%= @user.posts.count %></td>
     <td class="post_count">posts</td>
-  </tr>
-</table>
-
-<table  class="count_box">
-  <tr>
-    <td class="follow_link"><%= @posts.group(:prefecture).count.length %></td>
-    <td class="post_count"> / 47</td>
   </tr>
 </table>
 
