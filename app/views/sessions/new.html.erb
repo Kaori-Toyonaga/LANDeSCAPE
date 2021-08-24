@@ -21,6 +21,7 @@
       <p><%= f.submit "G o ▶▶▶", class: "btn" %></p>
       <br><br><br>
       <p><%= link_to "Create account", new_user_path, class: "login_link" %></p>
+      <%= link_to "Guest Login", guest_login_path, method: :post, class: "login_link" %>
     <% end %>
   </div>
 <br><br>

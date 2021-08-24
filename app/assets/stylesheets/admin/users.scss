@@ -1,3 +1,454 @@
-// Place all the styles related to the admin::users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// 全体
+html {
+  min-height: 100vh;
+  position: relative;
+  width:100%;
+  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+#blank {
+  padding-top: 20px;
+  clear: left;
+}
+
+.row {
+  text-align: center;
+  width: 980px;
+  height: auto;
+  margin: auto;
+  padding-top: 10rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+// ヘッダー
+.search {
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  text-align: center;
+  width: 100%;
+  height: 70px;
+  margin: auto;
+  z-index:1;//重なる問題
+  pointer-events: fill;//重なる問題
+  background-color: #FFF;
+  // float: left;
+}
+
+header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 70px;
+  margin: auto;
+  background-color:#FFF;//重なる問題
+  z-index:1;//重なる問題
+  pointer-events: fill;//重なる問題
+}
+
+.logo {
+  position: fixed;
+  top: 1rem;
+  left: 0rem;
+  float: left;
+}
+
+.menu1 {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  float: right;
+
+  text-align: center;
+  height:40px;
+  width: 100px;
+  background-color:#000000;
+  color: #fff;
+  text-decoration: none;
+  font-family: arial;
+  display: block;
+  border-radius: 4px;
+  padding-top: 10px;
+}
+
+.menu2 {
+  position: fixed;
+  top: 1rem;
+  right: 12rem;
+  float: right;
+
+  text-align: center;
+  height:40px;
+  width: 100px;
+  background-color:#000000;
+  color: #fff;
+  text-decoration: none;
+  font-family: arial;
+  display: block;
+  border-radius: 4px;
+  padding-top: 10px;
+}
+
+.clip {
+  position: fixed;
+  top: 1rem;
+  right: 12rem;
+  float: right;
+}
+
+.pin {
+  position: fixed;
+  top: 1rem;
+  right: 17rem;
+  float: right;
+}
+
+.user {
+  position: fixed;
+  top: 1rem;
+  right: 22rem;
+  float: right;
+}
+
+.admin {
+  position: fixed;
+  top: 1rem;
+  right: 27rem;
+  float: right;
+}
+
+footer {
+  text-align: center;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px 0 10px 0;
+  color: #000000;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0px;
+}
+
+// content
+li {
+  list-style: none;
+}
+
+#error_explanation {
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  top: 6rem;
+  z-index:1;//重なる問題
+  pointer-events: fill;//重なる問題
+  background-color:#FFF;//重なる問題
+}
+
+.concept2 {
+  font-size: 10px;
+}
+
+.top_index {
+  margin-top: 10rem;
+}
+
+.icon_edit {
+  float: left;
+  position: fixed;
+  top: 25rem;
+  left: 200px;
+}
+
+.icon_top {
+  float: left;
+  position: fixed;
+  top: 10rem;
+  left: 1rem;
+}
+
+.menu {
+  text-align: center;
+  height:40px;
+  width: 100px;
+  background-color:#000000;
+  color: #fff;
+  text-decoration: none;
+  font-family: arial;
+  display: block;
+  border-radius: 4px;
+  padding-top: 10px;
+}
+
+.btn {
+  text-decoration: none;
+  text-align: center;
+  width: 100px;
+  height: 4rem;
+  padding: 1rem;
+  margin-left: 5px;
+  color: #FFF;
+  background: #000000;
+  }
+
+// 全体
+.sub-title {
+  text-decoration: none;
+  text-align: left;
+  position: fixed;
+  top: 6rem;
+  width: 100%;//重なる問題
+  font-family: arial;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  z-index:1;//重なる問題
+  pointer-events: fill;//重なる問題
+  background-color: #FFF//重なる問題
+}
+
+.sub-title a {
+  color: #000000;
+}
+
+.second_title {
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+
+.second_title2 {
+  position: fixed;
+  top: 7rem;
+  padding-left: 1rem;
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+
+.container-fluid {
+  margin:0 auto;
+  text-align: center;
+  padding-top: 12rem;
+  border: solid 0px;
+  z-index:0;//重なる問題
+}
+
+// テーブル関係
+table {
+  margin: auto;
+  height: auto;
+  table-layout: fixed;
+　width: 100%;
+  border-bottom: 2px solid black;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  height: 3rem;
+  background: #000000;
+  color: #FFF;
+}
+
+table.follow_box {
+  float: left;
+  position: fixed;
+  top: 29rem;
+  left: 1rem;
+  border: solid 0px;
+}
+
+table.count_box {
+  float: left;
+  position: absolute;
+  top: 60rem;
+  right: 1rem;
+  border: solid 0px;
+}
+
+td.follow_link {
+  font-size: 3rem;
+  font-family: arial;
+  font-weight: bolder;
+  border: solid 0px;
+}
+
+td.follow {
+  text-align: center;
+  vertical-align: middle;
+  width: 100px;
+  height: 2rem;
+  font-size: 1.5rem;
+  font-family: arial;
+  padding: 3px;
+  border: solid 0px;
+}
+
+td.count_link {
+  text-align: right;
+  font-size: 3rem;
+  font-family: arial;
+  font-weight: bolder;
+  border: solid 0px;
+}
+
+td.post_count {
+  text-align: left;
+  vertical-align: bottom;
+  width: 100px;
+  height: 2rem;
+  font-size: 1.5rem;
+  font-family: arial;
+  padding: 3px;
+  padding-left: 5px;
+  border: solid 0px;
+}
+
+td.box_image {
+  text-align: center;
+  vertical-align: top;
+  width: 20rem;
+  padding-left: 5rem;
+}
+
+td.box_text {
+  text-align: left;
+  font-size: 1.5rem;
+  padding-right: 5rem;
+}
+
+.box_1 {
+  height: auto;
+  width: 10rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.box_2 {
+  height: auto;
+  width: 20rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.box_3 {
+  height: auto;
+  width: 30rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+}
+
+.box_3 a {
+  color: #000000;
+}
+
+// 登録関連
+.text_field {
+  border-radius: 4px;
+  border: 1px solid #666666;
+  width: 20rem;
+  height: 4rem;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.text {
+  text-align: right;
+  vertical-align: middle;
+  width: 15rem;
+  height: 4rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.text_URL {
+  text-align: left;
+  vertical-align: middle;
+  width: 30rem;
+  height: 4rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+}
+
+.text2 {
+  text-align: left;
+  vertical-align: middle;
+  width: 30rem;
+  height: 5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.text_content {
+  text-align: right;
+  vertical-align: middle;
+  width: 15rem;
+  height: 10rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.post_field {
+  border-radius: 4px;
+  border: 1px solid #666666;
+  width: 30rem;
+  height: 4rem;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.tag_field {
+  text-align: left;
+  width: 30rem;
+  height: 5rem;
+  padding: 1rem;
+  word-wrap: break-word;
+}
+
+.content_field {
+  text-align: left;
+  font-size: 1rem;
+  width: 50rem;
+  height: 10rem;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.content_field2 {
+  text-align: left;
+  font-size: 10px;
+  width: 30rem;
+  height: 10rem;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+  word-wrap: break-word;
+}
+
+select, option {
+  width: 12rem;
+  height: 4rem;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+// ログイン
+.login_link {
+  text-decoration: none;
+  text-align: center;
+  width: 15rem;
+  height: 4rem;
+  padding: 1rem;
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  border: 0px
+}

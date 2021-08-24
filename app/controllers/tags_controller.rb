@@ -29,7 +29,7 @@ class TagsController < ApplicationController
       if @tag.valid?(:title) && @tag.save
         format.html { redirect_to tags_path, notice: "タグを作成しました。" }
       else
-        flash.now[:alert] = '既に登録済みです。'
+        flash.now[:alert] = 'タグ名が空欄か既に登録済みです。'
         format.html { render :new }
       end
     end

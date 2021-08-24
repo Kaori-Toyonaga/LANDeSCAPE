@@ -1,4 +1,17 @@
-<p class="second_title">Edit User</p>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@user.errors.count, "つ") %>入力に誤りがあります。 </h3>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="sub-title">
+  <p class="second_title2">Edit Users</p>
+</div>
 
 <%= form_with(model: @user, local: true) do |f| %>
 

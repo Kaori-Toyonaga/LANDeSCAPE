@@ -18,6 +18,11 @@
   </head>
 
   <header class="headerfixed">
+    <div>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+    </div>
     <p>
       <% if logged_in? %>
         <span class="logo"><%= link_to image_tag('Title.png'), posts_path %></span>
@@ -37,12 +42,6 @@
     </p>
     <br><br>
   </header>
-
-  <div>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-  </div>>
 
   <body>
     <%= yield %>

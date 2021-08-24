@@ -11,6 +11,13 @@ class Post < ApplicationRecord
   VALID_URL_REGEX = /https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+|\A\z/
   validates :url, format: { with: VALID_URL_REGEX }
 
+  validate :day_after_today
+  def day_after_today
+    unless date == nil
+      errors.add(:date, 'は未来日は入力できません') if date > Date.today
+    end
+  end
+
   belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favnporites, source: :user

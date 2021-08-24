@@ -78,6 +78,13 @@ describe '投稿モデル機能', type: :model do
       end
     end
 
+    context '日付に未来日が入力された時' do
+      it 'バリデーションにひっかかる' do
+        post = FactoryBot.build(:post, date: '2022/01/01')
+        expect(post).not_to be_valid
+      end
+    end
+
     context 'スポット名と都道府県に内容が写真付きで投稿されている場合' do
       it 'バリデーションが通る' do
         post = FactoryBot.build(:post)
@@ -102,6 +109,13 @@ describe '投稿モデル機能', type: :model do
     context 'URLにURLが入力された時' do
       it 'バリデーションが通る' do
         post = FactoryBot.build(:post, url: 'https://goo.gl/maps/jT7tNX7NEvVUiqxK6' * 201)
+        expect(post).to be_valid
+      end
+    end
+
+    context '日付に過去日が入力された時' do
+      it 'バリデーションにひっかかる' do
+        post = FactoryBot.build(:post, date: '2021/01/01')
         expect(post).to be_valid
       end
     end

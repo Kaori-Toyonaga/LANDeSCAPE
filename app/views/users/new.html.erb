@@ -1,6 +1,6 @@
 <% if @user.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+    <h3><%= pluralize(@user.errors.count, "つ") %> 入力に誤りがあります。</h3>
     <ul>
     <% @user.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -9,11 +9,13 @@
   </div>
 <% end %>
 
-<p class="second_title">Create Users</p>
+<div class="sub-title">
+  <p class="second_title2">Create Users</p>
+</div>
 
 <div class="container-fluid"><font size="2">
   <div class="top">
-  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br>
 
   <%= form_with(model: @user, local: true) do |f| %>
     <a><%= f.text_field :name, :placeholder => "User name", class: "text_field" %></a>
