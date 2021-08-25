@@ -2,11 +2,15 @@
   <p class="second_title"><%= @user.name %>'s Page</p>
 </div>
 <br><br><br><br><br><br>
-    <% if @user.id == current_user.id %>
-    <div class="icon_edit">
-  　  <a><%= link_to image_tag('edit.png', size: '25x25'), edit_user_path %><a>
-    </div>
+    <% if @user.email == "guest@exapmle.com" %>
+    <% elsif @user.id != current_user.id %>
+    <% else %>
+      <div class="icon_edit">
+    　  <a><%= link_to image_tag('edit.png', size: '25x25'), edit_user_path %><a>
+      </div>
+    <% end %>
 
+    <% if @user.id == current_user.id %>
     <div class="map">
       <a><%= link_to image_tag('map.png') %></a>
 
@@ -65,7 +69,7 @@
         <td class="post_count"> / 47</td>
       </tr>
     </table>
-    
+
     <% else %>
     <% end %>
 

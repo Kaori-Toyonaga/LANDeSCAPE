@@ -18,7 +18,7 @@ before do
 
             visit users_path
 
-            click_on 'check', match: :first
+            click_on 'follow', match: :first
 
             expect(@user2.following.count).to eq(0)
             expect(@user1.followers.count).to eq(1)
