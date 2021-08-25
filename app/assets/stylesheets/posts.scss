@@ -452,6 +452,20 @@ select, option {
   border: 0px
 }
 
+.guest_link {
+  text-align: center;
+  height:30px;
+  width: 120px;
+  background-color:#fff;
+  color: #000000;
+  text-decoration: none;
+  font-family: arial;
+  display: block;
+  border-radius: 4px;
+  padding-top: 5px;
+  border: solid 1.5px;
+}
+
 // ピンマップ
 .maps {
   position: relative;
