@@ -49,18 +49,18 @@
               <span><%= @post.url %></span>
             </p>
             <p>
-              <span><%= form.label :date, 'Date :', class: "text" %></span>
+              <span><%= form.label :date, '日付 :', class: "text" %></span>
               <span><%= form.hidden_field :date %></span>
               <span><%= @post.date %></span>
             </p>
             <p>
-              <span><%= form.label :tag, 'Tag :', class: "text" %></span>
+              <span><%= form.label :tag, 'タグ :', class: "text" %></span>
               <% @post.tags_posts.each do |tags_post| %>
                 <span class="badge badge-dark"><%= tags_post.tag.title %></span>
               <% end %>
             </p>
             <p>
-              <span><%= form.label :content, 'Content :', class: "text" %></span>
+              <span><%= form.label :content, 'メモ :', class: "text" %></span>
               <span><%= form.hidden_field :content %></span>
               <span><%= @post.content %></span>
             <p>

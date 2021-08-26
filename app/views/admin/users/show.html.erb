@@ -3,11 +3,13 @@
   <br><br>
 </div>
 
-<div class="icon_edit">
-  <% if @user.id == current_user.id %>
+<% if @user.email == "guest@exapmle.com" || @user.email == "admin_guest@exapmle.com" %>
+<% elsif @user.id != current_user.id %>
+<% else %>
+  <div class="icon_edit">
 　  <a><%= link_to image_tag('edit.png', size: '25x25'), edit_user_path %><a>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 <p>
   <a class="icon_top"><%= image_tag(@user.image.url, size: '200x200') %></a>

@@ -2,7 +2,7 @@
   <p class="second_title"><%= @user.name %>'s Page</p>
 </div>
 <br><br><br><br><br><br>
-    <% if @user.email == "guest@exapmle.com" %>
+    <% if @user.email == "guest@exapmle.com" || @user.email == "admin_guest@exapmle.com" %>
     <% elsif @user.id != current_user.id %>
     <% else %>
       <div class="icon_edit">

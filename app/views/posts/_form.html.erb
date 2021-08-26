@@ -48,14 +48,14 @@
           <span><%= form.text_field :url, :placeholder => "Map URL", class: "post_field" %></span>
         </P>
         <p>
-          <span><%= form.label :date, 'Date :', class: "text" %></span>
+          <span><%= form.label :date, '日付 :', class: "text" %></span>
           <span><%= form.date_field :date, class: "post_field" %></span>
         </P>
         <p>
           <span><%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :title, class: "tag_field") %></span>
           <span><%= link_to "New Tag", new_tag_path, class: "menu" %></span>
         </p>
-        <p><%= form.text_area :content, :placeholder => "content（200文字以内）: 例)京都駅から市バス（酪バス）100系統で30分「銀閣寺前」下車、徒歩5分", class: "content_field" %></p>
+        <p><%= form.text_area :content, :placeholder => "メモ（200文字以内）: 例)京都駅から市バス（酪バス）100系統で30分「銀閣寺前」下車、徒歩5分", class: "content_field" %></p>
       </td>
     </tr>
   </table>
