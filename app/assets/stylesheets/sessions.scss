@@ -1,10 +1,14 @@
+.login_top {
+  width: 400px;
+}
+
 .concept {
   vertical-align: top;
   line-height: 12px;
   width: 450px;
   height: auto;
-  margin: auto;
-  margin-left: 15rem;
+  margin-right: 10rem;
+  margin-left: 10rem;
   margin-bottom: 2rem;
   font-size: 14px;
   text-align: center;
@@ -13,8 +17,7 @@
 .concept2 {
   width: 520px;
   height: auto;
-  margin: auto;
-  margin-left: 11rem;
+  margin-left: 6rem;
   margin-bottom: 2rem;
   font-size: 14px;
   text-align: center;
@@ -25,11 +28,9 @@
   line-height: 10px;
   font-size: 10px;
   text-align: left;
-  margin: auto;
   padding-top: 2rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-
   padding-bottom: 2rem;
   border: solid 1.5px;
   box-shadow: 10px 5px 5px #000000;

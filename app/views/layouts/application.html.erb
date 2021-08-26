@@ -27,6 +27,7 @@
       <% if logged_in? %>
         <span class="logo"><%= link_to image_tag('Title.png'), posts_path %></span>
         <span><%= link_to "Logout", session_path(current_user.id), method: :delete, class: "menu1" %></span>
+        <span><%= link_to image_tag('my.png', size: '48x48'), user_path(current_user), class: "my" %></span>
         <span><%= link_to image_tag('clip.png', size: '48x48'), favorites_path, class: "clip" %></span>
         <span><%= link_to image_tag('pin_icon.png', size: '48x48'), new_post_path, class: "pin" %></span>
         <span><%= link_to image_tag('user.png', size: '48x48'), users_path, class: "user" %></span>

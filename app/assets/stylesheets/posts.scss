@@ -98,31 +98,38 @@ header {
   padding-top: 10px;
 }
 
-.clip {
+.my {
   position: fixed;
   top: 1rem;
   right: 12rem;
   float: right;
 }
 
-.pin {
+.clip {
   position: fixed;
   top: 1rem;
   right: 17rem;
   float: right;
 }
 
-.user {
+.pin {
   position: fixed;
   top: 1rem;
   right: 22rem;
   float: right;
 }
 
-.admin {
+.user {
   position: fixed;
   top: 1rem;
   right: 27rem;
+  float: right;
+}
+
+.admin {
+  position: fixed;
+  top: 1rem;
+  right: 32rem;
   float: right;
 }
 
