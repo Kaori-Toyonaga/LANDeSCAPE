@@ -1,12 +1,12 @@
 <div class="sub-title">
-  <p class="second_title2">Tags</p>
+  <p class="second_title2">タグ一覧</p>
 </div>
 
 <div class="container-fluid">
   <% if current_user.admin? %>
     <table>
       <tr>
-        <th class="box_3">Title</th>
+        <th class="box_3">タグ名</th>
         <th class="box_1"> </th>
         <th class="box_1"> </th>
       </tr>
@@ -29,7 +29,7 @@
   <% else %>
     <table>
       <tr>
-        <th class="box_3">Title</th>
+        <th class="box_3">タグ名</th>
       </tr>
 
       <% @tags.each do |tag| %>
@@ -44,9 +44,9 @@
   <% end %>
   <div class="row">
     <span class="col-xs-4"></span>
-    <span class="col-xs-1"><%= link_to "New", new_tag_path, class: "menu" %></span>
+    <span class="col-xs-1"><%= link_to "新規作成", new_tag_path, class: "menu" %></span>
     <span class="col-xs-2"></span>
-    <span class="col-xs-1"><%= link_to 'All Tags', posts_path, class: "menu" %></span>
+    <span class="col-xs-1"><%= link_to 'トップ', posts_path, class: "menu" %></span>
     <span class="col-xs-4"></span>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="sub-title">
-  <p class="second_title"><%= link_to current_user.name, user_path(current_user) %>'s Clips</p>
+  <p class="second_title"><%= link_to current_user.name, user_path(current_user) %>のクリップ一覧</p>
   <br><br>
 </div>
 
@@ -8,7 +8,7 @@
     <%= form.select :prefecture, Favorite.prefectures.keys %>
     <%= form.text_field :spotname, :placeholder => "スポット名で検索…", class: "text_field" %>
     <%= form.select("tag_id", Tag.pluck(:title, :id), { include_blank:  'タグ検索' }) %>
-    <%= form.submit 'Search', title: nil, class: "btn" %> <%= link_to image_tag('clear.png', size: '48x48'), favorites_path  %>
+    <%= form.submit '検索', title: nil, class: "btn" %> <%= link_to image_tag('clear.png', size: '48x48'), favorites_path  %>
   <% end %>
 </div>
 

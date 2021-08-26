@@ -1,5 +1,5 @@
 <div class="sub-title">
-  <p class="second_title">Confirm</p>
+  <p class="second_title">投稿確認</p>
 </div>
 
 <div class="container-fluid"><font size="2">
@@ -44,7 +44,7 @@
               <span><%#= @post.longitude %></span>
             </P> -->
             <p>
-              <span><%= form.label :url, 'Map URL :', class: "text" %></span>
+              <span><%= form.label :url, '地図のURL :', class: "text" %></span>
               <span><%= form.hidden_field :url %></span>
               <span><%= @post.url %></span>
             </p>
@@ -74,9 +74,9 @@
 
 <div class="row">
   <span class="col-xs-4"></span>
-  <span class="col-xs-1"><%= form.submit "create", class: "btn"  %></span>
+  <span class="col-xs-1"><%= form.submit "登録", class: "btn"  %></span>
   <span class="col-xs-2"></span>
-  <span class="col-xs-1"><%= form.submit "back", name: 'back', class: "btn" %></span>
+  <span class="col-xs-1"><%= form.submit "戻る", name: 'back', class: "btn" %></span>
   <span class="col-xs-4"></span>
 </div>
 <% end %>

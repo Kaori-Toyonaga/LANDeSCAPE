@@ -1,5 +1,5 @@
 <div class="sub-title">
-  <p class="second_title2"><%= link_to @post.user.name, user_path(@post.user_id) %>'s Post</p>
+  <p class="second_title2"><%= link_to @post.user.name, user_path(@post.user_id) %>の投稿</p>
 </div>
 
 <br><br><br><br><br>
@@ -34,7 +34,7 @@
         <p><%= form.label :spotname, 'スポット名 :', class: "text" %></p>
         <p><%= form.label :prefecture, '都道府県 :', class: "text" %></p>
         <p><%= form.label :address, '市区町村 :', class: "text" %></p>
-        <p><%= form.label :url, 'Map URL :', class: "text" %></p>
+        <p><%= form.label :url, '地図のURL :', class: "text" %></p>
         <p><%= form.label :date, '日付 :', class: "text" %></p
         <P><%= form.label :tag, 'タグ :', class: "text" %></p>
         <p><%= form.label :content, 'メモ :', class: "text_content" %></p>

@@ -1,5 +1,5 @@
 <div class="sub-title">
-  <p class="second_title2">New Tags</p>
+  <p class="second_title2">タグ作成</p>
 </div>
 
 <%= form_with(model: @tag, local: true) do |form| %>
@@ -8,16 +8,16 @@
   <div class="row">
     <table>
       <p>
-        <span><%= form.label :title, 'title :' %></span>
+        <span><%= form.label :title, 'タグ名 :' %></span>
         <span><%= form.text_field :title, :placeholder => "タグ名を入力", class: "text_field" %></span>
       </p>
     </table>
   </div>
   <div class="row">
     <span class="col-xs-4"></span>
-    <span class="col-xs-1"><%= form.submit "Create", name: 'back', class: "btn" %></span>
+    <span class="col-xs-1"><%= form.submit "登録", name: 'back', class: "btn" %></span>
     <span class="col-xs-2"></span>
-    <span class="col-xs-1"><%= link_to "Back", tags_path, class: "menu" %></span>
+    <span class="col-xs-1"><%= link_to "タグ一覧", tags_path, class: "menu" %></span>
     <span class="col-xs-4"></span>
   </div>
 </div>

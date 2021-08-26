@@ -10,7 +10,7 @@
 <% end %>
 
 <div class="sub-title">
-  <p class="second_title2">Edit Users</p>
+  <p class="second_title2">ユーザー編集</p>
 </div>
 
 <%= form_with(model: [:admin, @user], local: true) do |f| %>
@@ -25,19 +25,19 @@
           </td>
           <td class="box_text">
             <p>
-              <span><%= f.label :name, 'User Name :', class: "text" %></span>
+              <span><%= f.label :name, 'ユーザー名 :', class: "text" %></span>
               <span><%= f.text_field :name, class: "text_field" %></span>
             </p>
             <p>
-              <span><%= f.label :email, 'Email :', class: "text" %></span>
+              <span><%= f.label :email, 'メール :', class: "text" %></span>
               <span><%= f.text_field :email, class: "text_field" %></span>
             </p>
             <p>
-              <span><%= f.label :password, 'Password :', class: "text" %></span>
+              <span><%= f.label :password, 'パスワード :', class: "text" %></span>
               <span><%= f.text_field :password, class: "text_field" %></span>
             </p>
             <p>
-              <span><%= f.label :admin, 'Admin :', class: "text" %></span>
+              <span><%= f.label :admin, '管理権限 :', class: "text" %></span>
               <span><%= f.check_box :admin, class: "text_field" %></span>
            </p>
          </td>
@@ -46,9 +46,9 @@
     </div>
     <div class="row">
       <span class="col-xs-4"></span>
-      <span class="col-xs-1"><%= f.submit "Record", class: "btn" %> </span>
+      <span class="col-xs-1"><%= f.submit "登録", class: "btn" %> </span>
       <span class="col-xs-2"></span>
-      <span class="col-xs-1"><%= link_to 'Back', admin_users_path(@user), class: "menu" %></span>
+      <span class="col-xs-1"><%= link_to '戻る', admin_users_path(@user), class: "menu" %></span>
       <span class="col-xs-4"></span>
     </div>
   </div>

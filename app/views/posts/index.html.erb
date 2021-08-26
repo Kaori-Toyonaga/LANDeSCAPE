@@ -7,7 +7,7 @@
       <%= form.select :prefecture, Post.prefectures.keys %>
       <%= form.text_field :spotname, :placeholder => "スポット名で検索…", class: "text_field" %>
       <%= form.select("tag_id", Tag.pluck(:title, :id), { include_blank: 'タグ検索' }) %>
-      <%= form.submit 'Search', class: "btn" %><%= link_to image_tag('clear.png', size: '48x48'), posts_path  %>
+      <%= form.submit '検索', class: "btn" %><%= link_to image_tag('clear.png', size: '48x48'), posts_path  %>
     <% end %>
   </div>
 </div>

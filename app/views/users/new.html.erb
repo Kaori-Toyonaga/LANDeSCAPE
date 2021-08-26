@@ -10,7 +10,7 @@
 <% end %>
 
 <div class="sub-title">
-  <p class="second_title2">Create Users</p>
+  <p class="second_title2">ユーザー登録</p>
 </div>
 
 <div class="container-fluid"><font size="2">
@@ -18,17 +18,17 @@
   <br><br><br><br><br><br>
 
   <%= form_with(model: @user, local: true) do |f| %>
-    <a><%= f.text_field :name, :placeholder => "User name", class: "text_field" %></a>
+    <a><%= f.text_field :name, :placeholder => "旅　一太郎", class: "text_field" %></a>
     <a><%= f.email_field :email, :placeholder => "landescape@landescape.com", class: "text_field" %></a>
     <a><%= f.password_field :password, :placeholder => "8文字以上", class: "text_field" %></a>
-    <a><%= f.password_field :password_confirmation, :placeholder => "Password again", class: "text_field" %></a>
+    <a><%= f.password_field :password_confirmation, :placeholder => "再度同じパスワードを入力", class: "text_field" %></a>
 
     <br><br>
     <div class="row">
       <span class="col-xs-4"></span>
-      <span class="col-xs-1"><%= f.submit "Create", class: "btn" %></span>
+      <span class="col-xs-1"><%= f.submit "登録", class: "btn" %></span>
       <span class="col-xs-2"></span>
-      <span class="col-xs-1"><%= link_to 'Back', new_session_path, class: "menu" %></span
+      <span class="col-xs-1"><%= link_to '戻る', new_session_path, class: "menu" %></span
       <span class="col-xs-4"></span>
     </div>
   <% end %>

@@ -44,8 +44,8 @@
           <span><%#= form.text_field :longitude %></span>()
         </P> -->
         <p>
-          <span><%= form.label :url, 'Map URL :', class: "text" %></span>
-          <span><%= form.text_field :url, :placeholder => "Map URL", class: "post_field" %></span>
+          <span><%= form.label :url, '地図のURL :', class: "text" %></span>
+          <span><%= form.text_field :url, :placeholder => "https://goo.gl/maps/.......", class: "post_field" %></span>
         </P>
         <p>
           <span><%= form.label :date, '日付 :', class: "text" %></span>
@@ -53,7 +53,7 @@
         </P>
         <p>
           <span><%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :title, class: "tag_field") %></span>
-          <span><%= link_to "New Tag", new_tag_path, class: "menu" %></span>
+          <span><%= link_to "タグ作成", new_tag_path, class: "menu" %></span>
         </p>
         <p><%= form.text_area :content, :placeholder => "メモ（200文字以内）: 例)京都駅から市バス（酪バス）100系統で30分「銀閣寺前」下車、徒歩5分", class: "content_field" %></p>
       </td>
@@ -64,12 +64,12 @@
 <div class="row">
   <span class="col-xs-4"></span>
   <% if current_page?(new_post_path) %>
-    <span class="col-xs-1"><%= form.submit "Create", class: "btn" %></span>
+    <span class="col-xs-1"><%= form.submit "登録", class: "btn" %></span>
   <% else %>
-    <span class="col-xs-1"><%= form.submit "Edit", class: "btn" %></span>
+    <span class="col-xs-1"><%= form.submit "編集", class: "btn" %></span>
   <% end %>
   <span class="col-xs-2"></span>
-  <span class="col-xs-1"><%= link_to "Back", posts_path, class: "menu"  %></span>
+  <span class="col-xs-1"><%= link_to "戻る", posts_path, class: "menu"  %></span>
   <span class="col-xs-4"></span>
 </div>
 <% end %>

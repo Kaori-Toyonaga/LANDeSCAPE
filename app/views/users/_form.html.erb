@@ -4,7 +4,7 @@
       <table>
         <tr>
           <th class="box_2"></th>
-          <th class="box_3"><%= t('user.name') %></th>
+          <th class="box_3">ユーザー名</th>
         </tr>
 
         <% @users.each do |user| %>
@@ -18,4 +18,4 @@
 </div>
 <br><br>
 
-<a><%= link_to 'Back', user_path(current_user), class: "btn" %></a>
+<a><%= link_to '戻る', user_path(current_user), class: "btn" %></a>

@@ -10,7 +10,7 @@ describe 'CRUD機能' do
       fill_in 'user[email]',with: 'user001@user.com'
       fill_in 'user[password]',with: '00000000​'
       fill_in 'user[password_confirmation]',with: '00000000​'
-      click_on 'Create'
+      click_on '登録'
 
       visit new_tag_path
       tag = FactoryBot.create(:tag, title: 'タグ1')
@@ -21,7 +21,7 @@ describe 'CRUD機能' do
       visit new_post_path
       post = FactoryBot.create(:post)
       check 'タグ1'
-      click_on 'Create'
+      click_on '登録'
       visit posts_path
       expect(page).to have_content 'spot'
     end
@@ -33,7 +33,7 @@ describe 'CRUD機能' do
       fill_in 'user[email]',with: 'user001@user.com'
       fill_in 'user[password]',with: '00000000​'
       fill_in 'user[password_confirmation]',with: '00000000​'
-      click_on 'Create'
+      click_on '登録'
 
       visit new_tag_path
       tag = FactoryBot.create(:tag, title: 'タグ1')
@@ -54,11 +54,11 @@ describe '詳細表示機能' do
        fill_in 'user[email]',with: 'user001@user.com'
        fill_in 'user[password]',with: '00000000​'
        fill_in 'user[password_confirmation]',with: '00000000​'
-       click_on 'Create'
+       click_on '登録'
 
        post = FactoryBot.create(:post)
        visit post_path(post.id)
-       expect(page).to have_content "のpost"
+       expect(page).to have_content "の投稿"
      end
 
      it 'お気に入り登録ができる' do
@@ -68,7 +68,7 @@ describe '詳細表示機能' do
        fill_in 'user[email]',with: 'user001@user.com'
        fill_in 'user[password]',with: '00000000​'
        fill_in 'user[password_confirmation]',with: '00000000​'
-       click_on 'Create'
+       click_on '登録'
 
        post = FactoryBot.create(:post)
        visit post_path(post.id)
@@ -87,7 +87,7 @@ describe '詳細表示機能' do
         fill_in 'user[email]',with: 'user001@user.com'
         fill_in 'user[password]',with: '00000000​'
         fill_in 'user[password_confirmation]',with: '00000000​'
-        click_on 'Create'
+        click_on '登録'
 
         visit new_tag_path
         tag = FactoryBot.create(:tag, title: 'タグ1')
@@ -99,11 +99,11 @@ describe '詳細表示機能' do
         post = FactoryBot.create(:post)
         post = FactoryBot.create(:second_post)
         check 'タグ1'
-        click_on 'Create'
+        click_on '登録'
 
         visit posts_path
         select 'タグ1'
-        click_on 'Search'
+        click_on '検索'
         expect(page).to have_content '沖縄県'
       end
     end

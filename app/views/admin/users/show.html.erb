@@ -1,5 +1,5 @@
 <div class="sub-title">
-  <p class="second_title"><%= @user.name %>'s Page</p>
+  <p class="second_title"><%= @user.name %>のページ</p>
   <br><br>
 </div>
 
@@ -21,12 +21,12 @@
     <td class="follow_link"><%= link_to @user.following.count, following_user_path(@user.id) %></td>
   </tr>
   <tr>
-    <td class="follow">follower</td>
-    <td class="follow">follow</td>
+    <td class="follow">フォロワー</td>
+    <td class="follow">フォロー</td>
   </tr>
   <tr>
     <td class="count_link"><%= @user.posts.count %></td>
-    <td class="post_count">posts</td>
+    <td class="post_count">投稿</td>
   </tr>
 </table>
 

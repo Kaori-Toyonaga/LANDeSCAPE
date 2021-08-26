@@ -44,17 +44,17 @@
         <div class="login_top">
           <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
             <a><%= f.email_field :email, :placeholder => "landescape@landescape.com", class: "text_field" %></a>
-            <a><%= f.password_field :password, :placeholder => "Password", class: "text_field" %></a>
+            <a><%= f.password_field :password, :placeholder => "パスワード", class: "text_field" %></a>
             <br><br>
-            <p><%= f.submit "G o ▶▶▶", class: "btn" %></p>
+            <p><%= f.submit "旅に行く", class: "btn" %></p>
             <br><br><br>
-            <p><%= link_to "Create account", new_user_path, class: "login_link" %></p>
+            <p><%= link_to "アカウント作成", new_user_path, class: "login_link" %></p>
             <br><br>
             <div>
               <span class="col-xs-1"></span>
-              <span class="col-xs-2"><%= link_to "Guest Login", guest_login_path, method: :post, class: "guest_link" %></span>
+              <span class="col-xs-2"><%= link_to "ゲストログイン", guest_login_path, method: :post, class: "guest_link" %></span>
               <span class="col-xs-3"></span>
-              <span class="col-xs-2"><%= link_to "Guest Admin Login", admin_guest_login_path, method: :post, class: "guest_link" %></span>
+              <span class="col-xs-2"><%= link_to "管理ゲストログイン", admin_guest_login_path, method: :post, class: "guest_link" %></span>
               <span class="col-xs-1"></span>
             </div>
           <% end %>
