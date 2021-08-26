@@ -1,47 +1,47 @@
 require 'rails_helper'
 
 RSpec.describe 'ユーザー機能', type: :system do
-    # before do
-    #   @user = FactoryBot.create(:user)
-    # end
-
-  describe 'セッション機能', type: :system do
-    context 'ログインした場合' do
-      # it 'ログインができること' do
-      #   visit new_session_path
-      #   fill_in 'session[email]', with: @user.email
-      #   fill_in 'session[password]', with: @user.password
-      #   click_on '旅に行く'
-      #   expect(page).to have_content 'ログインしました'
-      # end
-
-      it 'ゲストログインができること' do
-        visit new_session_path
-        click_on 'ゲストログイン'
-        expect(page).to have_content 'ログインしました'
-      end
-
-      it '管理者ゲストログインができること' do
-        visit new_session_path
-        click_on '管理ゲストログイン'
-        expect(page).to have_content 'ログインしました'
-      end
-
-    end
-  end
-
-  # describe 'ユーザー新規作成機能' do
-  #   context 'ユーザーを新規作成した場合' do
-  #     it 'ユーザー登録ができる' do
-  #       visit new_user_path
-  #       expect(new_user_path).to eq new_user_path
-  #       fill_in 'user[name]',with: 'user'
-  #       fill_in 'user[email]',with: 'user@user.com'
-  #       fill_in 'user[password]',with: '00000000​'
-  #       fill_in 'user[password_confirmation]',with: '00000000​'
-  #       click_on '登録'
-  #       expect(page).to have_content 'ユーザーを登録しました'
+  #   before do
+  #     @user = FactoryBot.create(:user)
+  #   end
+  #
+  # describe 'セッション機能', type: :system do
+  #   context 'ログインした場合' do
+  #     it 'ログインができること' do
+  #       visit new_session_path
+  #       fill_in 'session[email]', with: @user.email
+  #       fill_in 'session[password]', with: @user.password
+  #       click_on '旅に行く'
+  #       expect(page).to have_content 'ログインしました'
   #     end
+  #
+  #     it 'ゲストログインができること' do
+  #       visit new_session_path
+  #       click_on 'ゲストログイン'
+  #       expect(page).to have_content 'ログインしました'
+  #     end
+  #
+  #     it '管理者ゲストログインができること' do
+  #       visit new_session_path
+  #       click_on '管理ゲストログイン'
+  #       expect(page).to have_content 'ログインしました'
+  #     end
+  #
+  #   end
+  # end
+
+  describe 'ユーザー新規作成機能' do
+    context 'ユーザーを新規作成した場合' do
+      it 'ユーザー登録ができる' do
+        visit new_user_path
+        expect(new_user_path).to eq new_user_path
+        fill_in 'user[name]',with: 'user'
+        fill_in 'user[email]',with: 'user@user.com'
+        fill_in 'user[password]',with: '00000000​'
+        fill_in 'user[password_confirmation]',with: '00000000​'
+        click_on '登録'
+        expect(page).to have_content 'ユーザーを登録しました'
+      end
   #
   #     it '​ログインしていない時はログイン画面に飛ぶテスト​' do
   #       visit posts_path
@@ -51,8 +51,8 @@ RSpec.describe 'ユーザー機能', type: :system do
   #       click_on '旅に行く'
   #       expect(page).to have_content 'ログインしました'
   #     end
-  #   end
-  # end
+    end
+  end
   #
   # describe "管理画面のテスト" do
   #   context "一般ユーザーがログインしている場合" do
