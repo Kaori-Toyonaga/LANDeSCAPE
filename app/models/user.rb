@@ -11,7 +11,7 @@ class User < ApplicationRecord
   before_validation { email.downcase! }
   has_secure_password
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
   has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
