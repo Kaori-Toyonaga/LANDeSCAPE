@@ -21,50 +21,46 @@
             <p>
               <span><%= form.label :spotname, 'スポット名 :', class: "text" %></span>
               <span><%= form.hidden_field :spotname %></span>
-              <span><%= @post.spotname %></span>
             </p>
             <p>
               <span><%= form.label :prefecture, '都道府県 :', class: "text" %></span>
               <span><%= form.hidden_field :prefecture %></span>
-              <span><%= @post.prefecture %></span>
             </P>
             <p>
               <span><%= form.label :address, '市区町村 :', class: "text" %></span>
               <span><%= form.hidden_field :address %></span>
-              <span><%= @post.address %></span>
             </p>
-            <!-- <p>
-              <span><%#= form.label :latitude, 'latitude :', class: "text" %></span>
-              <span><%#= form.hidden_field :latitude %></span>
-              <span><#%= @post.latitude %></span>
-            </P>
-            <p>
-              <span><%#= form.label :longitude, 'longitude :', class: "text" %></span>
-              <span><%#= form.hidden_field :longitude %></span>
-              <span><%#= @post.longitude %></span>
-            </P> -->
             <p>
               <span><%= form.label :url, '地図のURL :', class: "text" %></span>
               <span><%= form.hidden_field :url %></span>
-              <span><%= @post.url %></span>
             </p>
             <p>
               <span><%= form.label :date, '日付 :', class: "text" %></span>
               <span><%= form.hidden_field :date %></span>
-              <span><%= @post.date %></span>
             </p>
             <p>
               <span><%= form.label :tag, 'タグ :', class: "text" %></span>
+            </p>
+            <p>
+              <span><%= form.label :content, 'メモ :', class: "text_content" %></span>
+              <span><%= form.hidden_field :content %></span>
+            <p>
+          </td>
+
+          <td>
+            <p class="text2"><%= @post.spotname %></p>
+            <p class="text2"><%= @post.prefecture %></p>
+            <p class="text2"><%= @post.address %></p>
+            <p class="text_URL"><a><%= @post.url %></a></p>
+            <p class="text2"><%= @post.date %></p>
+            <P class="tag_field">
               <% @post.tags_posts.each do |tags_post| %>
                 <span class="badge badge-dark"><%= tags_post.tag.title %></span>
               <% end %>
             </p>
-            <p>
-              <span><%= form.label :content, 'メモ :', class: "text" %></span>
-              <span><%= form.hidden_field :content %></span>
-              <span><%= @post.content %></span>
-            <p>
+            <p class="content_field2"><%= @post.content %></p>
           </td>
+
         </tr>
        </table>
     </div>

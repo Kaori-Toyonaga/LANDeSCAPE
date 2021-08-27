@@ -378,12 +378,18 @@ td.box_text {
 .text_URL {
   text-align: left;
   vertical-align: middle;
+  font-size: 10px;
   width: 30rem;
   height: 4rem;
   padding: 1rem;
-  margin-bottom: 1rem;
-  word-wrap: break-word;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
 }
+
 
 .text2 {
   text-align: left;
