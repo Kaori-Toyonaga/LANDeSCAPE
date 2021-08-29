@@ -54,9 +54,10 @@
             <p class="text_URL"><a><%= @post.url %></a></p>
             <p class="text2"><%= @post.date %></p>
             <P class="tag_field">
-              <% @post.tags_posts.each do |tags_post| %>
-                <span class="badge badge-dark"><%= tags_post.tag.title %></span>
-              <% end %>
+              <span><%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :title, class: "tag_field") %></span>
+              <%# <% @post.tags_posts.each do |tags_post| %>
+                <!-- <span class="badge badge-dark"><%#= tags_post.tag.title %></span> %> -->
+              <%# end %>
             </p>
             <p class="content_field2"><%= @post.content %></p>
           </td>
