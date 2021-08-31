@@ -13,27 +13,27 @@ User.create(
     Tag.create!(title: "Tag#{i + 1}")
 end
 
-# User.all.each do |user|
-#   user.posts.create!(
-#     [
-#       {image: File.open('./app/assets/images/test.jpg'), spotname: 'ちゅら海', prefecture: 47, address: '石垣市真栄里３５４−１', tag_ids: 1 },
-#       {image: File.open('./app/assets/images/test2.jpg'), spotname: '静岡の海', prefecture: 22, address: '賀茂郡南伊豆町石廊崎', tag_ids: 2 },
-#       {image: File.open('./app/assets/images/test3.jpg'), spotname: '和歌山の海', prefecture: 30, address: '西牟婁郡白浜町', tag_ids: 3 },
-#       {image: File.open('./app/assets/images/test4.jpg'), spotname: '新潟の海', prefecture: 15, address: '佐渡市北狄１５６１', tag_ids: 4 },
-#       {image: File.open('./app/assets/images/test5.jpg'), spotname: 'いい感じの海', prefecture: 46, address: '奄美市笠利町大字宇宿', tag_ids: 5 },
-#     ]
-#   )
-# end
+User.all.each do |user|
+  user.posts.create!(
+    [
+      {image: File.open('./app/assets/images/test.jpg'), spotname: 'ちゅら海', prefecture: 47, address: '石垣市真栄里３５４−１', tag_ids: 1 },
+      {image: File.open('./app/assets/images/test2.jpg'), spotname: '静岡の海', prefecture: 22, address: '賀茂郡南伊豆町石廊崎', tag_ids: 2 },
+      {image: File.open('./app/assets/images/test3.jpg'), spotname: '和歌山の海', prefecture: 30, address: '西牟婁郡白浜町', tag_ids: 3 },
+      {image: File.open('./app/assets/images/test4.jpg'), spotname: '新潟の海', prefecture: 15, address: '佐渡市北狄１５６１', tag_ids: 4 },
+      {image: File.open('./app/assets/images/test5.jpg'), spotname: 'いい感じの海', prefecture: 46, address: '奄美市笠利町大字宇宿', tag_ids: 5 },
+    ]
+  )
+end
 
-# favorites_list = []
-# User.all.ids.sort.each do |user_id|
-#   Post.all.each do |post|
-#     if post.user_id != user_id && rand(3) == 0
-#       favorites_list << { user_id: user_id, post_id: post.id }
-#     end
-#   end
-# end
-# Favorite.create!(favorites_list)
+favorites_list = []
+User.all.ids.sort.each do |user_id|
+  Post.all.each do |post|
+    if post.user_id != user_id && rand(3) == 0
+      favorites_list << { user_id: user_id, post_id: post.id }
+    end
+  end
+end
+Favorite.create!(favorites_list)
 
 users = User.all
 user  = users.first
